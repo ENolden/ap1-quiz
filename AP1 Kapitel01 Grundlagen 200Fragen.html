@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AP1 Quiz – Kapitel 1: Grundlagen | 200 Fragen</title>
+<style>
+:root{--bg:#0a0c12;--s:#13161f;--s2:#1c2030;--b:#252a3d;--a:#7c6af7;--a2:#06d6a0;--r:#ff4d6d;--g:#06d6a0;--y:#ffd166;--t:#e8eaf6;--t2:#8890aa;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--t);font-family:"Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.6;}
+.hdr{background:linear-gradient(135deg,#13161f,#1c2030);border-bottom:2px solid var(--b);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:100;}
+.htitle{font-size:20px;font-weight:800;background:linear-gradient(90deg,var(--a),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.pb{width:200px;height:8px;background:var(--b);border-radius:4px;overflow:hidden;}
+.pf{height:100%;background:linear-gradient(90deg,var(--a),var(--a2));transition:width .3s;border-radius:4px;}
+.pt{font-size:12px;color:var(--t2);}
+.sb{background:var(--s2);border:1px solid var(--b);border-radius:20px;padding:4px 14px;font-size:13px;font-weight:700;color:var(--a2);}
+.ctrl{padding:10px 22px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--b);}
+.btn{border:none;padding:7px 15px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;}
+.ba{background:var(--a);color:#fff;} .bs{background:var(--s2);border:1px solid var(--b);color:var(--t);} .bd{background:var(--r);color:#fff;} .bg{background:var(--g);color:#111;}
+.sr{margin-left:auto;display:flex;gap:12px;font-size:13px;color:var(--t2);}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:4px;}
+.dg{background:var(--g);} .dr{background:var(--r);} .dy{background:var(--y);}
+.flt{padding:8px 22px;background:var(--s);border-bottom:1px solid var(--b);display:flex;gap:6px;flex-wrap:wrap;}
+.fb{background:var(--s2);border:1px solid var(--b);color:var(--t2);padding:4px 10px;border-radius:20px;cursor:pointer;font-size:12px;}
+.fb.ac{background:var(--a);border-color:var(--a);color:#fff;}
+.fb.aa{background:var(--a2);border-color:var(--a2);color:#111;font-weight:700;}
+.si input{background:var(--s2);border:1px solid var(--b);color:var(--t);padding:5px 12px;border-radius:8px;font-size:13px;outline:none;width:160px;margin-left:auto;}
+.si input:focus{border-color:var(--a);}
+.qc{padding:18px 22px;max-width:1600px;margin:0 auto;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:13px;}
+.card{background:var(--s);border:1.5px solid var(--b);border-radius:14px;overflow:hidden;}
+.card.ok{border-color:var(--g);} .card.err{border-color:var(--r);}
+.qh{padding:9px 13px;background:var(--s2);display:flex;justify-content:space-between;border-bottom:1px solid var(--b);}
+.qn{font-size:11px;font-weight:700;color:var(--t2);}
+.card.ok .qn::before{content:"✓ ";color:var(--g);} .card.err .qn::before{content:"✗ ";color:var(--r);}
+.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;background:var(--b);color:var(--a2);}
+.qb{padding:11px 13px;}
+.qt{font-size:14px;margin-bottom:8px;}
+.ops{display:flex;flex-direction:column;gap:5px;}
+.op{display:flex;align-items:flex-start;gap:9px;padding:8px 11px;border:1.5px solid var(--b);border-radius:9px;cursor:pointer;background:var(--s2);}
+.op:hover:not(.dis){border-color:var(--a);}
+.op.sel{border-color:var(--a);background:#16183a;}
+.op.cor{border-color:var(--g)!important;background:#071a12!important;}
+.op.wrg{border-color:var(--r)!important;background:#1a0710!important;}
+.op.dis{cursor:default;}
+.ol{width:20px;height:20px;min-width:20px;border-radius:50%;background:var(--b);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px;}
+.op.cor .ol{background:var(--g);color:#111;} .op.wrg .ol{background:var(--r);color:#fff;} .op.sel:not(.cor):not(.wrg) .ol{background:var(--a);color:#fff;}
+.ot{font-size:13px;line-height:1.4;}
+.exp{margin-top:8px;padding:9px 11px;background:#071a12;border-left:3px solid var(--g);border-radius:0 8px 8px 0;font-size:13px;color:#a7f3d0;display:none;}
+.exp.show{display:block;} .exp.werr{background:#1a0710;border-color:var(--r);color:#fca5a5;}
+.sh{grid-column:1/-1;background:var(--s2);border:1.5px solid var(--b);border-radius:12px;padding:11px 16px;font-size:14px;font-weight:700;margin-top:6px;}
+.rp{display:none;background:var(--s);border:2px solid var(--b);border-radius:14px;padding:22px;margin-bottom:18px;text-align:center;}
+.rp.show{display:block;}
+.rscore{font-size:50px;font-weight:900;background:linear-gradient(90deg,var(--a),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.rlbl{color:var(--t2);margin-bottom:12px;} .rgrade{font-size:18px;font-weight:700;margin-bottom:10px;}
+.rstats{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:12px;}
+.rst{background:var(--s2);border:1px solid var(--b);border-radius:12px;padding:9px 16px;}
+.rsv{font-size:22px;font-weight:800;} .rsl{font-size:12px;color:var(--t2);}
+@media(max-width:600px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div>
+    <div class="htitle">🤖 Kapitel 1 – Grundlagen | KI · Bits & Bytes · Zahlensysteme</div>
+    <div style="font-size:12px;color:var(--t2)">200 Fragen · Basiert auf AP1 Lernzettel</div>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <div><div class="pb"><div class="pf" id="pf" style="width:0%"></div></div><div class="pt" id="pt">0 / 200</div></div>
+    <div class="sb" id="sb">0 Pkt</div>
+  </div>
+</div>
+<div class="flt">
+  <button class="fb ac" onclick="ft('all',this)">Alle</button>
+  <button class="fb" onclick="ft('ki',this)">🤖 KI</button>
+  <button class="fb" onclick="ft('bits',this)">💾 Bits & Bytes</button>
+  <button class="fb" onclick="ft('zahl',this)">🔢 Zahlensysteme</button>
+  <button class="fb" onclick="fs('open',this)">⬜ Offen</button>
+  <button class="fb" onclick="fs('wrong',this)">❌ Falsch</button>
+  <div class="si"><input id="si" placeholder="🔍 Suche..." oninput="fsearch()"></div>
+</div>
+<div class="ctrl">
+  <button class="btn ba" onclick="shuffle()">🔀 Mischen</button>
+  <button class="btn bs" onclick="showall()">👁 Alle</button>
+  <button class="btn bd" onclick="resetAll()">↺ Reset</button>
+  <button class="btn bg" onclick="showRes()">📊 Ergebnis</button>
+  <div class="sr">
+    <span><span class="dot dg"></span><span id="sc">0</span> richtig</span>
+    <span><span class="dot dr"></span><span id="sw">0</span> falsch</span>
+    <span><span class="dot dy"></span><span id="so">200</span> offen</span>
+  </div>
+</div>
+<div class="qc">
+  <div class="rp" id="rp">
+    <div class="rscore" id="rs">0%</div><div class="rlbl">Ergebnis Kapitel 1</div>
+    <div class="rgrade" id="rg"></div>
+    <div class="rstats">
+      <div class="rst"><div class="rsv" id="rc" style="color:var(--g)">0</div><div class="rsl">Richtig</div></div>
+      <div class="rst"><div class="rsv" id="rw" style="color:var(--r)">0</div><div class="rsl">Falsch</div></div>
+      <div class="rst"><div class="rsv" id="ro" style="color:var(--y)">0</div><div class="rsl">Offen</div></div>
+      <div class="rst"><div class="rsv" id="rpts" style="color:var(--a)">0</div><div class="rsl">Punkte</div></div>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+<script>
+
+const Q=[
+{id:1,t:"ki",q:"Was bedeutet die Abkürzung KI?",o:["Kritische Infrastruktur","Künstliche Information","Künstliche Intelligenz","Komplexe Integration"],a:2,e:"KI = Künstliche Intelligenz – befähigt Computer zu menschenähnlichen Intelligenzleistungen wie Mustererkennung, NLP und selbstständigem Lernen."},
+{id:2,t:"ki",q:"Was ist ein neuronales Netzwerk?",o:["Ein Speichertyp","Ein Betriebssystem","Ein Computernetzwerk","Ein Algorithmus nachgebaut nach dem biologischen Gehirn – verarbeitet Daten in Schichten"],a:3,e:"Neuronales Netzwerk: Algorithmus der biologische Neuronen nachahmt. Eingaben × Gewichte → Aktivierungsfunktion → Ausgabe."},
+{id:3,t:"ki",q:"Was versteht man unter Supervised Learning?",o:["Lernen durch Belohnung","Lernen ohne Daten","Trainingsdaten werden VOR dem Training beschriftet – Netz lernt anhand dieser Labels, bessere Ergebnisse","Lernen ohne Überwachung"],a:2,e:"Supervised Learning: beschriftete Daten (Input→Label). Mehr Vorarbeit, aber bessere Ergebnisse. Beispiele: Spam-Erkennung, Bildklassifikation."},
+{id:4,t:"ki",q:"Was ist Unsupervised Learning?",o:["Überwachtes Lernen","Lernen mit Labels","Lernen mit Lehrern","Trainingsdaten NICHT klassifiziert – Netzwerk findet eigenständig Muster und Cluster"],a:3,e:"Unsupervised: keine Labels, Netz sucht selbst Strukturen (Clustering, Dimensionsreduktion). Beispiel: Kundensegmentierung."},
+{id:5,t:"ki",q:"Was bedeutet Overfitting?",o:["Netzwerk ist zu groß","Netzwerk zu gut auf Trainingsdaten trainiert – kann NUR auf diese angewendet werden, generalisiert schlecht","Netzwerk ist zu langsam","Zu wenig Daten"],a:1,e:"Overfitting = Überanpassung. Modell lernt Trainingsdaten auswendig inkl. Rauschen. Lösung: mehr Daten, Dropout, Regularisierung."},
+{id:6,t:"ki",q:"Was ist ein Deep Neural Network?",o:["Ein einfacher Algorithmus","Ein Datenbanktyp","Ein flaches Netzwerk","Ein neuronales Netzwerk mit vielen Hidden-/Zwischen-Layern (tiefen Schichten)"],a:3,e:"Deep Learning = viele Schichten → höhere Abstraktionsebenen möglich. Basis für Bilderkennung, Sprachmodelle, AlphaGo."},
+{id:7,t:"ki",q:"Was ist eine schwache KI?",o:["Eine langsame KI","Eine KI ohne Lernfähigkeit","Eine alte KI","KI die nicht selbstständig handeln kann und menschliche Eingabe benötigt (aufgabenspezifisch)"],a:3,e:"Schwache KI (Narrow AI): ChatGPT, Bilderkennung, DeepL – alle sind schwache KI. Nur für eine Aufgabe optimiert."},
+{id:8,t:"ki",q:"Was ist eine starke KI?",o:["KI mit viel RAM","Vollständig autonom handelnde KI die KEINE menschliche Interaktion benötigt – existiert noch nicht","KI mit großer Datenbank","Eine sehr schnelle KI"],a:1,e:"Starke KI (AGI = Artificial General Intelligence): theoretisches Konzept. Könnte selbstständig jede kognitive Aufgabe erledigen."},
+{id:9,t:"ki",q:"Was ist Generative AI?",o:["Eine KI die neue Inhalte generieren kann: Text, Bild, Ton, Video, Code","KI nur für Datenbanken","Eine KI die nur analysiert","KI nur für Netzwerke"],a:0,e:"Generative KI: ChatGPT (Text), DALL-E/Midjourney (Bild), GitHub Copilot (Code), Suno/Udio (Musik)."},
+{id:10,t:"ki",q:"Was ist ein Deep Fake?",o:["Ein Datenbankfehler","Ein Computervirus","Ein Hacking-Angriff","KI-bearbeitetes Video/Bild bei dem Gesicht und Stimme einer anderen Person ersetzt werden"],a:3,e:"Deep Fakes nutzen GANs (Generative Adversarial Networks). Gefahr: Desinformation, Identitätsmissbrauch, Betrug."},
+{id:11,t:"ki",q:"Wofür wird DeepL eingesetzt?",o:["Bildbearbeitung","Programmierung","Videobearbeitung","KI-gestützte Übersetzung – einer der präzisesten Übersetzer durch neuronale Netze"],a:3,e:"DeepL: nutzt tiefe neuronale Netze. Qualität oft besser als Google Translate durch bessere Kontexterfassung und natürlichere Formulierungen."},
+{id:12,t:"ki",q:"Was macht GitHub Copilot?",o:["Unterstützt Code-Entwicklung durch KI-gestützte Vorschläge direkt im Editor","Testet Software","Dokumentiert Code automatisch","Verwaltet Repositories"],a:0,e:"GitHub Copilot (basiert auf OpenAI Codex/GPT-4): schlägt komplette Funktionen, Klassen, Tests vor. Lernt aus Kontext."},
+{id:13,t:"ki",q:"Was ist Maschinelles Lernen?",o:["Teilbereich der KI – Algorithmen lernen Muster aus Daten ohne explizit programmiert zu werden","Ein Netzwerkprotokoll","Eine Programmiersprache","Ein Betriebssystem"],a:0,e:"ML: Supervised, Unsupervised, Reinforcement Learning. Basis für Deep Learning und praktisch alle modernen KI-Anwendungen."},
+{id:14,t:"ki",q:"Was ist Reinforcement Learning?",o:["Agent erhält Belohnungen für richtige Aktionen und lernt durch Versuch und Irrtum optimale Strategien","Lernen ohne Daten","Lernen mit Labels","Überwachtes Lernen"],a:0,e:"Reinforcement Learning: Agent, Umgebung, Zustand, Aktion, Belohnung/Strafe. Beispiele: AlphaGo, Spieler-KI, Robotersteuerung."},
+{id:15,t:"ki",q:"Was macht Google Lens?",o:["Netzwerke konfigurieren","E-Mails verwalten","Erkennt Objekte, Text und Landmarken in Bildern mittels KI (kamerabasiert)","Dokumente erstellen"],a:2,e:"Google Lens: OCR (Texterkennung), Objektidentifikation, Gebäude- und Pflanzenerkennung, Produktsuche per Kamera."},
+{id:16,t:"ki",q:"Was ist ein GAN (Generative Adversarial Network)?",o:["Zwei neuronale Netze die gegeneinander arbeiten: Generator (erstellt Fakes) vs. Diskriminator (erkennt Fakes)","Ein Netzwerkprotokoll","Ein Betriebssystem","Ein Datenbanktyp"],a:0,e:"GAN: durch Training werden Fakes immer realistischer. Basis für Deep Fakes, KI-Bilder, Daten-Augmentierung."},
+{id:17,t:"ki",q:"Was bedeutet NLP?",o:["Natural Language Processing – KI-Verarbeitung natürlicher menschlicher Sprache","Network Layer Protocol","Non-Linear Programming","Network Load Protocol"],a:0,e:"NLP: Sprachverstehen, -übersetzung, Sentimentanalyse, Chatbots, Zusammenfassung. Basis für ChatGPT, Siri, Alexa, DeepL."},
+{id:18,t:"ki",q:"Was ist Transfer Learning?",o:["Daten übertragen","Netzwerke verbinden","Modelle löschen","Vortrainiertes Modell wird für eine neue Aufgabe weitertrainiert – spart Zeit und Daten (Fine-Tuning)"],a:3,e:"Transfer Learning: Basismodell (z.B. auf ImageNet trainiert) → Fine-Tuning auf eigene Daten. Sehr effizient."},
+{id:19,t:"ki",q:"Was ist ein LLM?",o:["Large Language Model – sehr großes neuronales Sprachmodell trainiert auf riesigen Textmengen (GPT-4, Gemini, Claude)","Ein großes Lager","Lokales Netzwerk","Lizenzmodell"],a:0,e:"LLM: Milliarden Parameter, auf Billionen Token trainiert. Kann verstehen, generieren, übersetzen, zusammenfassen, programmieren."},
+{id:20,t:"ki",q:"Was ist Computer Vision?",o:["KI-Teilbereich der Computer befähigt visuelle Informationen aus Bildern und Videos zu verstehen","Computergrafik","Computerbildschirme","Videobearbeitung"],a:0,e:"Computer Vision: Objekterkennung, Gesichtserkennung, autonomes Fahren (TESLA, Waymo), medizinische Bildanalyse."},
+{id:21,t:"ki",q:"Was ist der Unterschied zwischen KI und Maschinellem Lernen?",o:["ML ist der Oberbegriff","Beide identisch","KI ist der Oberbegriff – ML ist ein Teilbereich der KI der auf Lernen aus Daten fokussiert","Kein Unterschied"],a:2,e:"Hierarchie: KI > ML > Deep Learning. Nicht alle KI ist ML (regelbasierte Systeme existieren auch)."},
+{id:22,t:"ki",q:"Was ist ein Trainingsdatensatz?",o:["Backup-Daten","Produktionsdaten","Daten die zum Trainieren/Lernen des KI-Modells verwendet werden","Testdaten"],a:2,e:"Typisch: 70% Training, 15% Validation, 15% Test. Mehr Daten = besseres Modell (bis zu einem Punkt)."},
+{id:23,t:"ki",q:"Was ist Clustering?",o:["Daten löschen","Algorithmus gruppiert ähnliche Datenpunkte automatisch ohne vorgegebene Labels (Unsupervised)","Daten verschlüsseln","Daten sortieren"],a:1,e:"Clustering-Algorithmen: k-Means, DBSCAN, hierarchisches Clustering. Anwendung: Kundensegmentierung, Anomalieerkennung."},
+{id:24,t:"ki",q:"Was ist Grammarly?",o:["Eine Datenbank","KI-Tool das Rechtschreibung und Grammatik prüft und Verbesserungsvorschläge macht","Ein Übersetzungstool","Eine Programmiersprache"],a:1,e:"Grammarly: Echtzeit-Korrektur, Stil-Verbesserungen, Plagiatsprüfung. Nutzt NLP und ML für kontextabhängige Vorschläge."},
+{id:25,t:"ki",q:"Was ist der Unterschied zwischen schwacher und starker KI in der Praxis?",o:["Starke KI ist teurer","Schwache KI existiert heute (ChatGPT, Bilderkennung). Starke KI existiert NICHT – nur theoretisches Konzept","Starke KI ist in Rechenzentren","Schwächere ist billiger"],a:1,e:"Alle heutigen KI-Systeme sind schwache KI, auch wenn sie beeindruckend sind. AGI bleibt ein Forschungsziel."},
+{id:26,t:"bits",q:"Was ist ein Bit?",o:["1.000 Byte","Kleinste Informationseinheit – kann zwei Zustände annehmen: 0 oder 1","Ein Dateiformat","8 Byte"],a:1,e:"Bit (binary digit): 0=Aus/0V, 1=An/5V. Basis aller digitalen Schaltungen und Daten."},
+{id:27,t:"bits",q:"Wie viele Bits hat ein Byte?",o:["1","4","8","16"],a:2,e:"1 Byte = 8 Bit. 256 mögliche Werte (2^8 = 0-255). 1 Nibble = 4 Bit."},
+{id:28,t:"bits",q:"Was ist 1 Kilobyte (KB) im SI-System?",o:["512 Byte","2.048 Byte","1.000 Byte (Basis 10)","1.024 Byte"],a:2,e:"SI-Dezimalsystem: KB=1.000B, MB=1.000KB, GB=1.000MB. Festplattenhersteller nutzen SI."},
+{id:29,t:"bits",q:"Was ist 1 Kibibyte (KiB) im IEC-System?",o:["1.024 Byte (2^10, Basis 2)","2.048 Byte","512 Byte","1.000 Byte"],a:0,e:"IEC-Binärsystem: KiB=1.024B, MiB=1.024KiB, GiB=1.024MiB. Betriebssysteme zeigen oft KiB."},
+{id:30,t:"bits",q:"Was ist 1 Megabyte (MB) im SI-System?",o:["1.024 Byte","2.000.000 Byte","1.048.576 Byte","1.000.000 Byte (10^6)"],a:3,e:"1 MB = 1.000.000 Byte. Ein typisches MP3-Lied ≈ 3-5 MB. 1 MiB = 1.048.576 Byte."},
+{id:31,t:"bits",q:"Was ist 1 Gibibyte (GiB)?",o:["536.870.912 Byte","2.147.483.648 Byte","1.073.741.824 Byte (1.024^3)","1.000.000.000 Byte"],a:2,e:"1 GiB = 1.024 MiB ≈ 1,074 GB. Windows zeigt GiB aber beschriftet sie manchmal als GB."},
+{id:32,t:"bits",q:"Was ist 1 Terabyte (TB) im SI-System?",o:["1.000 GB (10^12 Byte)","1.073.741.824 GB","2.000 GB","1.024 GB"],a:0,e:"1 TB = 1.000 GB = 10^12 Byte. Moderne Festplatten: 1-20 TB."},
+{id:33,t:"bits",q:"Welche Einheiten gehören zum IEC-System?",o:["KiB, MiB, GiB, TiB (Basis 2, Vielfache von 1.024)","bK, bM, bG","KB, MB, GB, TB","kB, mB, gB"],a:0,e:"IEC 80000-13: Kibi, Mebi, Gibi, Tebi. Eingeführt 1998 zur klaren Unterscheidung von SI-Präfixen."},
+{id:34,t:"bits",q:"Wie viele Byte kann 1 Byte darstellen?",o:["512 Werte","128 Werte","8 Werte","256 verschiedene Werte (2^8 = 0 bis 255)"],a:3,e:"8 Bit = 2^8 = 256 Zustände. RGB-Farbe: 3×256 = 16,7 Mio. Farben."},
+{id:35,t:"bits",q:"Was ist ein Nibble?",o:["4 Bit = eine Hexadezimalstelle","2 Byte","16 Bit","1 Byte"],a:0,e:"Nibble = 4 Bit = 1 Hex-Stelle. 2 Nibbles = 1 Byte. Beispiel: Byte 0xAF = Nibble A (1010) + F (1111)."},
+{id:36,t:"bits",q:"Wie viele Byte hat ein 16-Bit-Integer?",o:["1 Byte","2 Byte (16 ÷ 8)","4 Byte","8 Byte"],a:1,e:"16 Bit = 2 Byte. Unsigned: 0-65.535. Signed: -32.768 bis +32.767."},
+{id:37,t:"bits",q:"Was ist der Unterschied zwischen bit (b) und Byte (B)?",o:["Kein Unterschied","bit = 1 Bit (klein b), Byte = 8 Bit (groß B). Netzwerk in Mbit/s, Speicher in MB","Byte ist kleiner","2 Bit = 1 Byte"],a:1,e:"WICHTIG: 100 Mbit/s ÷ 8 = 12,5 MB/s maximale Download-Rate. Im Alltag häufig verwechselt!"},
+{id:38,t:"bits",q:"Wie lautet die Formel für die Download-Zeit?",o:["Zeit = Speed × 1024","Zeit = Größe ÷ 1024","Zeit = Dateigröße (Bit) ÷ Übertragungsrate (bit/s)","Zeit = Größe × Speed"],a:2,e:"Beispiel: 1 GB = 8.000 Mbit bei 100 Mbit/s → 80 Sekunden. Einheiten immer angleichen!"},
+{id:39,t:"bits",q:"Was ist ASCII?",o:["Ein Zahlensystem","7-Bit-Zeichencodierung für lateinische Buchstaben, Zahlen, Sonderzeichen (128 Zeichen total)","Ein Audioformat","Ein Bildformat"],a:1,e:"ASCII: A=65, a=97, 0=48, Leerzeichen=32. Rückwärtskompatibel mit UTF-8."},
+{id:40,t:"bits",q:"Was ist Unicode?",o:["Ein Netzwerkprotokoll","Nur für Englisch","Universelle Zeichencodierung für alle Schriftsysteme der Welt – über 1 Million Zeichen","Ein Zahlensystem"],a:2,e:"Unicode: U+0041=A. UTF-8: 1-4 Bytes variabel. ASCII-Zeichen=1 Byte, Sonderzeichen=2 Byte, Emoji=4 Byte."},
+{id:41,t:"bits",q:"Was ist 1 Petabyte (PB)?",o:["1.000 GB","1.024 TB","10^12 Byte","1.000 TB (10^15 Byte)"],a:3,e:"1 PB = 1.000 TB. Gesamtes Internet-Traffic weltweit: mehrere hundert Exabyte pro Monat."},
+{id:42,t:"bits",q:"Wie viele Byte kann ein 32-Bit-System adressieren?",o:["4 GB (2^32 = 4.294.967.296 Byte)","8 GB","1 GB","2 GB"],a:0,e:"32-Bit: 2^32 = 4.294.967.296 Byte = 4 GiB. Deshalb konnten 32-Bit-Windows nur 4 GB RAM nutzen."},
+{id:43,t:"bits",q:"Was ist UTF-8?",o:["Ein Datenbankformat","Ein Bildformat","Ein Zahlensystem","Weitverbreitete Unicode-Kodierung: 1-4 Bytes variabel, rückwärtskompatibel zu ASCII"],a:3,e:"UTF-8: 95% aller Webseiten nutzen UTF-8. ASCII-Zeichen bleiben 1 Byte. Europäische Umlaute = 2 Byte."},
+{id:44,t:"bits",q:"Was ist ein Wort (Word) in der Computertechnik?",o:["Native Verarbeitungsgröße der CPU: 32-Bit-CPU=4 Byte Word, 64-Bit-CPU=8 Byte Word","Ein Text-Dokument","Immer 4 Byte","Immer 2 Byte"],a:0,e:"Wortbreite bestimmt Registerbreite. 64-Bit-CPU verarbeitet 8 Byte (64 Bit) pro Takt."},
+{id:45,t:"bits",q:"Was ist BCD?",o:["Ein Protokoll","Eine Schnittstelle","Binary Coded Decimal – jede Dezimalziffer separat in 4 Bit kodiert (77 = 0111 0111)","Ein Betriebssystem"],a:2,e:"BCD: einfache Dezimal↔Binär-Konvertierung ohne Rechenaufwand. Verbreitet in Taschenrechnern, Uhren, Kassensystemen."},
+{id:46,t:"bits",q:"Was ist ein Parity-Bit?",o:["Das niedrigste Bit","Prüfbit zur einfachen Fehlererkennung – macht Anzahl der 1-Bits gerade oder ungerade","Das höchste Bit","Ein Vorzeichen-Bit"],a:1,e:"Even Parity: Anzahl 1-Bits ist gerade. Erkennt 1-Bit-Fehler, aber korrigiert nicht. Einfachste Fehlerkorrektur."},
+{id:47,t:"bits",q:"Was ist das MSB?",o:["Das rechteste Bit","Das Paritätsbit","Most Significant Bit – das linkste Bit mit dem größten Stellenwert (bei 8-Bit = Wert 128)","Das mittlere Bit"],a:2,e:"MSB: höchster Wert. Bei signed Integers: MSB=0 positiv, MSB=1 negativ (Zweierkomplement)."},
+{id:48,t:"bits",q:"Was ist das LSB?",o:["Das mittlere Bit","Least Significant Bit – das rechteste Bit mit dem kleinsten Stellenwert (Wert 2^0 = 1)","Das linkeste Bit","Das Paritätsbit"],a:1,e:"LSB=0: gerade Zahl. LSB=1: ungerade Zahl. Schnelltest: x & 1 == 0 prüft ob gerade."},
+{id:49,t:"bits",q:"Was ist das Zweierkomplement?",o:["Eine Komprimierungsmethode","Eine Verdoppelung","Methode zur Darstellung negativer Zahlen in Binär: Bits invertieren + 1 addieren","Eine Hex-Konvertierung"],a:2,e:"Zweierkomplement: -1 = 11111111 (8-Bit). Vorteil: Addition und Subtraktion nutzen dieselben Hardware-Schaltungen."},
+{id:50,t:"bits",q:"Wie viele Byte hat eine IPv4-Adresse?",o:["8 Byte","3 Byte","4 Byte (32 Bit, 4 Oktette à 8 Bit)","6 Byte"],a:2,e:"IPv4: 4 × 8 Bit = 32 Bit. Jedes Oktett: 0-255. Beispiel: 192.168.1.1. Insgesamt 2^32 ≈ 4,3 Mrd. Adressen."},
+{id:51,t:"zahl",q:"Was ist das Dezimalsystem?",o:["Basis 2","Basis 8","Basis 10 – verwendet 10 Zeichen (0-9), natürlichste Darstellung für Menschen","Basis 16"],a:2,e:"Dezimalsystem: 10 Finger → 10 Ziffern. Positionssystem: 123 = 1×100 + 2×10 + 3×1."},
+{id:52,t:"zahl",q:"Was ist das Binärsystem?",o:["Basis 10","Basis 2 – nur Zeichen 0 und 1, repräsentiert An/Aus-Zustände in Elektronik","Basis 8","Basis 16"],a:1,e:"Binär: 0=Aus/0V, 1=An/5V. Computer rechnen intern immer binär. Basis aller digitalen Schaltungen."},
+{id:53,t:"zahl",q:"Was ist das Oktalsystem?",o:["Basis 2","Basis 16","Basis 8 – Zeichen 0-7, eine Oktalstelle = genau 3 Bit","Basis 10"],a:2,e:"Oktal: heute selten. Früher: Unix-Dateiberechtigungen (chmod 755: 7=111, 5=101, 5=101 binär)."},
+{id:54,t:"zahl",q:"Was ist das Hexadezimalsystem?",o:["Basis 2","Basis 10","Basis 16 – Zeichen 0-9 und A-F, eine Hex-Stelle = genau 4 Bit (Nibble)","Basis 8"],a:2,e:"Hex: weit verbreitet für Farben (#FF5733), MAC-Adressen, Speicheradressen, IPv6."},
+{id:55,t:"zahl",q:"Welche Hexadezimalzahl entspricht Dezimal 10?",o:["B","10","9","A"],a:3,e:"Hex: 10=A, 11=B, 12=C, 13=D, 14=E, 15=F. Ab 16 beginnt nächste Stelle: 16=10hex."},
+{id:56,t:"zahl",q:"Welche Hexadezimalzahl entspricht Dezimal 15?",o:["F","10","D","E"],a:0,e:"15 dezimal = F hexadezimal. Größter Wert einer einzelnen Hex-Stelle."},
+{id:57,t:"zahl",q:"Was ist 1111 in Binär als Dezimalzahl?",o:["15 (8+4+2+1)","16","14","8"],a:0,e:"1111 = 1×8 + 1×4 + 1×2 + 1×1 = 15. In Hex: F."},
+{id:58,t:"zahl",q:"Was ist 1010 in Binär als Dezimalzahl?",o:["12","5","8","10 (8+0+2+0)"],a:3,e:"1010 = 1×8 + 0×4 + 1×2 + 0×1 = 10. In Hex: A."},
+{id:59,t:"zahl",q:"Was ist 8 in Dezimal als Binärzahl?",o:["0110","1000 (2^3)","0111","1001"],a:1,e:"8 = 2^3 = 1000 binär. Nur Bit an Position 3 gesetzt."},
+{id:60,t:"zahl",q:"Wie viele Bits umfasst eine Hexadezimalstelle?",o:["3 Bit","4 Bit (16 = 2^4)","8 Bit","2 Bit"],a:1,e:"Hex: 16 Zustände = 2^4 → 4 Bit (Nibble) pro Stelle. 1 Byte = 2 Hexstellen. FF=11111111=255."},
+{id:61,t:"zahl",q:"Was ist FF in Hexadezimal als Dezimalzahl?",o:["128","256","255 (15×16 + 15)","240"],a:2,e:"FF = 15×16 + 15 = 255. Maximalwert eines unsigned Byte. RGB-Weiß = #FFFFFF."},
+{id:62,t:"zahl",q:"Was ist 0xFF als Binärzahl?",o:["10101010","11111111 (alle 8 Bit gesetzt)","01111111","11110000"],a:1,e:"FF hex = 1111 + 1111 = 11111111 binär = 255 dezimal. Alle 8 Bits sind 1."},
+{id:63,t:"zahl",q:"Wie wandelt man Dezimal 42 in Binär um?",o:["101000","100010","101100","101010 (32+8+2)"],a:3,e:"42 = 32+8+2 = 101010. Methode: wiederholt durch 2 dividieren, Reste von unten lesen."},
+{id:64,t:"zahl",q:"Was ist Dezimal 255 in Hexadezimal?",o:["FE","1FF","FF (15×16 + 15)","EF"],a:2,e:"255 = 15×16 + 15 = FF hex. Häufig in Subnetzmasken (255.255.255.0) und RGB (#FFFFFF)."},
+{id:65,t:"zahl",q:"Was ist Binär 0000 als Dezimalzahl?",o:["255","0","8","1"],a:1,e:"0000 = alle Bits Null = 0 dezimal."},
+{id:66,t:"zahl",q:"Was ist Dezimal 12 in Binär?",o:["1110","1001","1010","1100 (8+4)"],a:3,e:"12 = 8+4 = 1100. In Hex: C."},
+{id:67,t:"zahl",q:"Was ist Dezimal 7 in Binär?",o:["0111 (4+2+1)","0110","1111","1000"],a:0,e:"7 = 4+2+1 = 0111. In Oktal: 7. In Hex: 7. Alle 3 unteren Bits gesetzt."},
+{id:68,t:"zahl",q:"Was ist Dezimal 5 in Binär?",o:["0101 (4+1)","0110","1001","1010"],a:0,e:"5 = 4+1 = 0101. In Hex: 5."},
+{id:69,t:"zahl",q:"Was ist Dezimal 3 in Binär?",o:["0011 (2+1)","0010","0100","0001"],a:0,e:"3 = 2+1 = 0011. In Hex: 3."},
+{id:70,t:"zahl",q:"Was ist Dezimal 9 in Binär?",o:["1100","0111","1010","1001 (8+1)"],a:3,e:"9 = 8+1 = 1001. In Hex: 9."},
+{id:71,t:"zahl",q:"Was ist Dezimal 16 in Hexadezimal?",o:["G","11","F","10 (1×16 + 0)"],a:3,e:"16 dez = 10 hex. Erste 2-stellige Hex-Zahl, wie 10 die erste 2-stellige Dezimalzahl ist."},
+{id:72,t:"zahl",q:"Was ist Dezimal 100 in Hexadezimal?",o:["6E","A0","64 (6×16 + 4)","FF"],a:2,e:"100 ÷ 16 = 6 Rest 4 → 64 hex. Probe: 6×16+4 = 96+4 = 100. ✓"},
+{id:73,t:"zahl",q:"Was ist Dezimal 128 in Binär?",o:["01111111","11111111","10000001","10000000 (2^7)"],a:3,e:"128 = 2^7 = 10000000. Das höchste Bit im Byte. In Hex: 80."},
+{id:74,t:"zahl",q:"Was ist Dezimal 127 in Binär?",o:["01111111 (alle 7 unteren Bits)","10000000","11111111","01111110"],a:0,e:"127 = 64+32+16+8+4+2+1 = 01111111. Max. positiver Wert signed int8. In Hex: 7F."},
+{id:75,t:"zahl",q:"Was ergibt 1100 AND 1010?",o:["1000 (1∧1=1, 1∧0=0, 0∧1=0, 0∧0=0)","1110","1010","1100"],a:0,e:"AND: Bit für Bit: 1∧1=1, 1∧0=0, 0∧1=0, 0∧0=0 = 1000."},
+{id:76,t:"zahl",q:"Was ergibt 1100 OR 1010?",o:["1000","1100","1010","1110 (1∨1=1, 1∨0=1, 0∨1=1, 0∨0=0)"],a:3,e:"OR: 1∨1=1, 1∨0=1, 0∨1=1, 0∨0=0 = 1110."},
+{id:77,t:"zahl",q:"Was ergibt 1100 XOR 1010?",o:["1000","0000","0110 (1⊕1=0, 1⊕0=1, 0⊕1=1, 0⊕0=0)","1110"],a:2,e:"XOR (Exklusiv-OR): verschieden=1, gleich=0. Anwendung: Verschlüsselung, RAID-5, Prüfsummen."},
+{id:78,t:"zahl",q:"Was ist Binär NOT von 00001111?",o:["00001111","11111111","10000000","11110000 (alle Bits invertiert)"],a:3,e:"NOT invertiert alle Bits: 0→1, 1→0. ~00001111 = 11110000. Das ist das Einerkomplement."},
+{id:79,t:"zahl",q:"Was ist Dezimal 13 in Hexadezimal?",o:["C","E","B","D"],a:3,e:"13 dezimal = D hexadezimal. A=10, B=11, C=12, D=13, E=14, F=15."},
+{id:80,t:"zahl",q:"Was ist Dezimal 14 in Hexadezimal?",o:["E","F","C","D"],a:0,e:"14 dez = E hex."},
+{id:81,t:"zahl",q:"Was ist Dezimal 11 in Binär?",o:["1010","1100","0111","1011 (8+2+1)"],a:3,e:"11 = 8+2+1 = 1011. In Hex: B."},
+{id:82,t:"zahl",q:"Was ist Dezimal 6 in Binär?",o:["0101","1010","0110 (4+2)","0111"],a:2,e:"6 = 4+2 = 0110. In Hex: 6."},
+{id:83,t:"zahl",q:"Was ist Dezimal 4 in Binär?",o:["0011","0010","1000","0100 (2^2)"],a:3,e:"4 = 2^2 = 0100. Bit-Shift links: 1 << 2 = 4."},
+{id:84,t:"zahl",q:"Was ist Dezimal 2 in Binär?",o:["0010 (2^1)","0001","0100","1000"],a:0,e:"2 = 2^1 = 0010. Bit-Shift links: 1 << 1 = 2."},
+{id:85,t:"zahl",q:"Was ist Dezimal 1 in Binär?",o:["1000","0010","0001 (2^0)","0100"],a:2,e:"1 = 2^0 = 0001. Das ist das LSB (Least Significant Bit)."},
+{id:86,t:"zahl",q:"Was ist Hex A0 in Dezimal?",o:["180","140","160 (10×16 + 0)","100"],a:2,e:"A0 hex: A=10, 10×16+0 = 160."},
+{id:87,t:"zahl",q:"Was ist Dezimal 250 in Hexadezimal?",o:["EF","FA (15×16 + 10)","AF","FE"],a:1,e:"250 = 15×16 + 10 = FA hex. F=15, A=10."},
+{id:88,t:"zahl",q:"Was ist Hex 1F in Dezimal?",o:["16","31 (1×16 + 15)","15","30"],a:1,e:"1F hex = 1×16 + F(15) = 16+15 = 31."},
+{id:89,t:"zahl",q:"Was ist Dezimal 14 in Binär?",o:["1101","1011","1110 (8+4+2)","1010"],a:2,e:"14 = 8+4+2 = 1110. In Hex: E."},
+{id:90,t:"zahl",q:"Was ist Dezimal 13 in Binär?",o:["1011","1101 (8+4+1)","1110","1100"],a:1,e:"13 = 8+4+1 = 1101. In Hex: D."},
+{id:91,t:"zahl",q:"Was ist Binär 11001010 in Dezimal?",o:["192","202 (128+64+8+2)","194","198"],a:1,e:"11001010: 128+64+0+0+8+0+2+0 = 202."},
+{id:92,t:"zahl",q:"Wie viele Zustände kann 4 Bit darstellen?",o:["32","16 (2^4)","4","8"],a:1,e:"2^4 = 16 Zustände (0000 bis 1111 = 0 bis 15). Ein Nibble."},
+{id:93,t:"zahl",q:"Was ist Dezimal 32 in Binär?",o:["011111","010000","100000 (2^5)","110000"],a:2,e:"32 = 2^5 = 100000. ASCII 32 = Leerzeichen."},
+{id:94,t:"zahl",q:"Was ist Dezimal 64 in Binär?",o:["10000000","01111111","00111111","01000000 (2^6)"],a:3,e:"64 = 2^6 = 01000000. In Hex: 40."},
+{id:95,t:"zahl",q:"Was ist Dezimal 256 in Hexadezimal?",o:["FF","1FF","100 (1×256)","F0"],a:2,e:"256 = 1×256 + 0 = 100 hex. Erste 3-stellige Hex-Zahl. 256 = 2^8 = 1 Byte überläuft."},
+{id:96,t:"zahl",q:"Was ist Hex 7F in Dezimal?",o:["127 (7×16 + 15)","126","64","128"],a:0,e:"7F hex = 7×16+15 = 112+15 = 127. Max. positiver Wert signed int8."},
+{id:97,t:"zahl",q:"Was ist Hex 80 in Dezimal?",o:["256","64","128 (8×16)","127"],a:2,e:"80 hex = 8×16 = 128. Im signed int8 = -128 (Zweierkomplement)."},
+{id:98,t:"zahl",q:"Was ist Dezimal 200 in Hexadezimal?",o:["B8","C0","D8","C8 (12×16 + 8)"],a:3,e:"200 ÷ 16 = 12 Rest 8 → C8 hex. C=12. 12×16+8=200. ✓"},
+{id:99,t:"zahl",q:"Was ist Hex B8 in Dezimal?",o:["192","176","183","184 (11×16 + 8)"],a:3,e:"B8 hex: B=11, 11×16+8 = 176+8 = 184."},
+{id:100,t:"zahl",q:"Was ist Dezimal 45 in Hexadezimal?",o:["2C","2B","2D (2×16 + 13)","3D"],a:2,e:"45 = 2×16 + 13 = 2D hex. D=13."},
+{id:101,t:"zahl",q:"Was ist der Stellenwert der Position 3 (0-basiert, von rechts) in Binär?",o:["2 (2^1)","8 (2^3)","16 (2^4)","4 (2^2)"],a:1,e:"Position 3: 2^3 = 8. Positionen: 0→1, 1→2, 2→4, 3→8, 4→16, 5→32, 6→64, 7→128."},
+{id:102,t:"zahl",q:"Was ist Dezimal 20 in Binär?",o:["10000","11000","10010","10100 (16+4)"],a:3,e:"20 = 16+4 = 10100. In Hex: 14."},
+{id:103,t:"zahl",q:"Was ist Dezimal 25 in Binär?",o:["11001 (16+8+1)","10100","11010","10011"],a:0,e:"25 = 16+8+1 = 11001. In Hex: 19."},
+{id:104,t:"zahl",q:"Was ist Binär 10000000 in Dezimal?",o:["128 (2^7)","64","255","256"],a:0,e:"10000000 = 2^7 = 128. Das höchste Bit in 8-Bit. In Hex: 80."},
+{id:105,t:"zahl",q:"Was ist Dezimal 175 in Hexadezimal?",o:["AF (10×16 + 15)","BE","AE","BF"],a:0,e:"175 = 10×16 + 15 = AF hex. A=10, F=15."},
+{id:106,t:"zahl",q:"Was ist Hex AB in Dezimal?",o:["181","191","161","171 (10×16 + 11)"],a:3,e:"AB hex: A=10, B=11. 10×16+11 = 160+11 = 171."},
+{id:107,t:"zahl",q:"Was ist Dezimal 35 in Binär?",o:["100011 (32+2+1)","100100","100010","101000"],a:0,e:"35 = 32+2+1 = 100011. In Hex: 23. ASCII '#'=35."},
+{id:108,t:"zahl",q:"Was ist Dezimal 63 in Binär?",o:["011111","111111 (32+16+8+4+2+1)","100000","111110"],a:1,e:"63 = 2^6 - 1 = 111111. Alle 6 Bits gesetzt. In Hex: 3F."},
+{id:109,t:"zahl",q:"Was ist Dezimal 192 in Binär?",o:["11000000 (128+64)","11110000","10101010","10000000"],a:0,e:"192 = 128+64 = 11000000. In Hex: C0. Subnetzmaske-Byte!"},
+{id:110,t:"zahl",q:"Was ist Dezimal 224 in Binär?",o:["11110000","11100000 (128+64+32)","11000000","10000000"],a:1,e:"224 = 128+64+32 = 11100000. In Hex: E0. Subnetzmaske /27."},
+{id:111,t:"zahl",q:"Was ist Dezimal 240 in Binär?",o:["11110000 (128+64+32+16)","11111000","11000000","11111100"],a:0,e:"240 = 128+64+32+16 = 11110000. In Hex: F0. Subnetzmaske /28."},
+{id:112,t:"zahl",q:"Was ist Dezimal 248 in Binär?",o:["11000000","11111000 (128+64+32+16+8)","11111100","11110000"],a:1,e:"248 = 128+64+32+16+8 = 11111000. In Hex: F8. Subnetzmaske /29."},
+{id:113,t:"zahl",q:"Was ist Dezimal 252 in Binär?",o:["11111110","11110000","11111100 (128+64+32+16+8+4)","11111000"],a:2,e:"252 = 128+64+32+16+8+4 = 11111100. In Hex: FC. Subnetzmaske /30."},
+{id:114,t:"zahl",q:"Was ist Dezimal 254 in Binär?",o:["11111110 (alle außer LSB)","11110000","11111100","11111111"],a:0,e:"254 = 128+64+32+16+8+4+2 = 11111110. In Hex: FE. Subnetzmaske /31."},
+{id:115,t:"zahl",q:"Wie viele Bits hat ein 32-Bit-Integer?",o:["32 Bit (4 × 8)","8 Bit","64 Bit","16 Bit"],a:0,e:"32 Bit = 4 Byte. Unsigned: 0 bis 4.294.967.295. Signed: -2.147.483.648 bis +2.147.483.647."},
+{id:116,t:"zahl",q:"Was ist 2^10?",o:["512","2.048","256","1.024"],a:3,e:"2^10 = 1.024. Basis für Kibibyte (KiB). Merke: 2^10 ≈ 10^3."},
+{id:117,t:"zahl",q:"Was ist 2^20?",o:["1.048.576 (= 1 MiB)","2.097.152","1.000.000","524.288"],a:0,e:"2^20 = 1.048.576. Das ist 1 MiB. 2^30 = 1 GiB, 2^40 = 1 TiB."},
+{id:118,t:"zahl",q:"Was bedeutet das 0x-Präfix in der Programmierung?",o:["Multiplikation","Division","Kennzeichnung einer Hexadezimalzahl (z.B. 0xFF = 255)","Potenzierung"],a:2,e:"0x-Präfix: 0x1A = 26 dezimal. In C/C++/Java/Python für Hex-Literale. Auch: 0b für binär, 0o für oktal."},
+{id:119,t:"zahl",q:"Was ist Dezimal 50 in Hexadezimal?",o:["30","32 (3×16 + 2)","50","3C"],a:1,e:"50 = 3×16 + 2 = 32 hex. Probe: 3×16+2 = 48+2 = 50. ✓"},
+{id:120,t:"zahl",q:"Was ist Hex 2A in Dezimal?",o:["44","40","42 (2×16 + 10)","32"],a:2,e:"2A hex: 2×16 + A(10) = 32+10 = 42."},
+{id:121,t:"zahl",q:"Was ist Dezimal 48 in Hexadezimal?",o:["28","30 (3×16 + 0)","3F","2F"],a:1,e:"48 = 3×16 + 0 = 30 hex. ASCII '0'=48=0x30."},
+{id:122,t:"zahl",q:"Was ist Dezimal 65 in Hexadezimal?",o:["3F","40","42","41 (4×16 + 1)"],a:3,e:"65 = 4×16 + 1 = 41 hex. ASCII 'A'=65=0x41."},
+{id:123,t:"zahl",q:"Was ist Dezimal 97 in Hexadezimal?",o:["5F","62","61 (6×16 + 1)","60"],a:2,e:"97 = 6×16 + 1 = 61 hex. ASCII 'a'=97=0x61. Differenz Groß/Klein = 32 = 0x20."},
+{id:124,t:"zahl",q:"Was ist Binär 01010101 in Dezimal?",o:["85 (64+16+4+1)","170","64","128"],a:0,e:"01010101: 0+64+0+16+0+4+0+1 = 85. In Hex: 55. Abwechselndes Bit-Muster."},
+{id:125,t:"zahl",q:"Was ist Binär 10101010 in Dezimal?",o:["160","128","85","170 (128+32+8+2)"],a:3,e:"10101010: 128+0+32+0+8+0+2+0 = 170. In Hex: AA. Inverses von 01010101."},
+{id:126,t:"zahl",q:"Wie rechnet man Dezimal → Binär?",o:["Wiederholt durch 2 dividieren und Reste notieren – von unten nach oben lesen","Dezimalstellen einzeln","Mit 2 multiplizieren","Direkt umschreiben"],a:0,e:"Beispiel: 13÷2=6R1, 6÷2=3R0, 3÷2=1R1, 1÷2=0R1 → von unten: 1101 = 13. ✓"},
+{id:127,t:"zahl",q:"Wie rechnet man Binär → Dezimal?",o:["Durch 2 dividieren","Mit 16 multiplizieren","Jede Stelle mit 2^Position multiplizieren und addieren (Position 0 = rechts)","Bits zählen"],a:2,e:"1101: 1×8 + 1×4 + 0×2 + 1×1 = 13. Immer von rechts mit 2^0 beginnen."},
+{id:128,t:"zahl",q:"Was ist Dezimal 33 in Hexadezimal?",o:["22","23","31","21 (2×16 + 1)"],a:3,e:"33 = 2×16 + 1 = 21 hex. ASCII '!'=33=0x21."},
+{id:129,t:"zahl",q:"Was ist Hex D0 in Dezimal?",o:["200","224","192","208 (13×16 + 0)"],a:3,e:"D0 hex: D=13, 13×16+0 = 208."},
+{id:130,t:"zahl",q:"Was ist Dezimal 80 in Hexadezimal?",o:["4F","40","5F","50 (5×16 + 0)"],a:3,e:"80 = 5×16 + 0 = 50 hex. ASCII 'P'=80=0x50."},
+{id:131,t:"zahl",q:"Was ist Dezimal 144 in Hexadezimal?",o:["9F","A0","8F","90 (9×16 + 0)"],a:3,e:"144 = 9×16 + 0 = 90 hex. Probe: 9×16=144. ✓"},
+{id:132,t:"zahl",q:"Was ist Dezimal 160 in Hexadezimal?",o:["9F","A0 (10×16 + 0)","B0","AF"],a:1,e:"160 = 10×16 + 0 = A0 hex. A=10. 10×16=160. ✓"},
+{id:133,t:"zahl",q:"Was ist Hex E0 in Dezimal?",o:["224 (14×16 + 0)","208","192","240"],a:0,e:"E0 hex: E=14, 14×16+0 = 224."},
+{id:134,t:"zahl",q:"Was ist Dezimal 123 in Hexadezimal?",o:["7B (7×16 + 11)","7C","7A","7D"],a:0,e:"123 = 7×16 + 11 = 7B hex. B=11. ASCII '{'=123=0x7B."},
+{id:135,t:"zahl",q:"Was ist Dezimal 111 in Hexadezimal?",o:["6F (6×16 + 15)","70","6D","6E"],a:0,e:"111 = 6×16 + 15 = 6F hex. F=15. 6×16=96+15=111. ✓"},
+{id:136,t:"zahl",q:"Was ist Hex 4D in Dezimal?",o:["78","79","76","77 (4×16 + 13)"],a:3,e:"4D hex: 4×16 + D(13) = 64+13 = 77. ASCII 'M'=77."},
+{id:137,t:"zahl",q:"Was ist Dezimal 19 in Binär?",o:["10010","10100","10011 (16+2+1)","11000"],a:2,e:"19 = 16+2+1 = 10011. In Hex: 13."},
+{id:138,t:"zahl",q:"Was ist Dezimal 30 in Binär?",o:["11111","11100","11110 (16+8+4+2)","11101"],a:2,e:"30 = 16+8+4+2 = 11110. In Hex: 1E."},
+{id:139,t:"zahl",q:"Was ist Dezimal 17 in Hexadezimal?",o:["12","11 (1×16 + 1)","1F","10"],a:1,e:"17 = 1×16 + 1 = 11 hex. Nicht verwechseln: 11 dezimal = B hex!"},
+{id:140,t:"zahl",q:"Was ist Hex FF00 in Dezimal?",o:["65.024","65.535","256","65.280 (255×256)"],a:3,e:"FF00 hex: FF=255, 00=0. 255×256 + 0 = 65.280. Häufige Bitmaske."},
+{id:141,t:"zahl",q:"Was ist Dezimal 56 in Hexadezimal?",o:["38 (3×16 + 8)","36","37","39"],a:0,e:"56 = 3×16 + 8 = 38 hex. ASCII '8'=56=0x38."},
+{id:142,t:"zahl",q:"Was ist Dezimal 96 in Hexadezimal?",o:["5F","70","6F","60 (6×16 + 0)"],a:3,e:"96 = 6×16 + 0 = 60 hex. ASCII backtick=96=0x60."},
+{id:143,t:"zahl",q:"Was ist Dezimal 77 in BCD?",o:["01111100","01110111 (0111 0111)","01001101","10011101"],a:1,e:"BCD: 7=0111. 77 = 0111 0111. Jede Dezimalziffer = 4 Bit. Kein A-F in BCD!"},
+{id:144,t:"zahl",q:"Wie viele Bit braucht man minimal für Dezimal 100?",o:["7 Bit (2^7=128 > 100 > 2^6=64)","5 Bit","6 Bit","8 Bit"],a:0,e:"64 < 100 < 128 → 7 Bit. 100 = 1100100 binär."},
+{id:145,t:"zahl",q:"Was ist das Ergebnis von AND mit sich selbst: 1011 AND 1011?",o:["0000","0101","1011 (x AND x = x)","1111"],a:2,e:"x AND x = x immer. x OR x = x. x XOR x = 0."},
+{id:146,t:"zahl",q:"Was ergibt 1111 XOR 0000?",o:["0000","1111 XOR 0000 = Fehler","0101","1111 (x XOR 0 = x)"],a:3,e:"x XOR 0 = x. x XOR 1 = NOT x. x XOR x = 0. Nützliche XOR-Eigenschaften."},
+{id:147,t:"zahl",q:"Was ist die maximale Zahl für 10 Bit unsigned?",o:["1.023 (2^10 - 1)","255","512","1.024"],a:0,e:"2^10 = 1.024. Unsigned 10-Bit: 0 bis 1.023. Anwendung: 10-Bit-ADC, 10-Bit-Farbtiefe."},
+{id:148,t:"zahl",q:"Was ist Dezimal 175 in Binär (8 Bit)?",o:["10110101","10101111 (128+32+8+4+2+1)","11000000","10100000"],a:1,e:"175 = 128+32+8+4+2+1 = 10101111. In Hex: AF."},
+{id:149,t:"zahl",q:"Wie lautet das binäre Ergebnis von 0101 + 0011?",o:["1000 (5+3=8)","1001","0110","0111"],a:0,e:"Binäre Addition: 0101 (5) + 0011 (3) = 1000 (8). Übertrag bei 1+1=10 (binär)."},
+{id:150,t:"zahl",q:"Was ist Dezimal 111 in Binär?",o:["1100111","1101111 (64+32+8+4+2+1)","1111111","1001111"],a:1,e:"111 = 64+32+8+4+2+1 = 1101111. In Hex: 6F."},
+{id:151,t:"zahl",q:"Was ist Bit-Shift nach rechts (x >> 1)?",o:["Addition von 1","Multiplikation mit 2","Subtraktion von 1","Division durch 2 (ganzzahlig)"],a:3,e:"Rechts-Shift: 1000 >> 1 = 0100 (8÷2=4). Links-Shift: 0100 << 1 = 1000 (4×2=8). Sehr effizient!"},
+{id:152,t:"zahl",q:"Was ist Dezimal 60 in Hexadezimal?",o:["3D","3A","3C (3×16 + 12)","3B"],a:2,e:"60 = 3×16 + 12 = 3C hex. C=12. ASCII '<'=60=0x3C."},
+{id:153,t:"zahl",q:"Was ist Hex 0A in Dezimal?",o:["11","A","10 (0×16 + 10)","16"],a:2,e:"0A hex = 0×16 + A(10) = 10. ASCII Zeilenumbruch = 0x0A."},
+{id:154,t:"zahl",q:"Was ist Dezimal 80 in Binär?",o:["01000000","10000000","01010000 (64+16)","01110000"],a:2,e:"80 = 64+16 = 01010000. In Hex: 50."},
+{id:155,t:"zahl",q:"Was ist Little-Endian?",o:["Niedrigwertiges Byte zuerst gespeichert (x86/Intel) – 0x12345678 gespeichert als 78 56 34 12","Mittleres Byte zuerst","Großes Ende zuerst","Alle gleichzeitig"],a:0,e:"Little-Endian: Intel x86, x86-64. Big-Endian (Network Byte Order): TCP/IP, SPARC, Motorola."},
+{id:156,t:"zahl",q:"Was ist Dezimal 47 in Hexadezimal?",o:["2F (2×16 + 15)","3F","1F","2E"],a:0,e:"47 = 2×16 + 15 = 2F hex. F=15. ASCII '/'=47=0x2F."},
+{id:157,t:"zahl",q:"Was ist Hex 1B in Dezimal?",o:["26","28","25","27 (1×16 + 11)"],a:3,e:"1B hex: 1×16 + B(11) = 16+11 = 27. ASCII ESC-Zeichen = 27."},
+{id:158,t:"zahl",q:"Was ist Dezimal 255 - 1 in Hexadezimal?",o:["F0","FF","FE (255-1=254=15×16+14)","EF"],a:2,e:"254 = 15×16 + 14 = FE hex. In Binär: 11111110."},
+{id:159,t:"zahl",q:"Was ist Binär 11111100 in Dezimal?",o:["240","254","248","252 (128+64+32+16+8+4)"],a:3,e:"11111100 = 128+64+32+16+8+4 = 252. In Hex: FC. Subnetzmaske /30."},
+{id:160,t:"zahl",q:"Was ist Dezimal 8 in Oktal?",o:["7","10 (1×8 + 0)","8","11"],a:1,e:"8 dez = 10 oktal. Erste 2-stellige Oktalzahl. chmod 644: 6=110, 4=100, 4=100."},
+{id:161,t:"zahl",q:"Was ist Dezimal 64 in Oktal?",o:["77","70","64","100 (1×64)"],a:3,e:"64 = 1×64 = 100 oktal. chmod 755: 7=rwx=111, 5=r-x=101, 5=r-x=101."},
+{id:162,t:"zahl",q:"Was ist Dezimal 255 in Oktal?",o:["377 (3×64 + 7×8 + 7)","11111111","FF","256"],a:0,e:"255 = 3×64 + 7×8 + 7 = 377 oktal. Oder: 11111111 binär → 011 111 111 → 377 oktal."},
+{id:163,t:"zahl",q:"Was ist Dezimal 0 in Hexadezimal?",o:["00","10","0F","FF"],a:0,e:"0 = 00 hex. Null-Terminator in C-Strings = 0x00. RGB-Schwarz = #000000."},
+{id:164,t:"zahl",q:"Was ist Hex DE in Dezimal?",o:["212","202","232","222 (13×16 + 14)"],a:3,e:"DE hex: D=13, E=14. 13×16+14 = 208+14 = 222."},
+{id:165,t:"zahl",q:"Wie viele Bits hat eine IPv6-Adresse?",o:["32 Bit","64 Bit","128 Bit (16 Byte, 8 Gruppen à 16 Bit)","256 Bit"],a:2,e:"IPv6: 128 Bit = 8 × 16-Bit-Gruppen, je 4 Hex-Stellen. 2^128 ≈ 340 Sextillionen Adressen."},
+{id:166,t:"zahl",q:"Was ist Dezimal 172 in Hexadezimal?",o:["AC (10×16 + 12)","AD","BC","AB"],a:0,e:"172 = 10×16 + 12 = AC hex. A=10, C=12. 10×16=160+12=172. ✓"},
+{id:167,t:"zahl",q:"Was ist Dezimal 43 in Binär?",o:["101011 (32+8+2+1)","101010","110000","100011"],a:0,e:"43 = 32+8+2+1 = 101011. In Hex: 2B. ASCII '+'=43=0x2B."},
+{id:168,t:"zahl",q:"Was ist Hex C0 in Dezimal?",o:["160","176","208","192 (12×16 + 0)"],a:3,e:"C0 hex: C=12, 12×16+0 = 192. Subnetz-Byte! 192.168.0.0 = C0:A8:00:00."},
+{id:169,t:"zahl",q:"Was ist Dezimal 255 minus Dezimal 128 in Binär?",o:["11000000","10000000","11111111","01111111 (127, alle Bits außer MSB)"],a:3,e:"255-128=127=01111111. Alle 7 unteren Bits gesetzt, MSB=0."},
+{id:170,t:"zahl",q:"Was ist Dezimal 10 in Binär?",o:["1100","1010 (8+2)","1011","1001"],a:1,e:"10 = 8+2 = 1010. In Hex: A."},
+{id:171,t:"zahl",q:"Was ist Hex 4F in Dezimal?",o:["78","77","79 (4×16 + 15)","80"],a:2,e:"4F hex: 4×16 + F(15) = 64+15 = 79. ASCII 'O'=79."},
+{id:172,t:"zahl",q:"Was ist Dezimal 15 in Binär?",o:["1100","1110","1010","1111 (8+4+2+1)"],a:3,e:"15 = 2^4 - 1 = 1111. Alle 4 Bits gesetzt. In Hex: F."},
+{id:173,t:"zahl",q:"Was ist Dezimal 18 in Binär?",o:["10100","10010 (16+2)","10001","11000"],a:1,e:"18 = 16+2 = 10010. In Hex: 12."},
+{id:174,t:"zahl",q:"Was ist Dezimal 24 in Binär?",o:["10110","10100","11000 (16+8)","11100"],a:2,e:"24 = 16+8 = 11000. In Hex: 18."},
+{id:175,t:"zahl",q:"Was ist Dezimal 48 in Binär?",o:["100000","101000","110000 (32+16)","011000"],a:2,e:"48 = 32+16 = 110000. In Hex: 30."},
+{id:176,t:"zahl",q:"Was ist Dezimal 96 in Binär?",o:["1010000","1100000 (64+32)","1110000","1100000"],a:3,e:"96 = 64+32 = 1100000. In Hex: 60."},
+{id:177,t:"zahl",q:"Was ist Dezimal 144 in Binär?",o:["10100000","10001000","11000000","10010000 (128+16)"],a:3,e:"144 = 128+16 = 10010000. In Hex: 90."},
+{id:178,t:"zahl",q:"Was ist Dezimal 176 in Binär?",o:["11110000","10110000 (128+32+16)","11000000","10100000"],a:1,e:"176 = 128+32+16 = 10110000. In Hex: B0."},
+{id:179,t:"zahl",q:"Was ist Dezimal 208 in Binär?",o:["11100000","11010000 (128+64+16)","11000000","10010000"],a:1,e:"208 = 128+64+16 = 11010000. In Hex: D0."},
+{id:180,t:"zahl",q:"Was ist Dezimal 16 in Binär?",o:["11000","01111","10000 (2^4)","00111"],a:2,e:"16 = 2^4 = 10000. In Hex: 10."},
+{id:181,t:"zahl",q:"Was ist Dezimal 31 in Hexadezimal?",o:["10","2F","1F (1×16 + 15)","1E"],a:2,e:"31 = 1×16 + 15 = 1F hex. F=15."},
+{id:182,t:"zahl",q:"Was ist Dezimal 47 in Binär?",o:["101110","101111 (32+8+4+2+1)","100111","110000"],a:1,e:"47 = 32+8+4+2+1 = 101111. In Hex: 2F."},
+{id:183,t:"zahl",q:"Was ist Hex 3C in Dezimal?",o:["64","60 (3×16 + 12)","58","62"],a:1,e:"3C hex: 3×16 + C(12) = 48+12 = 60. ASCII '<'=60."},
+{id:184,t:"zahl",q:"Was ist Dezimal 77 in Hexadezimal?",o:["3D","4C","4D (4×16 + 13)","4E"],a:2,e:"77 = 4×16 + 13 = 4D hex. D=13. ASCII 'M'=77=0x4D."},
+{id:185,t:"zahl",q:"Was ist Hex 5A in Dezimal?",o:["86","88","92","90 (5×16 + 10)"],a:3,e:"5A hex: 5×16 + A(10) = 80+10 = 90. ASCII 'Z'=90=0x5A."},
+{id:186,t:"zahl",q:"Was ist Dezimal 90 in Hexadezimal?",o:["59","5A (5×16 + 10)","5B","4A"],a:1,e:"90 = 5×16 + 10 = 5A hex. A=10. ASCII 'Z'=90=0x5A."},
+{id:187,t:"zahl",q:"Was ist Dezimal 122 in Hexadezimal?",o:["7C","7A (7×16 + 10)","7B","79"],a:1,e:"122 = 7×16 + 10 = 7A hex. A=10. ASCII 'z'=122=0x7A."},
+{id:188,t:"zahl",q:"Was ist Hex 7A in Dezimal?",o:["122 (7×16 + 10)","120","124","118"],a:0,e:"7A hex: 7×16 + A(10) = 112+10 = 122. ASCII 'z'=122."},
+{id:189,t:"zahl",q:"Was ist die Binärdarstellung von Dezimal 42 (Antwort auf alles)?",o:["110000","100000","101010 (32+8+2)","101100"],a:2,e:"42 = 32+8+2 = 101010. In Hex: 2A."},
+{id:190,t:"zahl",q:"Was ist Dezimal 58 in Hexadezimal?",o:["3B","38","39","3A (3×16 + 10)"],a:3,e:"58 = 3×16 + 10 = 3A hex. A=10. ASCII ':'=58=0x3A."},
+{id:191,t:"zahl",q:"Was ist Hex 21 in Dezimal?",o:["31","34","33 (2×16 + 1)","32"],a:2,e:"21 hex: 2×16+1 = 32+1 = 33. ASCII '!'=33=0x21."},
+{id:192,t:"zahl",q:"Was ist Dezimal 126 in Hexadezimal?",o:["6E","7F","7E (7×16 + 14)","7D"],a:2,e:"126 = 7×16 + 14 = 7E hex. E=14. ASCII '~'=126=0x7E."},
+{id:193,t:"zahl",q:"Was ist Hex 20 in Dezimal?",o:["16","32 (2×16 + 0)","40","20"],a:1,e:"20 hex: 2×16+0 = 32. ASCII Leerzeichen = 32 = 0x20."},
+{id:194,t:"zahl",q:"Was ist Dezimal 72 in Hexadezimal?",o:["48 (4×16 + 8)","46","49","47"],a:0,e:"72 = 4×16 + 8 = 48 hex. ASCII 'H'=72=0x48."},
+{id:195,t:"zahl",q:"Was ist Hex 48 in Dezimal?",o:["72 (4×16 + 8)","76","70","74"],a:0,e:"48 hex: 4×16+8 = 64+8 = 72. ASCII 'H'=72."},
+{id:196,t:"zahl",q:"Was ist Dezimal 85 in Hexadezimal?",o:["56","55 (5×16 + 5)","45","54"],a:1,e:"85 = 5×16 + 5 = 55 hex. In Binär: 01010101."},
+{id:197,t:"zahl",q:"Was ist Dezimal 170 in Hexadezimal?",o:["A9","BA","AA (10×16 + 10)","AB"],a:2,e:"170 = 10×16 + 10 = AA hex. In Binär: 10101010."},
+{id:198,t:"zahl",q:"Was ist Hex AA in Dezimal?",o:["170 (10×16 + 10)","160","180","150"],a:0,e:"AA hex: A=10, 10×16+10 = 160+10 = 170. In Binär: 10101010."},
+{id:199,t:"zahl",q:"Was ist Dezimal 255 + 1 in einem 8-Bit unsigned System?",o:["256","0 (Overflow – kein Platz für 256)","254","1"],a:1,e:"Overflow: 11111111 + 1 = 100000000 (9 Bit), aber nur 8 Bit → 00000000 = 0. Integer-Overflow!"},
+{id:200,t:"zahl",q:"Was ist die einzige Zahl die im Zweierkomplement keinen positiven Partner hat?",o:["Die kleinste negative Zahl (z.B. -128 bei int8) – ihr Positives 128 passt nicht in int8","255","0","127"],a:0,e:"-128 im int8 (8-Bit signed): 10000000. Zweierkomplement: Bits invertieren = 01111111 + 1 = 10000000 → -128 wieder!"}
+];
+
+let state={};
+let order=Q.map(q=>q.id);
+let cf={t:'all',s:'all',q:''};
+
+function init(){Q.forEach(q=>{state[q.id]={sel:null,ans:false};});upStats();}
+
+function mkCard(q){
+  const s=state[q.id];
+  const d=document.createElement('div');
+  d.className='card';d.id='c'+q.id;
+  if(s.ans)d.classList.add(s.sel===q.a?'ok':'err');
+  const opts=q.o.map((o,i)=>{
+    let c='op';
+    if(s.ans){c+=' dis';if(i===q.a)c+=' cor';else if(i===s.sel)c+=' wrg';}
+    else if(i===s.sel)c+=' sel';
+    return`<div class="${c}" onclick="pick(${q.id},${i})"><div class="ol">${['A','B','C','D'][i]}</div><div class="ot">${o}</div></div>`;
+  }).join('');
+  const ec=s.ans?('exp show'+(s.sel!==q.a?' werr':'')):'exp';
+  const tl={ki:'🤖 KI',bits:'💾 Bits',zahl:'🔢 Zahlen'};
+  d.innerHTML=`<div class="qh"><div class="qn">Frage ${q.id}/200</div><span class="tag">${tl[q.t]||q.t}</span></div>
+  <div class="qb"><div class="qt">${q.q}</div><div class="ops">${opts}</div><div class="${ec}">💡 ${q.e}</div></div>`;
+  return d;
+}
+
+function render(){
+  const g=document.getElementById('grid');g.innerHTML='';
+  const secs={ki:false,bits:false,zahl:false};
+  const secNames={ki:'🤖 KI (Fragen 1–25)',bits:'💾 Bits & Bytes (Fragen 26–50)',zahl:'🔢 Zahlensysteme (Fragen 51–200)'};
+  order.forEach(id=>{
+    const q=Q.find(x=>x.id===id);if(!q||!passes(q))return;
+    if(!secs[q.t]&&cf.t==='all'){
+      secs[q.t]=true;
+      const h=document.createElement('div');h.className='sh';
+      h.innerHTML=secNames[q.t]||q.t;
+      g.appendChild(h);
+    }
+    g.appendChild(mkCard(q));
+  });
+}
+
+function passes(q){
+  const s=state[q.id];
+  if(cf.t!=='all'&&q.t!==cf.t)return false;
+  if(cf.s==='open'&&s.ans)return false;
+  if(cf.s==='wrong'&&(!s.ans||s.sel===q.a))return false;
+  if(cf.q&&!q.q.toLowerCase().includes(cf.q))return false;
+  return true;
+}
+
+function pick(id,i){
+  const s=state[id];if(s.ans)return;
+  s.sel=i;s.ans=true;
+  document.getElementById('c'+id).replaceWith(mkCard(Q.find(q=>q.id===id)));
+  upStats();upProg();
+}
+
+function upStats(){
+  let c=0,w=0,o=0;
+  Q.forEach(q=>{const s=state[q.id];if(!s.ans)o++;else if(s.sel===q.a)c++;else w++;});
+  document.getElementById('sc').textContent=c;
+  document.getElementById('sw').textContent=w;
+  document.getElementById('so').textContent=o;
+  document.getElementById('sb').textContent=c+' Pkt';
+}
+function upProg(){
+  const a=Q.filter(q=>state[q.id].ans).length;
+  document.getElementById('pf').style.width=(a/Q.length*100)+'%';
+  document.getElementById('pt').textContent=a+' / '+Q.length;
+}
+function ft(t,btn){cf.t=t;cf.s='all';cf.q='';document.getElementById('si').value='';document.querySelectorAll('.fb').forEach(b=>b.classList.remove('ac','aa'));btn.classList.add('ac');render();}
+function fs(s,btn){cf.s=cf.s===s?'all':s;cf.t='all';document.querySelectorAll('.fb').forEach(b=>b.classList.remove('ac','aa'));document.querySelectorAll('.fb')[0].classList.add('ac');if(cf.s!=='all')btn.classList.add('aa');render();}
+function fsearch(){cf.q=document.getElementById('si').value.toLowerCase();render();}
+function shuffle(){for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}cf={t:'all',s:'all',q:''};document.getElementById('si').value='';document.querySelectorAll('.fb').forEach(b=>b.classList.remove('ac','aa'));document.querySelectorAll('.fb')[0].classList.add('ac');render();}
+function showall(){cf={t:'all',s:'all',q:''};document.getElementById('si').value='';document.querySelectorAll('.fb').forEach(b=>b.classList.remove('ac','aa'));document.querySelectorAll('.fb')[0].classList.add('ac');render();}
+function resetAll(){Q.forEach(q=>{state[q.id]={sel:null,ans:false};});order=Q.map(q=>q.id);upStats();upProg();document.getElementById('rp').classList.remove('show');render();}
+function showRes(){
+  let c=0,w=0,o=0;Q.forEach(q=>{const s=state[q.id];if(!s.ans)o++;else if(s.sel===q.a)c++;else w++;});
+  const a=c+w,p=a>0?Math.round(c/a*100):0;
+  const grades=[[92,'🏆 Sehr gut!'],[81,'✅ Gut – Prüfungsfit!'],[67,'🟡 Befriedigend'],[50,'🟠 Ausreichend']];
+  const g=grades.find(([t])=>p>=t)?.[1]||'🔴 Noch üben!';
+  document.getElementById('rs').textContent=p+'%';document.getElementById('rg').textContent=g;
+  document.getElementById('rc').textContent=c;document.getElementById('rw').textContent=w;document.getElementById('ro').textContent=o;document.getElementById('rpts').textContent=c;
+  const rp=document.getElementById('rp');rp.classList.add('show');rp.scrollIntoView({behavior:'smooth'});
+}
+init();render();
+</script></body></html>

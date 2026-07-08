@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP1 Quiz - Kapitel 9B: Support</title>
+<style>:root{--bg:#0f1117;--sur:#1a1d27;--card:#20243a;--ac:#f97316;--ok:#22c55e;--ng:#ef4444;--tx:#e2e8f0;--mu:#94a3b8;--bd:#2d3450;}
+*{box-sizing:border-box;margin:0;padding:0;}body{background:var(--bg);color:var(--tx);font-family:"Segoe UI",system-ui,sans-serif;}
+header{background:var(--sur);border-bottom:2px solid var(--ac);padding:14px 22px;position:sticky;top:0;z-index:100;}
+.hi{max-width:880px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.badge{background:var(--ac);color:#fff;font-weight:800;font-size:11px;padding:3px 8px;border-radius:5px;}
+h1{font-size:17px;font-weight:700;}.sub{font-size:11px;color:var(--mu);}
+.sd{font-size:19px;font-weight:800;color:var(--ac);}
+.ctrl{display:flex;gap:6px;}.btn{background:var(--sur);border:1px solid var(--bd);color:var(--tx);padding:5px 12px;border-radius:6px;cursor:pointer;font-size:12px;font-weight:600;}
+.btn:hover{border-color:var(--ac);color:var(--ac);}.btn.p{background:var(--ac);border-color:var(--ac);color:#fff;}
+.pw{max-width:880px;margin:8px auto 0;padding:0 22px;}
+.pt{background:var(--bd);border-radius:999px;height:4px;overflow:hidden;}
+.pf{background:var(--ac);height:100%;border-radius:999px;transition:width .3s;}
+.pl{font-size:10px;color:var(--mu);margin-top:3px;text-align:right;}
+.fb-bar{max-width:880px;margin:12px auto 0;padding:0 22px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.fl{font-size:11px;color:var(--mu);}
+.fb{background:var(--sur);border:1px solid var(--bd);color:var(--mu);padding:3px 10px;border-radius:20px;cursor:pointer;font-size:11px;}
+.fb:hover,.fb.act{background:var(--ac);border-color:var(--ac);color:#fff;}
+main{max-width:880px;margin:16px auto 50px;padding:0 22px;display:flex;flex-direction:column;gap:12px;}
+.bh{margin-top:6px;padding:7px 12px;background:linear-gradient(90deg,var(--card),transparent);border-left:3px solid var(--ac);border-radius:0 6px 6px 0;font-size:12px;font-weight:700;color:var(--ac);}
+.qc{background:var(--card);border:1px solid var(--bd);border-radius:9px;padding:16px 18px;}
+.qc.ac{border-color:var(--ok);}.qc.aw{border-color:var(--ng);}
+.qn{font-size:10px;color:var(--mu);font-weight:600;letter-spacing:1px;margin-bottom:3px;}
+.qt{display:inline-block;font-size:10px;background:var(--sur);color:var(--ac);border:1px solid var(--bd);padding:1px 7px;border-radius:10px;margin-bottom:7px;font-weight:600;}
+.qq{font-size:14px;font-weight:600;line-height:1.5;margin-bottom:10px;}
+.opts{display:flex;flex-direction:column;gap:6px;}
+.opt{background:var(--sur);border:1px solid var(--bd);border-radius:6px;padding:8px 11px;cursor:pointer;display:flex;align-items:flex-start;gap:8px;font-size:13px;}
+.opt:hover:not(.dis){border-color:var(--ac);background:#1e2235;}
+.opt.ok{border-color:var(--ok);background:rgba(34,197,94,.1);}
+.opt.ng{border-color:var(--ng);background:rgba(239,68,68,.1);}
+.opt.dis{cursor:default;}
+.ol{min-width:19px;height:19px;border-radius:50%;background:var(--bd);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px;}
+.opt.ok .ol{background:var(--ok);color:#000;}.opt.ng .ol{background:var(--ng);color:#fff;}
+.fbb{margin-top:9px;padding:8px 11px;border-radius:6px;font-size:12px;line-height:1.5;display:none;}
+.fbb.show{display:block;}.fbb.cok{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);color:#86efac;}
+.fbb.cng{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.3);color:#fca5a5;}
+.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:center;justify-content:center;}
+.ov.show{display:flex;}
+.ob{background:var(--card);border:2px solid var(--ac);border-radius:16px;padding:32px 40px;text-align:center;max-width:360px;width:90%;}
+.oe{font-size:48px;margin-bottom:10px;}.ot{font-size:20px;font-weight:800;}
+.os{font-size:42px;font-weight:900;color:var(--ac);margin:12px 0;}
+.om{font-size:13px;color:var(--mu);margin-bottom:18px;}
+.ob-b{display:flex;gap:8px;justify-content:center;}</style>
+</head>
+<body>
+<header>
+<div class="hi">
+  <div style="display:flex;align-items:center;gap:9px">
+    <span class="badge">KAP 9B</span>
+    <div><h1>AP1 Quiz - Kapitel 9B: Support</h1><div class="sub">Stoerungsmanagement, Tickets, Ebenen & SLA - 100 Fragen</div></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <div class="sd" id="sd">0/0</div>
+    <div class="ctrl">
+      <button class="btn" onclick="shuf()">🔀</button>
+      <button class="btn" onclick="rst()">↺</button>
+      <button class="btn p" onclick="showR()">Auswertung</button>
+    </div>
+  </div>
+</div>
+</header>
+<div class="pw"><div class="pt"><div class="pf" id="pf" style="width:0%"></div></div><div class="pl" id="pl">0 beantwortet</div></div>
+<div class="fb-bar">
+  <span class="fl">Filter:</span>
+  <button class="fb act" onclick="fil('all',this)">Alle</button>
+  <button class="fb" onclick="fil('9.3',this)">9.3 Stoerungsmanagement</button>
+  <button class="fb" onclick="fil('9.4',this)">9.4 Ticketsystem</button>
+  <button class="fb" onclick="fil('9.5',this)">9.5 Support-Ebenen</button>
+  <button class="fb" onclick="fil('9.6',this)">9.6 Service Level</button>
+  <button class="fb" onclick="fil('open',this)">Offen</button>
+  <button class="fb" onclick="fil('wrong',this)">Falsch</button>
+</div>
+<main id="qc"></main>
+<div class="ov" id="ov">
+  <div class="ob">
+    <div class="oe" id="oe">🎉</div><div class="ot">Auswertung</div>
+    <div class="os" id="os">-</div><div class="om" id="om"></div>
+    <div class="ob-b">
+      <button class="btn p" onclick="closeR()">Weiter</button>
+      <button class="btn" onclick="rst()">Reset</button>
+    </div>
+  </div>
+</div>
+<script>
+const BN={"9.3":"🚨 9.3 Stoerungsmanagement","9.4":"🎫 9.4 Ticketsystem","9.5":"🏆 9.5 Support-Ebenen","9.6":"📊 9.6 Service Level"};
+const Q=[
+{id:1,b:"9.3",t:"Stoerungsmanagement",q:"Was ist ein Incident?",o:["Geplanter Ausfall","Geplantes Update","Service Request","Unerwartete Unterbrechung oder Verschlechterung eines IT-Services"],a:3,f:"Incident: ungeplante Unterbrechung oder Qualitaetsminderung. Unterschied zu Problem: Incident ist Symptom, Problem ist Ursache."},
+{id:2,b:"9.3",t:"Stoerungsmanagement",q:"Was ist Urgency im Incident Management?",o:["Wie dringend ein Incident behoben werden muss - beeinflusst durch Business-Zeitdruck","Kundenprioritaet","Wichtigkeit","Technische Schwere"],a:0,f:"Urgency: Zeitdruck. Payroll am Zahltag: hohe Urgency. Entwicklungsserver am Wochenende: niedrige Urgency."},
+{id:3,b:"9.3",t:"Stoerungsmanagement",q:"Was ist Impact im Incident Management?",o:["Technische Schwere","Ausmass der Auswirkungen: wie viele Nutzer, welche Prozesse, wie gross der Schaden?","Reparaturkosten","Supportzeit"],a:1,f:"Impact: Anzahl betroffener Nutzer, Geschaeftsprozesse, finanzieller Schaden, Reputationsrisiko."},
+{id:4,b:"9.3",t:"Stoerungsmanagement",q:"Wie ergibt sich Prioritaet?",o:["Nur Urgency","Nur Impact","Zufall","Aus Kombination von Impact und Urgency - meist als Matrix"],a:3,f:"Prioritaet-Matrix: Impact x Urgency. Hoch/Hoch = P1 Kritisch. Hoch/Niedrig = P2. Niedrig/Niedrig = P4."},
+{id:5,b:"9.3",t:"Stoerungsmanagement",q:"Was ist der Lebenszyklus eines Incidents?",o:["Erkennung - Ticket - Klassifizierung - Diagnose - Eskalation - Loesung - Abschluss","Nur Ticket oeffnen und schliessen","Nur Diagnose","Unbegrenzt"],a:0,f:"Incident-Lebenszyklus: erkannt, erfasst, klassifiziert/priorisiert, diagnostiziert, eskaliert, geloest, Nutzer bestaetigt, geschlossen."},
+{id:6,b:"9.3",t:"Stoerungsmanagement",q:"Was ist Major Incident Management?",o:["Problem Management","Normales Incident Management","Spezieller Prozess: sofortige Eskalation, dediziertes Team, regelmaessige Updates","Change Management"],a:2,f:"Major Incident: P1. Sofortige Eskalation, War Room Team, stundliche Updates, Post-Incident-Review Pflicht."},
+{id:7,b:"9.3",t:"Stoerungsmanagement",q:"Was ist Incident-Kategorisierung?",o:["Einordnung nach Art: Hardware, Software, Netzwerk, Benutzerfehler - Routing zum richtigen Team","Priorisierung","Eskalation","Dokumentation"],a:0,f:"Kategorisierung: Hardware, Software, Netzwerk, Zugriff, Sicherheit. Routing zum richtigen Support-Team."},
+{id:8,b:"9.3",t:"Stoerungsmanagement",q:"Was ist ein Massenincident?",o:["Kritischer Incident","Viele Nutzer melden dasselbe Problem gleichzeitig - systemisches Problem, koordinierte Reaktion noetig","Grosser Incident","Normaler Incident"],a:1,f:"Massenincident: einen Major Incident eroeffnen statt 50 Tickets, alle informieren, Problem Management aktivieren."},
+{id:9,b:"9.3",t:"Stoerungsmanagement",q:"Was ist Time-to-Resolution?",o:["Reparaturkosten","Zeit von Incident-Erkennung bis Wiederherstellung normalen Betriebs - SLA-Kennzahl","Supportzeit","Diagnosezeit"],a:1,f:"TTR: gesamt von Erkennung bis Loesung und Bestaetigung. P1 innerhalb 1 Stunde. Ueberschreitung = SLA-Verletzung."},
+{id:10,b:"9.3",t:"Stoerungsmanagement",q:"Was ist Time-to-Response?",o:["Loesungszeit","Gesamtloesungszeit","Eskalationszeit","Zeit von Incident-Meldung bis erste Reaktion des Supports"],a:3,f:"Time-to-Response: wann meldet Support sich erstmals? P1 within 15 min. Gibt Nutzer Sicherheit dass Problem angenommen."},
+{id:11,b:"9.3",t:"Stoerungsmanagement",q:"Was ist Incident Closure?",o:["Formaler Abschluss: Loesung bestaetigt, Nutzer zufrieden, Ticket geschlossen","Ticket loeschen","Archivieren","Ignorieren"],a:0,f:"Closure: Nutzer selbst bestaetigen lassen (nicht einfach schliessen wenn man denkt es funktioniert)."},
+{id:12,b:"9.3",t:"Stoerungsmanagement",q:"Was ist Incident-Koordination?",o:["Ticket erstellen","Dokumente verwalten","Steuerung aller Aktivitaeten: Teams koordinieren, Fortschritt ueberwachen, Stakeholder informieren","Problem suchen"],a:2,f:"Incident-Koordination: bei komplexen Incidents mehrere Teams koordinieren. Wer macht was? Kommunikation zu Stakeholdern."},
+{id:13,b:"9.3",t:"Stoerungsmanagement",q:"Was ist Incident Matching?",o:["Routing","Pruefen ob neuer Incident zu bekanntem Problem gehoert - verhindert Doppelarbeit","Kundenzuordnung","Incident loesen"],a:1,f:"Incident Matching: KEDB pruefen (Workaround anwenden), aehnliche Incidents pruefen (Muster = Problem)."},
+{id:14,b:"9.3",t:"Stoerungsmanagement",q:"Was ist Incident Reopen?",o:["Wiederoeffnen wenn Problem nach Loesung wieder auftritt","Neues Ticket","Eskalieren","Duplizieren"],a:0,f:"Reopen: Problem persistiert. Mehrfaches Reopen -> Problem Management aktivieren."},
+{id:15,b:"9.3",t:"Stoerungsmanagement",q:"Was ist Incident Report?",o:["Ticketauszug","Monatsbericht","Fehlerliste","Dokumentation: Was passiert? Wann? Warum? Auswirkungen? Massnahmen?"],a:3,f:"Incident Report: Timeline, Ursache, Auswirkungen, Massnahmen, Verbesserungen. Basis fuer Post-Incident-Review."},
+{id:16,b:"9.4",t:"Ticketsystem",q:"Was ist ein Ticketsystem?",o:["Software zur strukturierten Erfassung und Bearbeitung von IT-Anfragen und Problemen","Datenbank","Buchungssystem","Kommunikationstool"],a:0,f:"Ticketsystem: zentrales Tool. Jede Anfrage als Ticket. Vorteile: nichts geht verloren, SLA-Ueberwachung, Statistiken."},
+{id:17,b:"9.4",t:"Ticketsystem",q:"Was ist Ticket-Routing?",o:["Erstellen","Ticket loeschen","Zuweisung an zustaendiges Team basierend auf Kategorie und Prioritaet","Eskalation"],a:2,f:"Routing: Kategorie Netzwerk -> Netzwerk-Team. P1 -> Major Incident Manager. Automatisch per Regeln."},
+{id:18,b:"9.4",t:"Ticketsystem",q:"Was ist SLA-Tracking im Ticketsystem?",o:["Mitarbeiterleistung","Ticket-Statistik","Ueberwachung ob Reaktions- und Loesungszeiten eingehalten werden - Alerts bei Faelligkeit","Kundenbewertung"],a:2,f:"SLA-Tracking: Ticketsystem berechnet Faelligkeit automatisch. Ampelsystem: gruen, gelb, rot. Alerts an Bearbeiter."},
+{id:19,b:"9.4",t:"Ticketsystem",q:"Was sind Ticket-Stati?",o:["Nur Offen und Geschlossen","Beliebige","Neu, Offen, In Bearbeitung, Wartet auf Benutzer, Wartet auf Lieferant, Geloest, Geschlossen","Nur drei"],a:2,f:"Ticket-Stati: Neu (erfasst), Offen (zugewiesen), In Bearbeitung, Wartet auf Benutzer, Wartet auf Lieferant, Geloest, Geschlossen."},
+{id:20,b:"9.4",t:"Ticketsystem",q:"Was ist eine Wissensdatenbank (Knowledge Base)?",o:["Sammlung von Loesungsartikeln fuer Self Service und Support-Effizienz","Ticketarchiv","Fehlerliste","Kundendatenbank"],a:0,f:"Knowledge Base: Artikel mit Loesungen. Self Service: Nutzer loest ohne Kontakt. Wird aus geloesten Tickets aufgebaut."},
+{id:21,b:"9.4",t:"Ticketsystem",q:"Was ist Ticket-Eskalation?",o:["Weiterleitung an hoehere Ebene wenn Problem nicht loesbar oder SLA-Verletzung droht","Duplizieren","Loeschen","Schliessen"],a:0,f:"Eskalation: funktional (1st zu 2nd Level), hierarchisch (Management). Automatisch oder manuell."},
+{id:22,b:"9.4",t:"Ticketsystem",q:"Was ist Self Service?",o:["Selbstreparatur","Telefonhotline","Nutzer loesen Probleme selbst ueber Knowledge Base, FAQ, Chatbots","Mitarbeiter-Support"],a:2,f:"Self Service: 24/7, sofortig, entlastet Support-Team. Passwort-Reset, FAQ, Software aus Portal."},
+{id:23,b:"9.4",t:"Ticketsystem",q:"Was ist Ticket-Merge?",o:["Zusammenfuehren mehrerer Tickets die dasselbe Problem beschreiben","Verdoppeln","Eskalieren","Teilen"],a:0,f:"Ticket-Merge: 20 Nutzer, dasselbe Problem -> ein Master-Ticket. Loesung einmal erarbeiten, alle informieren."},
+{id:24,b:"9.4",t:"Ticketsystem",q:"Was sind Ticket-Metriken?",o:["Nur SLA","Nur CSAT","Volumen, First Call Resolution, MTTR, SLA-Compliance, Kundenzufriedenheit","Nur Anzahl"],a:2,f:"Ticket-Metriken: Volumen, FCR, MTTR, SLA-Compliance, CSAT, Backlog. Basis fuer Support-Performance-Steuerung."},
+{id:25,b:"9.4",t:"Ticketsystem",q:"Was ist First Call Resolution (FCR)?",o:["Erste Reaktionszeit","Erste Antwortzeit","Anteil der Incidents die beim ersten Kontakt geloest werden ohne Eskalation","Erstellungszeit"],a:2,f:"FCR: hohe FCR (70%+) = effizienter kompetenter Support. Gesteigert durch Wissensdatenbank und kompetente Mitarbeiter."},
+{id:26,b:"9.4",t:"Ticketsystem",q:"Was ist ein Issue-Tracking-System?",o:["System fuer Software-Entwicklung: Bugs, Features, Tasks (Jira, GitHub Issues)","Helpdesk","Reisebuchung","Personal"],a:0,f:"Issue-Tracking: fuer Software-Entwicklung. Bugs, Features, User Stories als Issues. Verknuepft mit Code-Commits."},
+{id:27,b:"9.4",t:"Ticketsystem",q:"Was ist ein Helpdesk-System?",o:["Issue-Tracker","Projektmanagement","Entwickler-Tool","System fuer IT-Support-Tickets (ServiceNow, JIRA Service Management, Zendesk)"],a:3,f:"Helpdesk: fuer IT-Support. Ticket-Erstellung, Routing, SLA-Tracking, Knowledge Base. Beispiele: ServiceNow, Zendesk."},
+{id:28,b:"9.4",t:"Ticketsystem",q:"Was ist ein Service Catalog?",o:["Softwarekatalog","Verzeichnis aller IT-Services mit Beschreibung, SLAs und Bestellprozess","Fehlerkatalog","Produktkatalog"],a:1,f:"Service Catalog: Nutzer bestellt IT-Services (neuer Laptop, Software). Standardisiert Bestellprozess, klare SLAs."},
+{id:29,b:"9.4",t:"Ticketsystem",q:"Was ist Ticket Aging?",o:["Statistik","Aeltere ungeloeste Tickets werden eskaliert/hervorgehoben - nichts vergessen","Loeschen","Archivierung"],a:1,f:"Ticket Aging: alte ungeoeffnete Tickets erhalten Markierung oder Eskalation. Verhindert dass Tickets vergessen werden."},
+{id:30,b:"9.4",t:"Ticketsystem",q:"Was sind typische Felder in einem Ticket?",o:["Nur technische Details","Nur Beschreibung","ID, Ersteller, Datum, Kategorie, Prioritaet, Beschreibung, Status, Bearbeiter, Loesung","Nur Name"],a:2,f:"Ticket-Felder: ID, Melder, Datum/Zeit, Kategorie, Prioritaet, Problembeschreibung, Status, Bearbeiter, Loesung, SLA-Faelligkeit."},
+{id:31,b:"9.5",t:"Support-Ebenen",q:"Was ist First-Level-Support?",o:["Spezialisierter Support","Erste Anlaufstelle: allgemeine Problembehebung, Passwort-Resets, einfache Diagnose","Hersteller-Support","Notfall-Support"],a:1,f:"1st Level (Service Desk): einfache Probleme loesen (Passwort-Reset, Drucker). Ziel: hohe FCR. Komplexes an 2nd Level."},
+{id:32,b:"9.5",t:"Support-Ebenen",q:"Was ist Second-Level-Support?",o:["Tiefere technische Expertise: Systemadministratoren, Netzwerkspezialisten","Hersteller-Support","Erster Kontaktpunkt","Management"],a:0,f:"2nd Level: technische Spezialisten. Loest komplexere Probleme. Tiefere Diagnose, Konfigurationsaenderungen."},
+{id:33,b:"9.5",t:"Support-Ebenen",q:"Was ist Third-Level-Support?",o:["Service Desk","Hoechste Expertise: Hersteller-Support, Entwickler - fuer kritische komplexe Probleme","1st Level","Normaler Support"],a:1,f:"3rd Level: Software-Entwickler (Bugs), Hersteller (Hardware/Software-Defekte). Teuer aber noetig fuer kritische Probleme."},
+{id:34,b:"9.5",t:"Support-Ebenen",q:"Was ist ein Service Desk?",o:["Nur E-Mail","Nur Telefonhotline","Zentrale Anlaufstelle fuer alle IT-Anfragen - kombiniert 1st Level mit Prozesskoordination","Technisches Team"],a:2,f:"Service Desk (SPOC): Single Point of Contact fuer Nutzer. Koordiniert alle IT-Service-Management-Prozesse."},
+{id:35,b:"9.5",t:"Support-Ebenen",q:"Was ist Shift-Left im IT-Support?",o:["Arbeitszeit verschieben","Strategie: Kompetenzen auf niedrigere Ebenen verlagern (mehr Self Service, bessere 1st Level-Kompetenz)","Team umstrukturieren","Schichten verschieben"],a:1,f:"Shift-Left: 3rd Level Wissen -> 2nd -> 1st -> Self Service. Gleiches Problem guenstiger loesen. Knowledge Base ausbauen."},
+{id:36,b:"9.5",t:"Support-Ebenen",q:"Was ist Remote Support?",o:["Dokumentation senden","Fernwartung: Support-Mitarbeiter verbindet per Remote-Desktop und arbeitet direkt am Computer des Nutzers","Nur telefonisch","E-Mail-Support"],a:1,f:"Remote Support: effizienter als Vor-Ort. Tools: TeamViewer, AnyDesk, RDP. Spart Zeit und Reisekosten."},
+{id:37,b:"9.5",t:"Support-Ebenen",q:"Was ist On-Site Support?",o:["Remote-Support","Techniker kommt physisch zum Nutzer - noetig bei Hardware-Problemen oder physischem Zugang","Telefonischer Support","E-Mail"],a:1,f:"On-Site: Hardware-Defekte, Kabelarbeiten, physische Konfiguration. Teurer als Remote. Laengere SLA-Reaktionszeiten."},
+{id:38,b:"9.5",t:"Support-Ebenen",q:"Was ist SPOC?",o:["Einzelner VIP-Ansprechpartner","Einzelner Techniker","Single Point of Contact: ein zentraler Anlaufpunkt fuer alle IT-Anfragen","Nur Hotline"],a:2,f:"SPOC: Nutzer wendet sich IMMER an Service Desk, nie direkt an Spezialisten. Service Desk koordiniert intern."},
+{id:39,b:"9.5",t:"Support-Ebenen",q:"Was ist Vendor Support?",o:["Partnerunterstützung","Outsourcing","Eigener Support","Herstellersupport fuer Produkt-Bugs die eigener 3rd Level nicht loesen kann"],a:3,f:"Vendor Support: Hersteller (Microsoft, SAP) bei kritischen Produktfehlern. Erfordert Support-Vertrag."},
+{id:40,b:"9.5",t:"Support-Ebenen",q:"Was ist CSAT (im Support-Kontext)?",o:["SLA-Kennzahl","System-Test","Customer Satisfaction Score: Kundenzufriedenheitsbewertung nach Support-Kontakt","Ticket-Anzahl"],a:2,f:"CSAT: automatische Umfrage. War Problem geloest? Wie zufrieden? Wichtige Qualitaetskennzahl. Niedrige CSAT -> Verbesserungsbedarf."},
+{id:41,b:"9.5",t:"Support-Ebenen",q:"Was ist 24/7-Support?",o:["Normale Zeiten","Support rund um die Uhr - noetig fuer kritische Systeme und globale Nutzer","Telefonterror","Nur Notfallhotline"],a:1,f:"24/7: fuer kritische Systeme. Realisierung: mehrere Zeitzonen (Follow-the-Sun), Schichtbetrieb, On-Call-Bereitschaft."},
+{id:42,b:"9.5",t:"Support-Ebenen",q:"Was ist Follow-the-Sun-Support?",o:["Sonnenkraft-IT","Remote-Support","Schichtbetrieb","Globales Modell: Teams in verschiedenen Zeitzonen uebergeben Tickets - 24/7 ohne Nachtschichten"],a:3,f:"Follow-the-Sun: Europa bis 18 Uhr uebergibt an Amerika, uebergibt an Asien. 24/7 ohne Nachtschichten."},
+{id:43,b:"9.5",t:"Support-Ebenen",q:"Was ist Outsourcing im IT-Support?",o:["Management-Entscheidung","Vergabe von Support-Leistungen an externe Dienstleister","Technik-Einkauf","Interne Teilung"],a:1,f:"Support-Outsourcing: externe Anbieter uebernehmen 1st Level. Vorteile: Kostenreduktion, Skalierbarkeit. Nachteile: weniger Kontrolle."},
+{id:44,b:"9.5",t:"Support-Ebenen",q:"Was ist Multi-Channel-Support?",o:["Mehrere Teams","Mehrere Produkte","Mehrere Standorte","Support ueber Telefon, E-Mail, Chat, Self Service - Nutzer waehlt Kanal"],a:3,f:"Multi-Channel: Telefon (synchron), E-Mail (asynchron), Chat (schnell), Self Service (autonom, 24/7)."},
+{id:45,b:"9.5",t:"Support-Ebenen",q:"Was ist Chatbot im IT-Support?",o:["Remote-Tool","KI-gesteuerter Gespraechspartner fuer einfache Anfragen: Passwort-Reset, Statusabfragen, FAQ","FAQ-Liste","Menschlicher Chat"],a:1,f:"Chatbot: 24/7, sofortig, skalierbar. Grenzen: komplexe Probleme, emotionale Situationen ausserhalb des Skripts."},
+{id:46,b:"9.5",t:"Support-Ebenen",q:"Was ist NPS im Support?",o:["Netzwerkprotokoll","Ticketbewertung","Net Promoter Score: Wie wahrscheinlich wuerden Sie uns weiterempfehlen? (0-10)","Supportkennzahl"],a:2,f:"NPS: 0-6=Detraktoren, 7-8=Passive, 9-10=Promotoren. NPS = Promotoren% - Detraktoren%. Misst langfristige Kundenbindung."},
+{id:47,b:"9.5",t:"Support-Ebenen",q:"Was ist ein Bereitschaftsdienst (On-Call)?",o:["Mitarbeiter ausserhalb regulaerer Arbeitszeit erreichbar und reaktionsbereit","Permanenter Support","Schichtbetrieb","Homeoffice"],a:0,f:"On-Call: nicht im Buero aber erreichbar. Bei P1-Incident: Anruf, einloggen, bearbeiten. Mit Bereitschaftszulage verguetet."},
+{id:48,b:"9.5",t:"Support-Ebenen",q:"Was ist der Unterschied 1st vs 2nd Level?",o:["1st Level: breite allgemeine Kenntnisse, viele einfache Probleme. 2nd Level: tiefes Fachwissen, weniger aber komplexere","1st Level ist teurer","Kein Unterschied","2nd Level ist schneller"],a:0,f:"1st Level: Breite, Standardloesungen, hohe FCR. 2nd Level: Tiefe, individuelle Analyse. 1st loest ca. 80%, 2nd ca. 18%, 3rd ca. 2%."},
+{id:49,b:"9.5",t:"Support-Ebenen",q:"Was ist Managed Service?",o:["Normaler Support","Externer Provider uebernimmt vollstaendig Betrieb und Support eines IT-Services inkl. SLA-Verantwortung","Service managen","Projektdienstleistung"],a:1,f:"Managed Service: Provider betreibt, monitort, pflegt. Kunde zahlt Pauschalgebuehr. Provider traegt SLA-Risiko."},
+{id:50,b:"9.5",t:"Support-Ebenen",q:"Was ist Knowledge-Centered Service (KCS)?",o:["Methodik: Wissen wird parallel zur Arbeit erstellt und gepflegt - jeder geloeste Fall wird dokumentiert","Schulungsprogramm","Wissensdatenbank aufbauen","Ticket-Methode"],a:0,f:"KCS: Wissen entsteht beim Loesen von Problemen. Support-Mitarbeiter erstellen und verbessern Wissensdatenbank-Artikel direkt bei der Arbeit."},
+{id:51,b:"9.6",t:"Service Level",q:"Was ist ein SLA?",o:["Service Level Agreement: Vertrag der vereinbarte Servicequalitaet definiert - rechtlich bindend","Technische Spezifikation","Kaufvertrag","Supportvertrag allgemein"],a:0,f:"SLA: verbindlicher Vertrag. Leistungsbeschreibung, Verfuegbarkeitszeiten, Reaktionszeiten, Messmethoden, Strafen bei Verletzung."},
+{id:52,b:"9.6",t:"Service Level",q:"Was ist ein OLA?",o:["Supportvertrag","SLA mit Kunden","Lieferantenvertrag","Operational Level Agreement: interne Vereinbarung zwischen IT-Teams um externe SLAs ermoeglichen"],a:3,f:"OLA: internes SLA zwischen IT-Teams. Service Desk braucht Netzwerk-Team als Backup: OLA regelt interne Unterstuetzung."},
+{id:53,b:"9.6",t:"Service Level",q:"Was ist ein UC (Underpinning Contract)?",o:["Vertrag mit externen Lieferanten - sichert Leistungen um eigene SLAs einhalten zu koennen","OLA","Interner Vertrag","SLA mit Kunden"],a:0,f:"UC: SLA mit externen Lieferanten (Internet-Provider, Hosting). Wenn Service von externem Provider abhaengt."},
+{id:54,b:"9.6",t:"Service Level",q:"Was sind Reaktionszeiten im SLA?",o:["Zeit von Incident-Meldung bis ersten Kontakt durch Support - pro Prioritaetsstufe definiert","Verfuegbarkeitszeiten","Loesungszeiten","Bearbeitungszeiten"],a:0,f:"Reaktionszeiten: P1=15 Minuten, P2=30 Minuten, P3=4 Stunden. Im Ticketsystem automatisch ueberwacht."},
+{id:55,b:"9.6",t:"Service Level",q:"Was sind Loesungszeiten im SLA?",o:["Zeit von Incident-Meldung bis Wiederherstellung normaler Funktionalitaet","Kontaktzeiten","Verfuegbarkeitszeiten","Reaktionszeiten"],a:0,f:"Loesungszeiten: P1=1 Stunde, P2=4 Stunden, P3=1 Werktag, P4=5 Werktage. Uhr laeuft ab Ticket-Erstellung."},
+{id:56,b:"9.6",t:"Service Level",q:"Was ist SLA-Verletzung?",o:["Technischer Fehler","Wenn vereinbarte Service Level nicht eingehalten werden - Konsequenzen: Service Credits, Strafe","Kundenbeschwerde","Normaler Vorgang"],a:1,f:"SLA-Breach: Vertragspflicht verletzt. Konsequenzen: Service Credits (z.B. 10% Monatsgebuehr), Eskalationsrecht, Kuendigungsrecht."},
+{id:57,b:"9.6",t:"Service Level",q:"Was ist Verfuegbarkeit?",o:["Loesungszeit","100% immer","Prozentualer Anteil der Zeit in dem Service verfuegbar ist: (Gesamtzeit - Ausfallzeit) / Gesamtzeit x 100%","Reaktionszeit"],a:2,f:"Verfuegbarkeit: 99,9% = 8,76h Ausfallzeit/Jahr. 99,99% = 52,6 Min/Jahr. Hoehere Verfuegbarkeit = hoehere Infrastrukturkosten."},
+{id:58,b:"9.6",t:"Service Level",q:"Was bedeutet 99,9% Verfuegbarkeit in Stunden?",o:["Ca. 8,76 Stunden Ausfallzeit pro Jahr","Keine Ausfallzeit","Ca. 24 Stunden","Ca. 1 Stunde"],a:0,f:"99,9% = drei Neunen. 8.760h/Jahr x 0,1% = 8,76h maximale Ausfallzeit. Typischer Standard-SLA fuer Geschaeftsanwendungen."},
+{id:59,b:"9.6",t:"Service Level",q:"Was bedeutet 99,99% Verfuegbarkeit?",o:["Ca. 8 Stunden","Ca. 52 Minuten Ausfallzeit pro Jahr (Four Nines)","Keine Ausfallzeit","Ca. 1 Stunde"],a:1,f:"99,99% (Four Nines): 8.760h x 0,01% = 52,56 Minuten/Jahr. Typisch fuer kritische Finanz- oder Gesundheitssysteme."},
+{id:60,b:"9.6",t:"Service Level",q:"Was ist Service Level Reporting?",o:["Ticketliste","Kostenabrechnung","Kundenbefragung","Regelmaessige Berichte ueber erreichte vs vereinbarte Service Levels - Grundlage fuer Reviews"],a:3,f:"SL-Reporting: monatlich. Verfuegbarkeit, SLA-Compliance, Incident-Statistiken, Trends. Basis fuer Service Review Meetings."},
+{id:61,b:"9.6",t:"Service Level",q:"Was ist ein Service Review Meeting?",o:["Technisches Meeting","Incident-Besprechung","Regelmaessiges Meeting zwischen Provider und Kunden: SLA-Performance reviewen, Verbesserungen planen","Produktrueckblick"],a:2,f:"Service Review Meeting: monatlich/quartaerlich. SL-Berichte reviewen, Kundenzufriedenheit, Probleme besprechen, Massnahmen vereinbaren."},
+{id:62,b:"9.6",t:"Service Level",q:"Was sind Service Credits?",o:["Kundenkredite","Bonuspunkte","Zahlungsaufschub","Kompensation bei SLA-Verletzungen: Gutschrift auf naechste Rechnung"],a:3,f:"Service Credits: bei SLA-Verletzung erhalt Kunde Gutschrift. Begrenzt finanzielle Haftung, gibt Kunden Kompensation."},
+{id:63,b:"9.6",t:"Service Level",q:"Was ist ein Wartungsfenster?",o:["Definierter Zeitraum fuer planmaessige Wartung - Ausfall zaehlt nicht als SLA-Verletzung","Urlaubszeiten","Support-Pause","Nachtruhe"],a:0,f:"Wartungsfenster: z.B. Sonntag 02:00-04:00. Im SLA definiert. Kunden muessen rechtzeitig informiert werden."},
+{id:64,b:"9.6",t:"Service Level",q:"Was ist SLA-Compliance?",o:["Kundennachweis","SLA unterschreiben","Technische Einhaltung","Prozentualer Anteil eingehaltener SLAs in einem Zeitraum"],a:3,f:"SLA-Compliance: z.B. 97,5% aller P1-Incidents letzten Monat innerhalb SLA geloest. Ziel: 99%+."},
+{id:65,b:"9.6",t:"Service Level",q:"Was ist ein Eskalationspfad im SLA?",o:["Konfliktloesung","Incident-Prozess","Support-Hierarchie","Definition wer kontaktiert wird wenn SLAs gefaehrdet oder verletzt werden"],a:3,f:"Eskalationspfad: P1 30min nicht geloest -> Support-Manager. 60min -> IT-Leitung. 2h -> Geschaeftsfuehrung."},
+{id:66,b:"9.6",t:"Service Level",q:"Was ist Continual Service Improvement (CSI)?",o:["Kundenzufriedenheit","ITIL-Disziplin: kontinuierliche Analyse und Verbesserung von IT-Services basierend auf Daten","Kostensenkung","Einmalige Verbesserung"],a:1,f:"CSI: PDCA-Zyklus fuer IT-Services. Messen, Analysieren, Verbessern, wiederholen. Grundlage: SL-Reporting, Kundenfeedback."},
+{id:67,b:"9.6",t:"Service Level",q:"Was ist Service Level Management (SLM)?",o:["Supportmanagement","Change Management","ITIL-Prozess: SLAs verhandeln, ueberwachen, berichten und verbessern","Incident Management"],a:2,f:"SLM: verantwortlich fuer SLA-Lebenszyklus. SLR erfassen, SLA verhandeln, OLAs/UCs sicherstellen, Reporting, Reviews."},
+{id:68,b:"9.6",t:"Service Level",q:"Was ist Mitwirkungspflicht des Kunden?",o:["Kunde muss beitragen: Probleme melden, Ansprechpartner benennen, Systeme zugaenglich machen","Keine Pflichten","Nur Feedback","Nur zahlen"],a:0,f:"Mitwirkung: Kunde muss Probleme zeitnah melden, Zugang gewaehren, Ansprechpartner erreichbar halten. Sonst kein SLA-Anspruch."},
+{id:69,b:"9.6",t:"Service Level",q:"Was ist ein XLA (Experience Level Agreement)?",o:["Beispiel-SLA","Erweitertes SLA","Externes SLA","Modernes Konzept: misst tatsaechliche Nutzererfahrung statt nur technische Metriken"],a:3,f:"XLA: misst was Nutzer tatsaechlich erleben, nicht nur ob Systeme laufen. CSAT, NPS als XLA-Metriken."},
+{id:70,b:"9.6",t:"Service Level",q:"Was ist ein SLR (Service Level Requirement)?",o:["Technische Anforderung","OLA","Kundenbeduerrnisse als Grundlage fuer SLA-Verhandlung: welche Verfuegbarkeit? Welche Reaktionszeiten?","SLA selbst"],a:2,f:"SLR: was braucht der Kunde? Erfasst vor SLA-Verhandlung. SLR -> Verhandlung -> SLA."},
+{id:71,b:"9.6",t:"Service Level",q:"Was ist Verfuegbarkeitsplanung?",o:["Proaktive Planung der Infrastruktur und Massnahmen um SLA-Verfuegbarkeit sicherzustellen","Supportplanung","Kapazitaetsplanung","Urlaubsplanung"],a:0,f:"Verfuegbarkeitsplanung: Was brauchen wir fuer 99,9%? Redundante Server, RAID, USV, Monitoring, Wartungsfenster."},
+{id:72,b:"9.6",t:"Service Level",q:"Was ist ein SLA-Dashboard?",o:["Sportarmaturenbrett","Echtzeit-Anzeige: welche Tickets naehern sich SLA-Verletzung, aktuelle Verfuegbarkeit, offene P1-Incidents","Kostenuebersicht","Kundendashboard"],a:1,f:"SLA-Dashboard: Support-Manager sieht in Echtzeit Tickets nach Prioritaet und SLA-Faelligkeit, Verfuegbarkeit, CSAT."},
+{id:73,b:"9.6",t:"Service Level",q:"Was sind KPIs im Service Level Management?",o:["Service Catalog","Verfuegbarkeit, MTTR, FCR, SLA-Compliance, CSAT - Kennzahlen die Leistung messen","SLA selbst","Kundenpraeferenz"],a:1,f:"KPIs im SLM: Verfuegbarkeit, MTTR, First Call Resolution, SLA-Compliance, CSAT. Zeigen ob SLA-Ziele erreicht werden."},
+{id:74,b:"9.6",t:"Service Level",q:"Was ist Baseline im SLM?",o:["Mindestanforderung","Ausgangszustand der Performance als Vergleich fuer Verbesserungen","SLA selbst","Reporting"],a:1,f:"Baseline: Ist-Zustand messen vor Massnahmen. Aktuelle MTTR = 4,5h, Ziel = 3h. Ermoeglicht Messung des Verbesserungseffekts."},
+{id:75,b:"9.6",t:"Service Level",q:"Was ist ein SLA-Review?",o:["Technischer Review","Kundenbefragung","Regelmaessige Ueberpruefung ob SLA noch aktuell ist: Aenderungen in Anforderungen, neue Technologien","Incident Review"],a:2,f:"SLA-Review: jaehrlich oder bei wesentlichen Aenderungen. Noch aktuell? Regelmaessig verletzt (-> Anpassung)? Neue Services aufnehmen?"},
+{id:76,b:"9.6",t:"Service Level",q:"Was sind Verfuegbarkeitszeiten im SLA?",o:["Zeiten in denen Service verfuegbar sein muss: Mo-Fr 08:00-18:00 oder 24/7","Reaktionszeiten","Wartungszeiten","Loesungszeiten"],a:0,f:"Verfuegbarkeitszeiten: Standard = Geschaeftszeiten. Extended = laenger. 24/7 = staendig. Wartungsfenster separat definiert."},
+{id:77,b:"9.6",t:"Service Level",q:"Was ist Service Degradation?",o:["Update","Service-Ende","Wartung","Verschlechterung ohne vollstaendigen Ausfall: langsamere Zeiten, reduzierte Funktionen - kann SLA verletzen"],a:3,f:"Service Degradation: Service laeuft aber schlechter. Ladezeiten von 2s auf 30s. Performance-SLA kann verletzt sein."},
+{id:78,b:"9.6",t:"Service Level",q:"Was ist ISO 20000?",o:["Internationaler Standard fuer IT-Service-Management - auditierbar und zertifizierbar (anders als ITIL)","Datenschutzstandard","Qualitaetsstandard allgemein","Sicherheitsstandard"],a:0,f:"ISO/IEC 20000: formaler ITSM-Standard, auditierbar und zertifizierbar. Beinhaltet Anforderungen fuer Service Management inkl. SLA."},
+{id:79,b:"9.6",t:"Service Level",q:"Was ist ein Service Window?",o:["Wartungsfenster","Zugangsfenster","Zeitraum in dem Service verfuegbar sein muss - ausserhalb kein SLA-Anspruch","Supportfenster"],a:2,f:"Service Window: z.B. Mo-Fr 7-19 Uhr. Ausserhalb: kein SLA-Anspruch. Beeinflusst Support-Kosten."},
+{id:80,b:"9.6",t:"Service Level",q:"Was ist Business Hours vs 24/7 SLA?",o:["Business Hours reichen nie","Business Hours: SLA nur waehrend Geschaeftszeiten. 24/7: SLA staendig. Letzteres teurer","24/7 immer noetig","Kein Unterschied"],a:1,f:"Business Hours: guenstiger, fuer interne Bueroanwendungen. 24/7: teurer, fuer E-Commerce, globale Dienste, kritische Infrastruktur."},
+{id:81,b:"9.6",t:"Service Level",q:"Was ist Penalty im SLA?",o:["Technische Massnahme","Nur Credits","Vertraglich vereinbarte Konsequenz bei SLA-Verletzung: finanzielle Strafe oder Service Credits","Kundenforderung"],a:2,f:"Penalty: SLA verletzt -> Konsequenz. 5% Monatsrechnung als Credit. Motiviert Provider zur SLA-Einhaltung."},
+{id:82,b:"9.6",t:"Service Level",q:"Was ist ein Lebenszyklus eines SLA?",o:["SLR -> Verhandlung -> SLA -> Betrieb (Monitoring, Reporting) -> Review -> Anpassung oder Erneuerung","Nur Erstellung","Nur Betrieb","Unterzeichnung und fertig"],a:0,f:"SLA-Lebenszyklus: SLR erfassen, SLA verhandeln und unterschreiben, Betrieb mit Monitoring, regelmaessige Reviews, Anpassung."},
+{id:83,b:"9.6",t:"Service Level",q:"Was ist Kapazitaetsplanung im SLM-Kontext?",o:["Budgetplanung","Speicherplanung","Sicherstellen dass genug Ressourcen vorhanden sind um SLAs auch bei Lastspitzen zu erfuellen","Projektplanung"],a:2,f:"Kapazitaetsplanung: Wachstum vorhersagen, Lastspitzen planen (Jahresabschluss), Infrastruktur rechtzeitig ausbauen."},
+{id:84,b:"9.6",t:"Service Level",q:"Was ist Cloud-SLA (AWS, Azure)?",o:["Cloud-Provider veroeffentlichen SLAs: AWS EC2 99,99% - Verletzung -> Service Credits","Kein SLA bei Cloud","Kein Unterschied","Intern verwaltet"],a:0,f:"Cloud-SLAs: AWS S3=99,9%, EC2=99,99%. Bei Verletzung: Service Credits. Wichtig: deckt nur Infrastruktur, nicht Anwendung."},
+{id:85,b:"9.6",t:"Service Level",q:"Was ist SLO (Service Level Objective)?",o:["OLA","Internes Ziel ohne rechtliche Konsequenzen - oft strenger als SLA gesetzt als Puffer","Externes SLA","Identisch mit SLA"],a:1,f:"SLO: internes Ziel, z.B. 99,95% intern angestrebt obwohl SLA 99,9% verlangt. Warnsystem vor SLA-Verletzung."},
+{id:86,b:"9.6",t:"Service Level",q:"Was ist SLA Breach Notification?",o:["Technische Meldung","Kundenwerbung","Systemalert","Automatische Benachrichtigung wenn SLA verletzt wurde oder kurz vor Verletzung steht"],a:3,f:"SLA Breach Notification: 15 Min vor Deadline -> Bearbeiter. 5 Min -> Manager. Automatische Eskalation. Kunden bei Verletzung informieren."},
+{id:87,b:"9.6",t:"Service Level",q:"Was ist ein Service Report?",o:["Rechnung","Fehlerbericht","Incident Report","Regelmaessiger Bericht ueber geleistete Services und erreichte Service Levels"],a:3,f:"Service Report: monatlich/quartaerlich. Verfuegbarkeit, SLA-Compliance, CSAT, grosse Incidents, Verbesserungsmassnahmen."},
+{id:88,b:"9.6",t:"Service Level",q:"Was ist Managed Service im SLA-Kontext?",o:["Service managen","Normaler Support","Projekt","Provider uebernimmt vollstaendig Betrieb und SLA-Verantwortung gegen Pauschalgebuehr"],a:3,f:"Managed Service: Betrieb, Monitoring, Patch Management, SLA-Reporting durch externen Provider. Kunde zahlt Pauschale."},
+{id:89,b:"9.6",t:"Service Level",q:"Was ist Service Level vs Service Level Agreement?",o:["Identisch","SLA ist staerker","Service Level ist formeller","Service Level: die Qualitaetsstufe (z.B. 99,9% Verfuegbarkeit). SLA: der Vertrag der diese Stufe definiert"],a:3,f:"Service Level: die definierte Qualitaetsstufe. SLA: der verbindliche Vertrag der Service Level, Messung und Konsequenzen regelt."},
+{id:90,b:"9.6",t:"Service Level",q:"Was ist Burn-in-Period (Penalty-freier Zeitraum)?",o:["Kostenloses Abo","Zeitraum nach Vertragsstart ohne Penalties - gibt Zeit zum Stabilisieren (z.B. erste 3 Monate nach Go-Live)","Kostenlos","Urlaub des Providers"],a:1,f:"Penalty-freier Zeitraum: neue Systeme haben Kinderkrankheiten. Grace Period: z.B. 3 Monate. Danach voller SLA."},
+{id:91,b:"9.6",t:"Service Level",q:"Was ist Downtime im SLA-Kontext?",o:["Zeit in der ein Service nicht verfuegbar ist - wird fuer Verfuegbarkeitsberechnung gemessen","Wartungszeit","Support-Pause","Urlaub"],a:0,f:"Downtime: ungeplant (SLA-relevant) oder geplant (Wartungsfenster, SLA-ausgenommen). Genau messen und dokumentieren."},
+{id:92,b:"9.6",t:"Service Level",q:"Was ist Penalty-Berechnung?",o:["Nur bei wiederholten Verletzungen","Einmalig","Beliebig","Meist prozentual: z.B. 5% der Monatsgebuehr pro verletzter SLA-Kennzahl, oft mit Cap (max. 20%)"],a:3,f:"Penalty-Berechnung: klar im SLA definiert. z.B. 5% fuer Verfuegbarkeits-SLA-Verletzung, 3% fuer Reaktionszeit, max. 20% gesamt."},
+{id:93,b:"9.6",t:"Service Level",q:"Was ist ISO 9001 im Service-Kontext?",o:["Datenschutz","Qualitaetsmanagementsystem-Standard - kann auch auf IT-Service-Prozesse angewendet werden","Sicherheitsstandard","IT-Standard"],a:1,f:"ISO 9001: allgemeiner QM-Standard. Kann auf IT-Services angewendet werden. Fokus auf Prozessqualitaet und kontinuierliche Verbesserung."},
+{id:94,b:"9.6",t:"Service Level",q:"Was ist Verfuegbarkeits-Monitoring?",o:["Automatisiertes Messen und Protokollieren der tatsaechlichen Service-Verfuegbarkeit fuer SLA-Reporting","Log-Analyse","Kundenueberwachung","Mitarbeiterkontrolle"],a:0,f:"Verfuegbarkeits-Monitoring: Tools messen kontinuierlich ob Service erreichbar ist. Ausfaelle werden protokolliert. Basis fuer SLA-Compliance-Berechnung."},
+{id:95,b:"9.6",t:"Service Level",q:"Was ist Time-Based SLA?",o:["Jaehrlicher SLA","Preisabhaengig von Zeit","Tageszeit-SLA","SLA-Metriken in Stunden oder Minuten gemessen: Uhr laeuft ab Ticket-Erstellung"],a:3,f:"Time-Based SLA: Zeituhren ab Ticket. SLA-Uhr pausierbar wenn auf Kunden gewartet wird (Wartet auf Benutzer)."},
+{id:96,b:"9.6",t:"Service Level",q:"Was unterscheidet OLA und UC?",o:["OLA ist extern","Identisch","UC ist intern","OLA: intern zwischen IT-Teams. UC: extern mit Lieferanten. Beide unterstuetzen SLA-Einhaltung"],a:3,f:"OLA: internes Abkommen (z.B. Service Desk + Netzwerk-Team). UC: Lieferantenvertrag (Internet-Provider, Hosting)."},
+{id:97,b:"9.6",t:"Service Level",q:"Was ist ein Service Level Requirement (SLR)?",o:["Kundenbeduerrnisse als Grundlage fuer SLA-Verhandlung - vor SLA-Abschluss ermittelt","OLA","SLA selbst","Anforderungsliste des Providers"],a:0,f:"SLR: was braucht der Kunde wirklich? Interviews, Workshops. Ergebnis ist Input fuer SLA-Verhandlung."},
+{id:98,b:"9.6",t:"Service Level",q:"Was ist ein Service Catalog Management?",o:["Produktmarketing","Verwaltung des Service Katalogs: neue Services aufnehmen, veraltete entfernen, SLAs aktualisieren","Incident Management","Kundenmanagement"],a:1,f:"Service Catalogue Management: pflegt den Service Catalog. Neue Services, SLA-Anpassungen, Beschreibungen aktuell halten."},
+{id:99,b:"9.6",t:"Service Level",q:"Was ist SLA-Monitoring?",o:["Automatisierte Verfolgung ob SLA-Ziele in Echtzeit eingehalten werden - Alerting bei Abweichungen","Mitarbeiterkontrolle","Log-Analyse","Kundenueberwachung"],a:0,f:"SLA-Monitoring: Ticketsystem und Monitoring-Tools verfolgen SLA-Einhaltung. Frueuhwarnung bevor Verletzung eintritt."},
+{id:100,b:"9.6",t:"Service Level",q:"Was ist der Zusammenhang SLA - OLA - UC?",o:["SLA (mit Kunden) wird durch OLAs (intern) und UCs (Lieferanten) unterstuetzt und ermoeglichen","UC ersetzt SLA","SLA ersetzt OLA","Kein Zusammenhang"],a:0,f:"Hierarchie: SLA definiert Kundenversprechen. OLAs regeln interne Unterstuetzung. UCs sichern externe Lieferantenleistungen. Alle muessen aufeinander abgestimmt sein."}
+];
+
+let st={},filt=[...Q];
+function init(){Q.forEach(q=>{st[q.id]={done:false,ok:null};});render();}
+function render(){
+  const c=document.getElementById("qc");c.innerHTML="";
+  let lb=null;
+  filt.forEach(q=>{
+    if(q.b!==lb){const d=document.createElement("div");d.className="bh";d.textContent=BN[q.b]||q.b;c.appendChild(d);lb=q.b;}
+    c.appendChild(mk(q));
+  });up();}
+function mk(q){
+  const s=st[q.id],d=document.createElement("div"),L=["A","B","C","D"];
+  d.className="qc"+(s.done?(s.ok?" ac":" aw"):"");d.id="c"+q.id;
+  d.innerHTML=`<div class="qn">FRAGE ${q.id}/${Q.length}</div><div class="qt">${q.t}</div><div class="qq">${q.q}</div>
+<div class="opts">${q.o.map((o,i)=>`<div class="opt${s.done?" dis":""}${s.done&&i===q.a?" ok":""}${s.done&&!s.ok&&i===s.ci?" ng":""}" onclick="ans(${q.id},${i})"><span class="ol">${L[i]}</span><span>${o}</span></div>`).join("")}</div>
+<div class="fbb${s.done?" show "+(s.ok?"cok":"cng"):""}" id="f${q.id}">${s.done?(s.ok?"✅ ":"❌ ")+q.f:""}</div>`;
+  return d;}
+function ans(id,i){
+  const s=st[id];if(s.done)return;
+  const q=Q.find(x=>x.id===id);s.done=true;s.ok=i===q.a;s.ci=i;
+  const c=document.getElementById("c"+id);c.className="qc "+(s.ok?"ac":"aw");
+  c.querySelectorAll(".opt").forEach((el,j)=>{el.classList.add("dis");if(j===q.a)el.classList.add("ok");if(!s.ok&&j===i)el.classList.add("ng");});
+  const f=document.getElementById("f"+id);f.textContent=(s.ok?"✅ ":"❌ ")+q.f;f.className="fbb show "+(s.ok?"cok":"cng");up();}
+function up(){
+  const tot=Q.length,done=Object.values(st).filter(s=>s.done).length,ok=Object.values(st).filter(s=>s.ok).length;
+  document.getElementById("sd").textContent=ok+"/"+done;
+  document.getElementById("pf").style.width=(done/tot*100)+"%";
+  document.getElementById("pl").textContent=done+" von "+tot+" beantwortet";}
+function fil(t,btn){
+  document.querySelectorAll(".fb").forEach(b=>b.classList.remove("act"));btn.classList.add("act");
+  if(t==="all")filt=[...Q];
+  else if(t==="open")filt=Q.filter(q=>!st[q.id].done);
+  else if(t==="wrong")filt=Q.filter(q=>st[q.id].done&&!st[q.id].ok);
+  else filt=Q.filter(q=>q.b===t);render();}
+function shuf(){filt=[...filt].sort(()=>Math.random()-.5);render();}
+function rst(){Q.forEach(q=>{st[q.id]={done:false,ok:null};});filt=[...Q];document.querySelectorAll(".fb").forEach((b,i)=>b.classList.toggle("act",i===0));render();document.getElementById("ov").classList.remove("show");}
+function showR(){
+  const done=Object.values(st).filter(s=>s.done).length,ok=Object.values(st).filter(s=>s.ok).length;
+  const pct=done>0?Math.round(ok/done*100):0;
+  let e="😅",m="Weiter ueben!";
+  if(pct>=90){e="🏆";m="Ausgezeichnet!";}else if(pct>=75){e="🎉";m="Sehr gut!";}else if(pct>=60){e="📚";m="Gut weiter so!";}
+  document.getElementById("oe").textContent=e;document.getElementById("os").textContent=ok+"/"+done;
+  document.getElementById("om").textContent=pct+"% richtig - "+m;
+  document.getElementById("ov").classList.add("show");}
+function closeR(){document.getElementById("ov").classList.remove("show");}
+init();
+</script></body></html>

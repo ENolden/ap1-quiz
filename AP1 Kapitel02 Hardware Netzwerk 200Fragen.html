@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AP1 Quiz – Kapitel 2: Hardware & Netzwerk | 200 Fragen</title>
+<style>
+:root{--bg:#0a0c12;--s:#13161f;--s2:#1c2030;--b:#252a3d;--a:#22d3ee;--a2:#06d6a0;--r:#ff4d6d;--g:#06d6a0;--y:#ffd166;--t:#e8eaf6;--t2:#8890aa;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--t);font-family:"Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.6;}
+.hdr{background:linear-gradient(135deg,#13161f,#1c2030);border-bottom:2px solid var(--b);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:100;}
+.htitle{font-size:20px;font-weight:800;background:linear-gradient(90deg,var(--a),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.pb{width:200px;height:8px;background:var(--b);border-radius:4px;overflow:hidden;}
+.pf{height:100%;background:linear-gradient(90deg,var(--a),var(--a2));transition:width .3s;border-radius:4px;}
+.pt{font-size:12px;color:var(--t2);}
+.sb{background:var(--s2);border:1px solid var(--b);border-radius:20px;padding:4px 14px;font-size:13px;font-weight:700;color:var(--a2);}
+.ctrl{padding:10px 22px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--b);}
+.btn{border:none;padding:7px 15px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;}
+.ba{background:var(--a);color:#000;} .bs{background:var(--s2);border:1px solid var(--b);color:var(--t);} .bd{background:var(--r);color:#fff;} .bg{background:var(--g);color:#111;}
+.sr{margin-left:auto;display:flex;gap:12px;font-size:13px;color:var(--t2);}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:4px;}
+.dg{background:var(--g);} .dr{background:var(--r);} .dy{background:var(--y);}
+.flt{padding:8px 22px;background:var(--s);border-bottom:1px solid var(--b);display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.fb{background:var(--s2);border:1px solid var(--b);color:var(--t2);padding:4px 10px;border-radius:20px;cursor:pointer;font-size:12px;}
+.fb.ac{background:var(--a);border-color:var(--a);color:#000;}
+.fb.aa{background:var(--a2);border-color:var(--a2);color:#111;font-weight:700;}
+.si input{background:var(--s2);border:1px solid var(--b);color:var(--t);padding:5px 12px;border-radius:8px;font-size:13px;outline:none;width:160px;margin-left:auto;}
+.si input:focus{border-color:var(--a);}
+.qc{padding:18px 22px;max-width:1600px;margin:0 auto;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:13px;}
+.card{background:var(--s);border:1.5px solid var(--b);border-radius:14px;overflow:hidden;}
+.card.ok{border-color:var(--g);} .card.err{border-color:var(--r);}
+.qh{padding:9px 13px;background:var(--s2);display:flex;justify-content:space-between;border-bottom:1px solid var(--b);}
+.qn{font-size:11px;font-weight:700;color:var(--t2);}
+.card.ok .qn::before{content:"✓ ";color:var(--g);} .card.err .qn::before{content:"✗ ";color:var(--r);}
+.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;background:var(--b);color:var(--a);}
+.qb{padding:11px 13px;}
+.qt{font-size:14px;margin-bottom:8px;line-height:1.5;}
+.ops{display:flex;flex-direction:column;gap:5px;}
+.op{display:flex;align-items:flex-start;gap:9px;padding:8px 11px;border:1.5px solid var(--b);border-radius:9px;cursor:pointer;background:var(--s2);}
+.op:hover:not(.dis){border-color:var(--a);}
+.op.sel{border-color:var(--a);background:#0d2030;}
+.op.cor{border-color:var(--g)!important;background:#071a12!important;}
+.op.wrg{border-color:var(--r)!important;background:#1a0710!important;}
+.op.dis{cursor:default;}
+.ol{width:20px;height:20px;min-width:20px;border-radius:50%;background:var(--b);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px;}
+.op.cor .ol{background:var(--g);color:#111;} .op.wrg .ol{background:var(--r);color:#fff;} .op.sel:not(.cor):not(.wrg) .ol{background:var(--a);color:#000;}
+.ot{font-size:13px;line-height:1.4;}
+.exp{margin-top:8px;padding:9px 11px;background:#071a12;border-left:3px solid var(--g);border-radius:0 8px 8px 0;font-size:13px;color:#a7f3d0;display:none;}
+.exp.show{display:block;} .exp.werr{background:#1a0710;border-color:var(--r);color:#fca5a5;}
+.sh{grid-column:1/-1;background:var(--s2);border:1.5px solid var(--b);border-radius:12px;padding:11px 16px;font-size:14px;font-weight:700;margin-top:6px;color:var(--a);}
+.rp{display:none;background:var(--s);border:2px solid var(--b);border-radius:14px;padding:22px;margin-bottom:18px;text-align:center;}
+.rp.show{display:block;}
+.rscore{font-size:50px;font-weight:900;background:linear-gradient(90deg,var(--a),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.rlbl{color:var(--t2);margin-bottom:12px;} .rgrade{font-size:18px;font-weight:700;margin-bottom:10px;}
+.rstats{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:12px;}
+.rst{background:var(--s2);border:1px solid var(--b);border-radius:12px;padding:9px 16px;}
+.rsv{font-size:22px;font-weight:800;} .rsl{font-size:12px;color:var(--t2);}
+@media(max-width:600px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div>
+    <div class="htitle">💻 Kapitel 2 – Hardware & Netzwerk</div>
+    <div style="font-size:12px;color:var(--t2)">200 Fragen · CPU · RAM · Speicher · OSI · Netzwerk · USV · Energie</div>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <div><div class="pb"><div class="pf" id="pf" style="width:0%"></div></div><div class="pt" id="pt">0 / 200</div></div>
+    <div class="sb" id="sb">0 Pkt</div>
+  </div>
+</div>
+<div class="flt">
+  <button class="fb ac" onclick="ft('all',this)">Alle</button>
+  <button class="fb" onclick="ft('cpu',this)">⚙️ CPU</button>
+  <button class="fb" onclick="ft('ram',this)">🧠 RAM/Speicher</button>
+  <button class="fb" onclick="ft('netz',this)">🌐 Netzwerk</button>
+  <button class="fb" onclick="ft('osi',this)">📶 OSI</button>
+  <button class="fb" onclick="ft('usv',this)">🔋 USV/Energie</button>
+  <button class="fb" onclick="ft('hw',this)">🖥️ Hardware allg.</button>
+  <button class="fb" onclick="fs('open',this)">⬜ Offen</button>
+  <button class="fb" onclick="fs('wrong',this)">❌ Falsch</button>
+  <div class="si"><input id="si" placeholder="🔍 Suche..." oninput="fsearch()"></div>
+</div>
+<div class="ctrl">
+  <button class="btn ba" onclick="shuffle()">🔀 Mischen</button>
+  <button class="btn bs" onclick="showall()">👁 Alle</button>
+  <button class="btn bd" onclick="resetAll()">↺ Reset</button>
+  <button class="btn bg" onclick="showRes()">📊 Ergebnis</button>
+  <div class="sr">
+    <span><span class="dot dg"></span><span id="sc">0</span> richtig</span>
+    <span><span class="dot dr"></span><span id="sw">0</span> falsch</span>
+    <span><span class="dot dy"></span><span id="so">200</span> offen</span>
+  </div>
+</div>
+<div class="qc">
+  <div class="rp" id="rp">
+    <div class="rscore" id="rs">0%</div><div class="rlbl">Ergebnis Kapitel 2</div>
+    <div class="rgrade" id="rg"></div>
+    <div class="rstats">
+      <div class="rst"><div class="rsv" id="rc" style="color:var(--g)">0</div><div class="rsl">Richtig</div></div>
+      <div class="rst"><div class="rsv" id="rw" style="color:var(--r)">0</div><div class="rsl">Falsch</div></div>
+      <div class="rst"><div class="rsv" id="ro" style="color:var(--y)">0</div><div class="rsl">Offen</div></div>
+      <div class="rst"><div class="rsv" id="rpts" style="color:var(--a)">0</div><div class="rsl">Punkte</div></div>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+<script>
+const Q=[
+{id:1,t:"cpu",q:"Was ist die ALU in der CPU?",o:["Arithmetic Logic Unit – führt arithmetische und logische Operationen durch","Ein/Ausgabeeinheit","Steuereinheit","Speichereinheit"],a:0,e:"ALU = Rechenwerk: Addition, Subtraktion, AND, OR, NOT, XOR. Kernkomponente jeder CPU."},
+{id:2,t:"cpu",q:"Was macht die Control Unit (CU) der CPU?",o:["Speichert Daten dauerhaft","Führt Berechnungen durch","Steuert Fetch-Decode-Execute-Zyklus: holt Befehle aus Speicher, dekodiert und koordiniert Ausführung","Verwaltet WLAN"],a:2,e:"CU = Steuerwerk: Fetch (Befehl holen) → Decode (interpretieren) → Execute (ausführen) → Write-back."},
+{id:3,t:"cpu",q:"Was ist der Unterschied zwischen Harvard- und Von-Neumann-Architektur?",o:["Kein Unterschied","Von Neumann ist schneller","Harvard: GETRENNTE Busse für Programm und Daten (Mikrocontroller). Von Neumann: GEMEINSAMER Bus und Speicher (PCs)","Harvard ist veraltet"],a:2,e:"Von Neumann-Flaschenhals: gemeinsamer Bus kann Programm ODER Daten übertragen, nie beides gleichzeitig."},
+{id:4,t:"cpu",q:"Was ist der Adressbus?",o:["Überträgt Steuersignale","Transportiert Daten","Verbindet CPU mit GPU","Übermittelt die Adresse (Speicherstelle) auf die zugegriffen wird – Breite bestimmt max. adressierbaren RAM"],a:3,e:"32-Bit-Adressbus: 2^32 = 4 GiB max. RAM. 64-Bit: theoretisch 16 EiB."},
+{id:5,t:"cpu",q:"Was ist der Datenbus?",o:["Verbindet mit Internet","Transportiert Daten zwischen CPU, RAM und Peripherie – Breite bestimmt Datenmenge pro Takt","Adressiert Speicherzellen","Überträgt Steuersignale"],a:1,e:"64-Bit-Datenbus: 8 Byte pro Taktzyklus übertragbar. Breiter Bus = höhere Bandbreite."},
+{id:6,t:"cpu",q:"Was ist CISC?",o:["Complex Instruction Set Computer – viele komplexe Befehle, mehrere Taktzyklen je Befehl (x86/x64, Intel/AMD)","Reduced Instruction Set Computer","Ein Netzwerkprotokoll","Ein RAM-Typ"],a:0,e:"CISC (x86): Windows/Linux-PCs, Server. Vorteil: kompakter Code. Nachteil: komplexe Hardware."},
+{id:7,t:"cpu",q:"Was ist RISC?",o:["Ein Dateisystem","Complex Instruction Set","Ein Netzwerkprotokoll","Reduced Instruction Set Computer – wenige einfache Befehle, jeder genau 1 Taktzyklus (ARM, Apple M-Chips)"],a:3,e:"RISC (ARM): Smartphones, Apple M1/M2/M3, Raspberry Pi. Energieeffizienter als CISC."},
+{id:8,t:"cpu",q:"Was sind CPU-Register?",o:["Festplattenspeicher","RAM-Module","Sehr schnelle Speicherzellen direkt in der CPU für temporäre Berechnungswerte","Cache-Speicher"],a:2,e:"Register: schnellster Speicher (< 1 ns). Akkumulator, Instruction Pointer, Stack Pointer, Flags-Register."},
+{id:9,t:"cpu",q:"Was ist der CPU-Cache und welche Ebenen gibt es?",o:["Grafikkartenspeicher","Festplattenpuffer","RAM-Erweiterung","Schneller Pufferspeicher zwischen CPU und RAM: L1 (schnellst/kleinst), L2, L3 (langsamer/größer)"],a:3,e:"L1: ~32-512 KB, <1 ns. L2: ~256 KB-4 MB, ~3 ns. L3: 4-64 MB, ~10 ns. Reduziert RAM-Zugriffe."},
+{id:10,t:"cpu",q:"Was ist Hyper-Threading (Intel) / SMT (AMD)?",o:["Technologie die einen physischen Kern als zwei logische Kerne erscheinen lässt – erhöht Auslastung","Eine Übertaktungsmethode","Zwei physische Kerne","Ein Cache-Typ"],a:0,e:"Hyper-Threading: zwei Threads gleichzeitig auf einem Kern. CPU-Ressourcen besser ausgelastet. Nicht 2× Leistung!"},
+{id:11,t:"cpu",q:"Was ist die Taktfrequenz der CPU?",o:["Stromverbrauch","Anzahl der Kerne","Speichergröße","Anzahl der Taktzyklen pro Sekunde (GHz) – bestimmt wie viele Befehle pro Sekunde ausgeführt werden können"],a:3,e:"3 GHz = 3 Milliarden Taktzyklen/Sekunde. Mehr GHz ≠ immer schneller (IPC, Kerne, Cache wichtiger)."},
+{id:12,t:"cpu",q:"Was ist Overclocking?",o:["Erhöhen der CPU-Taktfrequenz über den Standardwert hinaus – mehr Leistung, aber mehr Hitze und Instabilität","CPU kühlen","Sicheres Takterhöhen","Energie sparen"],a:0,e:"Overclocking: Basisfrequenz oder Multiplikator erhöhen. Risiken: Überhitzung, Instabilität, Garantieverlust."},
+{id:13,t:"cpu",q:"Was ist TDP (Thermal Design Power)?",o:["Netzteileinstufung","Maximale Wärme in Watt die das Kühlsystem abführen muss – gibt Hinweis auf Stromverbrauch und Wärmeentwicklung","Minimaler Stromverbrauch","Maximaler Stromverbrauch"],a:1,e:"TDP: Desktop-CPU ~65-125W, Laptop ~15-45W, Smartphone ~5-10W. Höheres TDP = mehr Kühlung nötig."},
+{id:14,t:"cpu",q:"Was ist der Fetch-Decode-Execute-Zyklus?",o:["Ein Dateisystemvorgang","Eine Backup-Methode","Eine Netzwerkübertragung","Grundprozess der CPU: 1.Fetch=Befehl aus RAM holen, 2.Decode=interpretieren, 3.Execute=ausführen"],a:3,e:"FDE-Zyklus: Instruction Pointer zeigt auf nächsten Befehl. Nach Execute: IP inkrementieren oder springen."},
+{id:15,t:"cpu",q:"Was ist Pipelining?",o:["Technik die mehrere Befehle gleichzeitig in verschiedenen Phasen des FDE-Zyklus verarbeitet","Eine Netzwerktopologie","Datenkompression","Ein Festplattentyp"],a:0,e:"Pipeline: Befehl 1 in Execute, Befehl 2 in Decode, Befehl 3 in Fetch – gleichzeitig. Erhöht Durchsatz."},
+{id:16,t:"cpu",q:"Was ist der Unterschied zwischen 32-Bit und 64-Bit Prozessor?",o:["Kein Unterschied","32-Bit ist schneller","64-Bit: kann mehr als 4 GB RAM adressieren, verarbeitet 8 Byte pro Takt, sicherere Speicherverwaltung","64-Bit braucht mehr RAM"],a:2,e:"32-Bit max 4 GB RAM (2^32 Byte). 64-Bit: theoretisch 16 EiB, praktisch Hunderte GB bis TB."},
+{id:17,t:"cpu",q:"Was ist ein Multi-Core-Prozessor?",o:["CPU mit mehreren unabhängigen Rechenkernen auf einem Chip – parallele Verarbeitung mehrerer Threads","Eine GPU","Eine CPU mit mehr Cache","Ein Server"],a:0,e:"Multi-Core: Dual (2), Quad (4), Octa (8), bis 64+ Kerne (Threadripper). Gut für Parallelaufgaben."},
+{id:18,t:"cpu",q:"Was ist BIOS und was macht es beim Start?",o:["Ein Netzwerkprotokoll","Firmware auf dem Mainboard – initialisiert Hardware beim Start (POST) und lädt den Bootloader des OS","Ein Betriebssystem","Ein Virenscanner"],a:1,e:"BIOS (Basic Input/Output System): POST → Bootgerät suchen → Bootloader laden → OS startet."},
+{id:19,t:"cpu",q:"Was ist UEFI und was unterscheidet es von BIOS?",o:["Moderneres BIOS: grafische Oberfläche, Maus-Support, GPT-Unterstützung (>2TB), Secure Boot, schnellerer Start","Ein Dateisystem","Gleich wie BIOS","Ein Betriebssystem"],a:0,e:"UEFI: Secure Boot verhindert unsignierte Bootloader. GPT: bis 128 Partitionen, 9,4 ZB max. Dateigröße."},
+{id:20,t:"cpu",q:"Was ist Secure Boot?",o:["UEFI-Funktion die nur digital signierte Bootloader/OS-Kernel zulässt – verhindert Bootkits/Rootkits","Ein Virenscanner","Eine Festplattenverschlüsselung","Passwort beim Start"],a:0,e:"Secure Boot: prüft digitale Signatur des Bootloaders gegen Datenbank. Schützt vor UEFI-Malware."},
+{id:21,t:"ram",q:"Was ist SRAM?",o:["Festplattenspeicher","Static RAM – sehr schnell, teuer, kein periodisches Auffrischen nötig → CPU-Cache L1/L2/L3","Günstiger Hauptspeicher","Grafikkartenspeicher"],a:1,e:"SRAM: Flip-Flop-basiert, 4-6 Transistoren pro Bit. Sehr schnell (<1 ns), sehr teuer. Nur für Cache."},
+{id:22,t:"ram",q:"Was ist DRAM?",o:["ROM","Dynamic RAM – muss ständig aufgefrischt werden, günstiger als SRAM → Hauptspeicher (RAM-Riegel)","Schneller Cache","Festplattenspeicher"],a:1,e:"DRAM: Kondensator-basiert, 1 Transistor pro Bit. Günstiger, langsamer als SRAM. Basis für DDR4/DDR5."},
+{id:23,t:"ram",q:"Was bedeutet DDR bei RAM?",o:["Double Data Rate – überträgt an steigender UND fallender Taktflanke → doppelte Datenrate","Dual Device Register","Data Distribution Rate","Double Drive Redundancy"],a:0,e:"DDR: 2 Transfers pro Taktzyklus. DDR4-3200: 3200 MT/s × 8 Byte = 25.600 MB/s (25,6 GB/s)."},
+{id:24,t:"ram",q:"Was ist der Unterschied zwischen DDR4 und DDR5?",o:["DDR5 verbraucht mehr Strom","DDR4 ist schneller","Kein Unterschied","DDR5: höhere Geschwindigkeit (4800+ MT/s), mehr Kapazität pro Modul, niedrigere Spannung (1,1V), aber teurer"],a:3,e:"DDR5: bis 8400 MT/s, bis 128 GB pro Modul, On-Die-ECC. DDR4: bis 3200 MT/s Standard."},
+{id:25,t:"ram",q:"Was ist ECC-RAM?",o:["Enhanced CPU Cache","Extra Cache Controller","Error Correcting Code RAM – erkennt und korrigiert automatisch 1-Bit-Fehler, verhindert Datenverlust (Server)","Extended Capacity Controller"],a:2,e:"ECC: pro 64-Bit Daten 8 zusätzliche Prüfbits. Pflicht für Server, Workstations, Medizin. Leicht langsamer."},
+{id:26,t:"ram",q:"Was ist Dual-Channel-RAM?",o:["Zwei RAM-Bänke unabhängig","Ein Fehlerkorrektur-Modus","Zwei gleiche RAM-Riegel in bestimmten Slots → CPU kann beide gleichzeitig ansprechen → doppelte Bandbreite","Eine RAM-Übertaktung"],a:2,e:"Dual Channel: RAM-Slots richtig belegen! Identische Riegel (Größe, Geschwindigkeit). Bandbreite ×2."},
+{id:27,t:"ram",q:"Was ist virtueller Speicher (Virtual Memory)?",o:["RAM-Erweiterung durch Hardware","Cloud-Speicher","Betriebssystem nutzt Festplattenplatz (Auslagerungsdatei/Swap) als Erweiterung des RAMs – langsamer aber ermöglicht mehr Prozesse","RAM-Cache"],a:2,e:"Swap/Auslagerungsdatei: Windows pagefile.sys, Linux swap partition. Sehr langsam (HDD) oder schnell (SSD)."},
+{id:28,t:"ram",q:"Was ist der Unterschied zwischen ROM und RAM?",o:["RAM ist dauerhafter","ROM: Read Only Memory, nicht flüchtig, Inhalt bleibt ohne Strom. RAM: Random Access, flüchtig, Verlust bei Stromausfall","ROM ist schneller","Kein Unterschied"],a:1,e:"ROM-Varianten: PROM (einmal programmierbar), EPROM (UV-löschbar), EEPROM (elektrisch löschbar), Flash."},
+{id:29,t:"ram",q:"Was ist Flash-Speicher?",o:["Nicht-flüchtiger elektrisch löschbarer Speicher – Basis für USB-Sticks, SSDs, SD-Karten, EEPROM","RAM-Typ","Ein RAM-Typ","Ein Festplattentyp"],a:0,e:"Flash (NAND): NLC (1 Bit/Zelle), MLC (2), TLC (3), QLC (4 Bit/Zelle). Mehr Bits = günstiger, weniger langlebig."},
+{id:30,t:"ram",q:"Was ist der Unterschied zwischen HDD und SSD?",o:["SSD ist billiger","HDD ist schneller","Kein Unterschied","HDD: mechanische Platten (günstig, groß, langsam, anfällig). SSD: Flash-Chips (schnell, robust, leise, teuer pro GB)"],a:3,e:"HDD: 50-200 MB/s, günstig für Archiv. SSD SATA: 500 MB/s. NVMe M.2: bis 7 GB/s!"},
+{id:31,t:"ram",q:"Was ist NVMe?",o:["Non-Volatile Memory Express – Hochgeschwindigkeitsprotokoll für SSDs über PCIe-Schnittstelle (bis 7 GB/s)","Ein RAM-Standard","Ein Dateisystem","Ein Netzwerkprotokoll"],a:0,e:"NVMe: deutlich schneller als SATA (500 MB/s). M.2-Formfaktor. PCIe 4.0 x4: bis 7 GB/s."},
+{id:32,t:"ram",q:"Was ist FAT32?",o:["Linux-Dateisystem","Ein RAM-Standard","Dateisystem für Windows/USB: kompatibel aber maximale Dateigröße 4 GB – bei größeren Dateien exFAT oder NTFS","macOS-Dateisystem"],a:2,e:"FAT32: USB-Sticks, SD-Karten (Kompatibilität). Max 4 GB pro Datei, max 32 GB Partition (Windows-Format)."},
+{id:33,t:"ram",q:"Was ist NTFS?",o:["Ein Netzwerkprotokoll","New Technology File System – Standard Windows-Dateisystem: Berechtigungen, Journaling, große Dateien, Verschlüsselung","macOS-Dateisystem","Linux-Dateisystem"],a:1,e:"NTFS: Berechtigungen (ACL), Journaling (Wiederherstellung), Verschlüsselung (EFS), bis 16 EB Dateigröße."},
+{id:34,t:"ram",q:"Was ist exFAT?",o:["Ein Netzwerkprotokoll","Windows-Standard","Linux-Dateisystem","Optimiert für externe Medien: keine 4-GB-Grenze, kompatibel mit Windows/Mac/Linux – ideal für USB/SD"],a:3,e:"exFAT: für Wechselmedien mit großen Dateien (4K-Video, ISO-Images). Kein Journaling."},
+{id:35,t:"ram",q:"Was ist ein RAID-System?",o:["Ein Netzwerkprotokoll","Redundant Array of Independent Disks – mehrere Festplatten kombinieren für Redundanz und/oder Leistung","Ein Prozessortyp","Ein RAM-Typ"],a:1,e:"RAID 0: Striping (Leistung). RAID 1: Mirroring (Redundanz). RAID 5: Striping+Parität. RAID 10: 1+0."},
+{id:36,t:"ram",q:"Was ist RAID 0?",o:["Parität mit 3 Platten","Spiegelung ohne Redundanz","Striping: Daten auf mehrere Platten verteilt → schneller, aber KEIN Ausfall einer Platte toleriert","Spiegelung mit 2 Platten"],a:2,e:"RAID 0: n×Festplatte = n×Leistung. Eine Platte ausfällt → alle Daten weg. Für Temp-Daten, nicht Produktiv."},
+{id:37,t:"ram",q:"Was ist RAID 1?",o:["Mirroring: identische Daten auf 2 Platten – eine Platte darf ausfallen ohne Datenverlust","Kombination aus 0 und 1","Parität","Striping"],a:0,e:"RAID 1: perfekte Redundanz, kein Geschwindigkeitsgewinn beim Schreiben. Lesen: schneller (beide Platten lesbar)."},
+{id:38,t:"ram",q:"Was ist RAID 5?",o:["Nur Parität","Nur Striping","Nur Spiegelung","Striping mit Parität auf min. 3 Platten – eine Platte darf ausfallen, Daten rekonstruierbar aus Parität"],a:3,e:"RAID 5: gute Balance aus Leistung und Redundanz. (n-1) × Plattenkapazität nutzbar."},
+{id:39,t:"ram",q:"Was ist VRAM?",o:["Video RAM – dedizierter Speicher auf der Grafikkarte für Texturen, Framebuffer, Shader-Daten","Virtueller RAM","Server-RAM","Backup-Speicher"],a:0,e:"VRAM (GDDR6/6X): höhere Bandbreite als DDR5. Mehr VRAM = höhere Auflösungen, bessere Texturen möglich."},
+{id:40,t:"ram",q:"Was ist der Unterschied zwischen SATA und PCIe für SSDs?",o:["SATA ist schneller","SATA: max 600 MB/s (ältere Schnittstelle). PCIe/NVMe: bis 7 GB/s (moderne M.2-SSDs)","PCIe braucht mehr Strom","Kein Unterschied"],a:1,e:"SATA III: 6 Gbit/s = ~600 MB/s. PCIe 4.0 x4: 64 Gbit/s = ~7 GB/s. NVMe nutzt PCIe direkt."},
+{id:41,t:"netz",q:"Was ist DHCP?",o:["Ein E-Mail-Protokoll","Ein Dateiübertragungsprotokoll","Ein Sicherheitsprotokoll","Dynamic Host Configuration Protocol – vergibt automatisch IP, Subnetzmaske, Gateway und DNS an Clients"],a:3,e:"DHCP-Prozess: Discover → Offer → Request → Acknowledge (DORA). DHCP-Lease hat Ablaufzeit."},
+{id:42,t:"netz",q:"Was ist DNS?",o:["Ein VPN-Protokoll","Domain Name System – übersetzt Hostnamen (google.de) in IP-Adressen – 'Telefonbuch des Internets'","Ein IP-Protokoll","Ein E-Mail-Protokoll"],a:1,e:"DNS: Port 53. Hierarchie: Root (.) → TLD (.de) → Domain (google). Caching reduziert Abfragen."},
+{id:43,t:"netz",q:"Was ist NAT?",o:["Ein VPN","Ein DNS-Dienst","Network Address Translation – übersetzt private IPs in öffentliche IP für Internetzugriff","Eine Firewall"],a:2,e:"NAT: Router ersetzt Quell-IP (192.168.x.x) durch öffentliche IP. Ermöglicht viele Geräte mit einer IP."},
+{id:44,t:"netz",q:"Was ist eine IP-Adresse?",o:["Logische Adresse die ein Gerät im Netzwerk eindeutig identifiziert (IPv4: 32 Bit, IPv6: 128 Bit)","Eine physische Adresse","Eine MAC-Adresse","Ein Domainname"],a:0,e:"IP: Schicht 3 (OSI). Statisch (manuell) oder dynamisch (DHCP). Öffentlich (Internet) oder privat (LAN)."},
+{id:45,t:"netz",q:"Was ist IPv4?",o:["Ein Netzwerkgerät","128-Bit-Adressierung","Eine MAC-Adresse","32-Bit-Adressierung in 4 Oktetten (0-255.0-255.0-255.0-255) – ca. 4,3 Mrd. Adressen"],a:3,e:"IPv4: 192.168.1.1 = C0.A8.01.01 hex. Private: 10.x.x.x, 172.16-31.x.x, 192.168.x.x."},
+{id:46,t:"netz",q:"Was ist IPv6 und warum wurde es eingeführt?",o:["Ein Betriebssystem","Eine neue Programmiersprache","128-Bit-Adressierung (340 Sextillionen Adressen) – eingeführt wegen IPv4-Adressknappheit","Ein WLAN-Standard"],a:2,e:"IPv6: 8 Gruppen à 4 Hex-Stellen. ::1 = Loopback. FE80::/10 = Link-Local. Kein NAT nötig."},
+{id:47,t:"netz",q:"Was ist die Loopback-Adresse?",o:["255.255.255.255","127.0.0.1 (IPv4) / ::1 (IPv6) – Datenverkehr bleibt auf dem eigenen Gerät, für lokale Tests","192.168.0.1","10.0.0.1"],a:1,e:"Loopback = localhost. Netzwerkkarte wird nicht verwendet. Testen ob lokaler Server läuft."},
+{id:48,t:"netz",q:"Was ist APIPA?",o:["Automatisch zugewiesene Adresse 169.254.x.x wenn kein DHCP erreichbar – signalisiert Netzwerkproblem","Ein VPN","Ein DNS-Dienst","Ein Firewall-Protokoll"],a:0,e:"APIPA (169.254.0.0/16): Windows/macOS-Fallback. Nur lokale Kommunikation möglich. Kein Internet!"},
+{id:49,t:"netz",q:"Was ist eine Subnetzmaske?",o:["Bestimmt welcher Teil einer IP-Adresse den Netzanteil und welcher den Hostanteil bildet","Ein Gateway","Eine Firewall","Ein Passwort"],a:0,e:"255.255.255.0 = /24: erste 24 Bit Netzanteil, letzte 8 Bit Hostanteil. 2^8-2 = 254 Hosts."},
+{id:50,t:"netz",q:"Was ist eine /24-Subnetzmaske?",o:["255.0.0.0","255.255.255.0 – 24 Bit Netzanteil, 8 Bit Hostanteil, 254 nutzbare Hosts","255.255.255.128","255.255.0.0"],a:1,e:"/24: 254 Hosts. /25: 126. /26: 62. /27: 30. /28: 14. /29: 6. /30: 2. Formel: 2^(32-CIDR)-2."},
+{id:51,t:"netz",q:"Was sind private IPv4-Adressbereiche?",o:["Nur 192.168.x.x","Klasse A: 10.0.0.0/8, Klasse B: 172.16.0.0/12, Klasse C: 192.168.0.0/16 – nicht im Internet routbar","Alle IPs mit 127","Alle IPs sind öffentlich"],a:1,e:"Private IPs: intern im LAN. NAT ermöglicht Internetzugang. Nicht routbar im öffentlichen Internet."},
+{id:52,t:"netz",q:"Was ist ein Router?",o:["Ein Switch","Ein Hub","Ein Access Point","Verbindet verschiedene Netzwerke, routet Pakete anhand IP-Adresse (Layer 3), enthält Routing-Tabelle"],a:3,e:"Router: trifft Weiterleitungsentscheidungen basierend auf IP. Standard-Gateway für LAN-Geräte."},
+{id:53,t:"netz",q:"Was ist ein Switch?",o:["Verbindet WLAN-Clients","Ein Netzwerkkabel","Verbindet verschiedene Netzwerke","Verteilt Netzwerkverkehr im LAN anhand MAC-Adressen (Layer 2) – sendet nur an Zielport"],a:3,e:"Switch: lernt MAC-Adressen in MAC-Tabelle. Sendet nur an Zielport (nicht wie Hub an alle). Effizienter!"},
+{id:54,t:"netz",q:"Was ist ein Hub?",o:["Ein Switch","Verteilt Netzwerkverkehr an ALLE Ports (Layer 1) – ineffizient, veraltet, ersetzt durch Switches","Ein Router","Ein Access Point"],a:1,e:"Hub: sendet an alle → Kollisionsdomäne. Alle teilen Bandbreite. Heute kaum noch verwendet."},
+{id:55,t:"netz",q:"Was ist eine MAC-Adresse?",o:["Physische 48-Bit-Hardware-Adresse einer Netzwerkkarte (z.B. 00:1A:2B:3C:4D:5E) – weltweit eindeutig","Eine IP-Adresse","Eine Subnetzmaske","Ein Domainname"],a:0,e:"MAC: erste 24 Bit = OUI (Hersteller), letzte 24 Bit = Geräte-ID. ARP löst IP in MAC auf (Layer 2)."},
+{id:56,t:"netz",q:"Was ist ARP?",o:["Ein DHCP-Ersatz","Ein DNS-Protokoll","Address Resolution Protocol – löst IP-Adressen in MAC-Adressen auf (Layer 2/3)","Ein Routing-Protokoll"],a:2,e:"ARP: 'Wer hat IP 192.168.1.5? Schick mir deine MAC!' → Broadcast. Antwort: Unicast mit MAC."},
+{id:57,t:"netz",q:"Was ist ein VPN?",o:["Ein Netzwerkmonitor","Virtual Private Network – verschlüsselter Tunnel über Internet für sichere Remote-Verbindungen","Ein Firewall-Typ","Ein Dateiprotokoll"],a:1,e:"VPN: OpenVPN, WireGuard, IPSec. Schützt Daten in öffentlichem WLAN. Ermöglicht Remote-Zugriff auf Firmennetz."},
+{id:58,t:"netz",q:"Was ist eine Firewall?",o:["Ein VPN","Ein Router","Netzwerksicherheitsgerät/-software das Netzwerkverkehr nach Regeln filtert und unerwünschte Verbindungen blockiert","Ein Antivirenprogramm"],a:2,e:"Firewall-Typen: Paketfilter (stateless), Stateful Inspection, Application Layer (Layer 7), NGFW."},
+{id:59,t:"netz",q:"Was ist der Unterschied zwischen TCP und UDP?",o:["Kein Unterschied","UDP ist zuverlässiger","TCP: verbindungsorientiert, zuverlässig, Fehlerkorrektur (HTTP, FTP, E-Mail). UDP: verbindungslos, schnell, kein ACK (Streaming, DNS, VoIP)","TCP ist schneller"],a:2,e:"TCP: 3-Way-Handshake (SYN→SYN-ACK→ACK). Fehlerkorrektur durch Acknowledgment und Retransmit."},
+{id:60,t:"netz",q:"Welche Ports hat HTTP und HTTPS?",o:["25 und 110","80 (HTTP) und 443 (HTTPS) – Standard-Ports für Webserver","8080 und 443","21 und 22"],a:1,e:"HTTP 80: unverschlüsselt. HTTPS 443: TLS-verschlüsselt. Alternativer Port: 8080 (Entwicklung)."},
+{id:61,t:"netz",q:"Was ist der Port für SSH?",o:["21","23","22 – Secure Shell: verschlüsselte Remote-Verwaltung von Linux/Unix-Systemen","25"],a:2,e:"SSH Port 22: ersetzt Telnet (Port 23, unverschlüsselt). Schlüsselbasierte Authentifizierung empfohlen."},
+{id:62,t:"netz",q:"Was ist der Port für FTP?",o:["22","80","443","21 (Steuerung) und 20 (Datenübertragung)"],a:3,e:"FTP: Port 21 (Control), Port 20 (Data, Active Mode). FTPS: FTP über TLS. SFTP: SSH File Transfer."},
+{id:63,t:"netz",q:"Was ist der Port für SMTP?",o:["25 (Standard) / 587 (Submission) – Simple Mail Transfer Protocol für E-Mail-Versand","110","993","143"],a:0,e:"SMTP 25: Server-zu-Server. SMTP 587: Client-zu-Server (mit Auth). SMTPS 465: verschlüsselt."},
+{id:64,t:"netz",q:"Was ist der Port für DNS?",o:["443","80","53 – Domain Name System (TCP und UDP)","22"],a:2,e:"DNS Port 53: UDP für Abfragen (<512 Byte), TCP für Zone-Transfers und große Antworten."},
+{id:65,t:"netz",q:"Was ist WLAN?",o:["Ein Glasfaserstandard","Ein Kabelnetzwerk","Wireless Local Area Network – drahtloses Netzwerk nach IEEE 802.11 Standard (a/b/g/n/ac/ax)","Ein WAN-Protokoll"],a:2,e:'WLAN-Standards: 802.11n (WiFi 4, 600 Mbit/s), 802.11ac (WiFi 5, 3,5 Gbit/s), 802.11ax (WiFi 6, 9,6 Gbit/s).'},
+{id:66,t:"netz",q:"Was ist WPA2 und WPA3?",o:["Netzwerkkabel-Standards","WLAN-Verschlüsselungsstandards: WPA2 (AES-CCMP), WPA3 (SAE, sicherer, ersetzt PSK bei Enterprise)","Router-Modelle","Firewall-Protokolle"],a:1,e:"WPA2-Personal: PSK (Pre-Shared Key). WPA2-Enterprise: RADIUS-Server. WPA3: Forward Secrecy, kein KRACK-Angriff."},
+{id:67,t:"netz",q:"Was ist eine SSID?",o:["IP-Adresse des Routers","Service Set Identifier – sichtbarer Name eines WLAN-Netzwerks (bis 32 Zeichen)","MAC-Adresse des Access Points","WLAN-Passwort"],a:1,e:"SSID: broadcast oder hidden. Hidden SSID: minimale Sicherheit (Sniffer finden sie trotzdem)."},
+{id:68,t:"netz",q:"Was ist ein Access Point?",o:["WLAN-Gerät das drahtlose Clients mit kabelgebundenem Netzwerk verbindet","Ein Switch","Ein Router","Eine Firewall"],a:0,e:"Access Point: oft in Router integriert. Separate APs für große Netzwerke (Unternehmen, Schulen)."},
+{id:69,t:"netz",q:"Was ist PoE (Power over Ethernet)?",o:["Stromversorgung über Netzwerkkabel (RJ45) – ermöglicht Betrieb von IP-Kameras, Telefonen, APs ohne extra Netzteil","Eine WLAN-Technologie","Ein Dateiprotokoll","Eine Firewall-Art"],a:0,e:"PoE (802.3af): 15,4W. PoE+ (802.3at): 30W. PoE++ (802.3bt): 100W. Kein Extra-Netzkabel nötig!"},
+{id:70,t:"netz",q:"Was ist Glasfaser (LWL) und welche Vorteile hat sie?",o:["Lichtwellenleiter: Daten als Lichtimpulse – hohe Bandbreite, lange Reichweite, keine elektromagnetischen Störungen","Ein WLAN-Standard","Ein Kupferkabel","Ein Koaxialkabel"],a:0,e:"LWL: Single-Mode (lange Distanz, 1310/1550nm), Multi-Mode (kurze Distanz, günstiger). Bis 100 Gbit/s."},
+{id:71,t:"netz",q:"Was ist der Unterschied zwischen LAN, WAN und MAN?",o:["WAN ist das kleinste","Alle gleich","LAN ist am größten","LAN: Lokal (Büro/Haus). MAN: Metropolitan (Stadt). WAN: Wide Area (Länder/Kontinente, z.B. Internet)"],a:3,e:"LAN: bis ~1 km. MAN: Stadt, Stadtteil (z.B. Stadtwerke-Netz). WAN: Telekommunikation, Internet (weltweite Verbindung)."},
+{id:72,t:"netz",q:"Was ist ein Proxy-Server?",o:["Ein DNS-Server","Eine Firewall","Vermittler zwischen Client und Server – kann cachen, filtern, anonymisieren, Zugriffskontrollen durchführen","Ein Router"],a:2,e:"Forward Proxy: Client nutzt Proxy für Internetzugang. Reverse Proxy: vor Webservern (Lastverteilung, TLS)."},
+{id:73,t:"netz",q:"Was ist Ping?",o:["Ein Dateiübertragungsprotokoll","Ein DNS-Protokoll","ICMP-basiertes Diagnosewerkzeug – testet Netzwerkerreichbarkeit und misst Latenz (RTT) zum Ziel","Ein WLAN-Standard"],a:2,e:"ping 8.8.8.8: testet Internetzugang. ICMP Echo Request → Echo Reply. TTL verhindert Routing-Schleifen."},
+{id:74,t:"netz",q:"Was macht traceroute/tracert?",o:["Zeigt ARP-Tabelle","Zeigt alle Hops (Router) auf dem Weg zum Ziel mit Latenz – TTL-basiert","Zeigt Dateien an","Prüft DNS"],a:1,e:"tracert (Win) / traceroute (Linux): Pakete mit TTL=1,2,3,... → jeder Router schickt ICMP Time Exceeded zurück."},
+{id:75,t:"netz",q:"Was ist VLAN?",o:["Ein VPN-Protokoll","Ein WLAN-Standard","Ein Routing-Protokoll","Virtual LAN – logische Trennung eines physischen Netzwerks in mehrere isolierte Netzwerke (IEEE 802.1Q)"],a:3,e:"VLAN: Sicherheit (Abteilungen trennen), Performance (Broadcast-Domänen klein halten). Trunk-Port trägt mehrere VLANs."},
+{id:76,t:"netz",q:"Was ist SMTP?",o:["Ein Web-Protokoll","Simple Mail Transfer Protocol – Protokoll zum Versenden von E-Mails (Port 25/587)","Ein Dateiprotokoll","Ein FTP-Protokoll"],a:1,e:"SMTP: sendet E-Mails vom Client zum Server und zwischen Servern. POP3/IMAP: empfangen/verwalten."},
+{id:77,t:"netz",q:"Was ist IMAP?",o:["Ein FTP-Protokoll","Internet Message Access Protocol – E-Mails auf dem Server verwalten, synchron auf mehreren Geräten (Port 143/993)","Ein Web-Protokoll","Ein Versandprotokoll"],a:1,e:"IMAP: E-Mails bleiben auf Server, Ordner synchronisiert. Besser als POP3 für mehrere Geräte."},
+{id:78,t:"netz",q:"Was ist RJ45?",o:["Ein WLAN-Standard","Ein Glasfaser-Stecker","8-poliger Steckverbinder für Ethernet-Kabel (LAN) – unterstützt 100 Mbit/s bis 10 Gbit/s","Ein USB-Stecker"],a:2,e:"RJ45: Cat5e (1 Gbit/s), Cat6 (10 Gbit/s bis 55m), Cat6a (10 Gbit/s bis 100m), Cat7 (abgeschirmt)."},
+{id:79,t:"netz",q:"Was ist ein Subnetz?",o:["Ein Sicherheitsbereich","Ein VLAN","Ein Router","Unterteilung eines IP-Netzwerks in kleinere Segmente mit eigener Subnetzmaske"],a:3,e:"Subnetting: großes Netzwerk aufteilen. 192.168.1.0/24 → 192.168.1.0/25 und 192.168.1.128/25."},
+{id:80,t:"netz",q:"Was ist ein Standard-Gateway?",o:["Router-IP zu der Pakete geschickt werden, wenn das Ziel nicht im eigenen Subnetz ist","Ein DNS-Server","Die eigene IP-Adresse","Der schnellste Router"],a:0,e:"Gateway: Ausgang aus dem LAN. Bei 192.168.1.0/24 meist 192.168.1.1. Ohne Gateway kein Internet."},
+{id:81,t:"osi",q:"Wie heißen die 7 OSI-Schichten (von unten)?",o:["Application, Presentation, Session, Transport, Network, Data Link, Physical (von oben)","Nur 4 Schichten","Physical, Data Link, Network, Transport, Session, Presentation, Application","5 Schichten"],a:2,e:"Merkhilfe: 'Please Do Not Throw Sausage Pizza Away'. Oder umgekehrt: 'All People Seem To Need Data Processing'."},
+{id:82,t:"osi",q:"Was ist Schicht 1 (Physical Layer)?",o:["Physische Übertragung von Bits – Kabel, Stecker, Signale, Hubs, Repeater","Datenpakete routen","Logische Adressierung","Sessions verwalten"],a:0,e:"L1: Leitungscodierung, Übertragungsmedium (Kupfer, Glasfaser, Funk), Stecker (RJ45), Hub, Repeater."},
+{id:83,t:"osi",q:"Was ist Schicht 2 (Data Link Layer)?",o:["Routing","Verschlüsselung","IP-Adressierung","Fehlerfreie Übertragung zwischen direkt verbundenen Geräten – MAC-Adressen, Switches, Frames"],a:3,e:"L2: MAC-Adressen, Frames, Fehlerkorrektur (CRC), Switches, WLAN (802.11). LLC + MAC Sublayer."},
+{id:84,t:"osi",q:"Was ist Schicht 3 (Network Layer)?",o:["Logische Adressierung und Routing von Paketen – IP-Adressen, Router","Verschlüsselung","MAC-Adressen","Sitzungsverwaltung"],a:0,e:"L3: IP-Adressen (IPv4/IPv6), Router, ICMP (ping), ARP (technisch L2/L3). Routing zwischen Netzwerken."},
+{id:85,t:"osi",q:"Was ist Schicht 4 (Transport Layer)?",o:["End-to-End-Kommunikation mit Ports – TCP (zuverlässig) und UDP (schnell, unzuverlässig)","Routing","Verschlüsselung","Sitzungsverwaltung"],a:0,e:"L4: Ports (0-65535), TCP (verbindungsorientiert, ACK), UDP (verbindungslos). Segmentierung großer Daten."},
+{id:86,t:"osi",q:"Was ist Schicht 5 (Session Layer)?",o:["Aufbau, Verwaltung und Abbau von Sitzungen zwischen Anwendungen","Routing","Datenverschlüsselung","MAC-Adressen"],a:0,e:"L5: Session-IDs, Dialogkontrolle, Synchronisation. NetBIOS, RPC. Oft in Applikation integriert."},
+{id:87,t:"osi",q:"Was ist Schicht 6 (Presentation Layer)?",o:["Routing","Datendarstellung: Formatkonvertierung, Verschlüsselung, Kompression (SSL/TLS, JPEG, MPEG)","Session-Verwaltung","MAC-Adressen"],a:1,e:"L6: Zeichenkodierung (ASCII/Unicode), Verschlüsselung (TLS), Kompression. Oft in Applikation integriert."},
+{id:88,t:"osi",q:"Was ist Schicht 7 (Application Layer)?",o:["Routing","MAC-Adressen","Benutzernahe Protokolle: HTTP, FTP, SMTP, DNS, SSH, DHCP – direkte Schnittstelle für Anwendungen","Physische Übertragung"],a:2,e:"L7: HTTP(S), FTP, SMTP, POP3, IMAP, DNS, DHCP, SSH, Telnet, SNMP. Anwendungsprotokolle."},
+{id:89,t:"osi",q:"Auf welcher OSI-Schicht arbeitet ein Switch?",o:["Schicht 2 (Data Link) – arbeitet mit MAC-Adressen","Schicht 1","Schicht 3","Schicht 7"],a:0,e:"L2-Switch: MAC-Tabelle, Frames. L3-Switch: auch IP-Routing. Managed Switch: VLAN, STP, QoS."},
+{id:90,t:"osi",q:"Auf welcher OSI-Schicht arbeitet ein Router?",o:["Schicht 2","Schicht 3 (Network) – arbeitet mit IP-Adressen und Routing-Tabellen","Schicht 7","Schicht 4"],a:1,e:"Router: trifft Routing-Entscheidung basierend auf Ziel-IP. Verbindet Netzwerke verschiedener Segmente."},
+{id:91,t:"osi",q:"Was ist PDU (Protocol Data Unit) auf Schicht 2?",o:["Bit","Segment","Frame (Rahmen) – enthält MAC-Adressen, Daten, CRC-Prüfsumme","Paket"],a:2,e:"PDU-Bezeichnungen: L1=Bit, L2=Frame, L3=Paket, L4=Segment (TCP)/Datagramm (UDP), L7=Nachricht."},
+{id:92,t:"osi",q:"Was ist eine Kollisionsdomäne?",o:["Ein VLAN","Ein VPN","Netzwerkbereich in dem Datenkollisionen auftreten können – Hub: alle in einer, Switch: jeder Port eigene","Ein gesichertes Netzwerk"],a:2,e:"Switch: jeder Port = eigene Kollisionsdomäne. Hub: alle Ports = eine Kollisionsdomäne. CSMA/CD verhindert Kollisionen."},
+{id:93,t:"osi",q:"Was ist eine Broadcast-Domäne?",o:["Nur LANs","Netzwerkbereich der Broadcast-Pakete empfängt – Router begrenzen Broadcasts, Switches nicht","Ein VLAN immer","Ein Subnetz immer"],a:1,e:"Broadcast-Domäne = Subnetz. Router trennen Broadcast-Domänen. VLANs auf Switches auch."},
+{id:94,t:"osi",q:"Was ist Encapsulation (Kapselung) im OSI-Modell?",o:["Jede Schicht fügt beim Senden Header/Trailer hinzu – beim Empfangen wieder entfernt (Decapsulation)","Datenverschlüsselung","Routing","Datenkompression"],a:0,e:"Senden: L7 Daten → L4 Segment → L3 Paket → L2 Frame → L1 Bits. Empfangen: umgekehrt."},
+{id:95,t:"osi",q:"Was ist ICMP?",o:["Ein TCP-Port","Ein WLAN-Standard","Internet Control Message Protocol – Diagnosprotokoll (ping, traceroute) ohne Ports, auf Layer 3","Ein E-Mail-Protokoll"],a:2,e:"ICMP: Echo Request/Reply (ping), Time Exceeded (traceroute), Destination Unreachable. Kein TCP/UDP."},
+{id:96,t:"osi",q:"Was ist Spanning Tree Protocol (STP)?",o:["Verhindert Schleifen in geswitchten Netzwerken durch Deaktivierung redundanter Pfade (802.1D)","Ein VPN-Protokoll","Ein WLAN-Standard","Ein Routing-Protokoll"],a:0,e:"STP: wählt Root Bridge. Redundante Ports werden blockiert. RSTP (802.1w): schnellere Konvergenz."},
+{id:97,t:"osi",q:"Was macht SNMP?",o:["Überträgt Dateien","Verschlüsselt Verbindungen","Sendet E-Mails","Simple Network Management Protocol – überwacht und verwaltet Netzwerkgeräte (Router, Switches, Server)"],a:3,e:"SNMP v3: Authentifizierung + Verschlüsselung. MIB (Management Information Base): Geräte-Datenstruktur."},
+{id:98,t:"osi",q:"Was ist NTP?",o:["Ein Dateiprotokoll","Network Time Protocol – synchronisiert Systemuhren im Netzwerk (wichtig für Logs, Kryptografie, Kerberos)","Ein E-Mail-Protokoll","Ein Routing-Protokoll"],a:1,e:"NTP: Port 123. Hierarchische Stratum-Ebenen. Stratum 0: Atomuhren. Stratum 1: NTP-Server direkt verbunden."},
+{id:99,t:"osi",q:"Was ist HTTPS und wie funktioniert es?",o:["HTTP mit Passwort","HTTP über UDP","HTTP über TLS (Transport Layer Security) – verschlüsselte Webkommunikation, Port 443","HTTP ohne DNS"],a:2,e:"HTTPS: TLS-Handshake (asymmetrisch) → Sitzungsschlüssel (symmetrisch AES) → Daten verschlüsselt."},
+{id:100,t:"osi",q:"Was ist ein Port (Netzwerk)?",o:["Eine MAC-Adresse","Eine IP-Adresse","16-Bit-Zahl (0-65535) die eine Anwendung/Dienst auf einem Gerät identifiziert – Teil der TCP/UDP-Adresse","Ein physischer Anschluss"],a:2,e:"Well-Known Ports: 0-1023. Registered: 1024-49151. Dynamic: 49152-65535. Socket = IP + Port."},
+{id:101,t:"usv",q:"Was ist eine USV?",o:["Unterbrechungsfreie Stromversorgung – hält bei Stromausfall die Versorgung aufrecht, schützt vor Datenverlust","Eine Firewall","Ein Kühlsystem","Ein Backup-System"],a:0,e:"USV (UPS): schützt vor Stromausfall, Spannungsspitzen, Einbrüchen. Ermöglicht geordnetes Herunterfahren."},
+{id:102,t:"usv",q:"Was sind die drei USV-Typen?",o:["Kalt, Warm, Heiß","Offline (VFD), Line-Interactive (VI), Online (VFI – Doppelwandler)","Groß, Mittel, Klein","Aktiv, Passiv, Hybrid"],a:1,e:"Offline: ~10ms Umschaltung. Line-Interactive: Spannungsregelung ohne Batteriumschaltung. Online: keine Umschaltung!"},
+{id:103,t:"usv",q:"Was ist eine Online-USV (VFI)?",o:["USV ohne Batterie","Günstigste USV","USV mit 10ms Pause","Voltage and Frequency Independent: Geräte laufen IMMER über Batterie/Wandler – keine Umschaltzeit"],a:3,e:"VFI: Netz → Gleichrichter → Batterie → Wechselrichter → Last. Sauberste Spannung. Für Rechenzentren."},
+{id:104,t:"usv",q:"Was ist eine Offline-USV (VFD)?",o:["Ohne Batterie","Online-USV","Günstigste USV mit 0ms","Günstigste USV: schaltet erst bei Stromausfall auf Batterie um (~10ms Umschaltzeit)"],a:3,e:"VFD: günstig, für einfache PCs ausreichend. 10ms Umschaltzeit genug für die meisten Geräte."},
+{id:105,t:"usv",q:"Was ist eine Line-Interactive-USV (VI)?",o:["Ohne Batterie","Ohne Spannungsregelung","Spannungsregler (AVR) regelt Schwankungen ohne Batteriumschaltung – bei Ausfall ~4ms","Wie Online-USV"],a:2,e:"VI: beste Balance Preis/Leistung. AVR (Automatic Voltage Regulator) für Unter-/Überspannungen."},
+{id:106,t:"usv",q:"Was ist ein Wirkungsgrad (η)?",o:["Spannung in Volt","Verhältnis von abgegebener zu zugeführter Leistung: η = Pab/Pzu × 100%","Stromstärke in Ampere","CPU-Auslastung"],a:1,e:"Ein Netzteil mit 90% η: 10% Energie → Wärme. 80 PLUS: Bronze≥82%, Silver≥85%, Gold≥90%, Platinum≥92%, Titanium≥94%."},
+{id:107,t:"usv",q:"Formel für elektrische Leistung?",o:["P = U - I","P = U + I","P = U / I","P = U × I (Leistung[W] = Spannung[V] × Stromstärke[A])"],a:3,e:"Ohmsche Gesetze: P=U×I, U=R×I, I=U/R. Beispiel: 230V × 10A = 2.300W."},
+{id:108,t:"usv",q:"Formel für elektrischen Widerstand (Ohmsches Gesetz)?",o:["R = P × U","R = U / I (Widerstand[Ω] = Spannung[V] / Stromstärke[A])","R = U × I","R = I / U"],a:1,e:"Ohmsches Gesetz: U=R×I, I=U/R, R=U/I. Bei 100Ω und 5V: I = 5/100 = 0,05A = 50mA."},
+{id:109,t:"usv",q:"Was ist 80 PLUS Gold?",o:["Ein Prozessor-Standard","Energieeffizienz-Zertifizierung für Netzteile: ≥90% Wirkungsgrad bei 50% Last","Ein RAID-Standard","Ein Netzwerk-Standard"],a:1,e:"80 PLUS: Netzteil-Zertifizierung. Gold≥90%, Platinum≥92%, Titanium≥94%. Weniger Abwärme, geringere Stromkosten."},
+{id:110,t:"usv",q:"Was ist TDP bei CPU und GPU?",o:["Thermal Design Power – maximale Wärme in Watt die das Kühlsystem abführen muss","Minimale Spannung","Speicherbandbreite","Maximale Stromleistung"],a:0,e:"TDP: Desktop-CPU 65-125W, Laptop 15-45W, High-End-GPU bis 450W. Kühlsystem muss TDP bewältigen."},
+{id:111,t:"usv",q:"Berechnung: Ein Gerät mit 500W läuft 8 Stunden. Wie viel kWh verbraucht es?",o:["500W × 8h = 4.000 Wh = 4 kWh","500W × 8h = 4.000 W","4 kWh","8 kWh"],a:0,e:"kWh = Watt × Stunden ÷ 1000. 500W × 8h = 4000Wh = 4kWh. Bei 0,30€/kWh = 1,20€/Tag."},
+{id:112,t:"usv",q:"Was ist eine Batterie-Backup-Laufzeit bei USV?",o:["Unbegrenzt","Immer 10 Minuten","Immer 1 Stunde","Abhängig von Batteriekapazität und angeschlossener Last – bei halber Last oft doppelt so lang"],a:3,e:"USV-Laufzeit: Kapazität (Ah × V = Wh) ÷ Last (W). 1000VA USV bei 200W Last: ~20-30 Min."},
+{id:113,t:"usv",q:"Was schützt eine USV NICHT vor?",o:["Längere Stromausfälle (Stunden/Tage) – USV überbrückt nur kurze Ausfälle für geordnetes Herunterfahren","Frequenzschwankungen","Spannungsspitzen","Stromausfall"],a:0,e:"USV: kurze Ausfälle (Minuten). Generator: für lange Ausfälle. Kombination USV + Generator = maximaler Schutz."},
+{id:114,t:"usv",q:"Was ist eine Spannungsspitze (Surge)?",o:["Dauerhafter Spannungsabfall","Frequenzabweichung","Kurzzeitige Überspannung die Elektronik beschädigen kann – USV schützt durch Überspannungsschutz","Normaler Betrieb"],a:2,e:"Surge/Spannungsspitzen: Blitzeinschlag, Schaltmomente. Surge Protector oder USV mit Varistoren schützt."},
+{id:115,t:"usv",q:"Was ist Netzersatzanlage (NEA)?",o:["Ein Batteriesystem","Eine USV-Art","Dieselgenerator der bei längerem Stromausfall automatisch anspringt – ergänzt USV","Eine Solaranlage"],a:2,e:"NEA: startet in 10-30 Sekunden. Überbrückung durch USV. Zusammen: unterbrechungsfreie Langzeitversorgung."},
+{id:116,t:"hw",q:"Was ist ein Mainboard (Motherboard)?",o:["Hauptplatine die alle Komponenten verbindet: CPU, RAM, PCIe-Slots, SATA, USB, Netzwerk, BIOS-Chip","Ein Prozessor","Ein Netzteil","Eine Grafikkarte"],a:0,e:"Mainboard: CPU-Sockel (AM5, LGA1700), RAM-Slots, PCIe x16 (GPU), M.2, SATA, USB-Header."},
+{id:117,t:"hw",q:"Was ist ein PCIe-Slot?",o:["Ein USB-Port","Ein SATA-Anschluss","PCI Express – Hochgeschwindigkeits-Erweiterungsbus für GPUs (x16), SSDs (x4), Netzwerkkarten (x1)","Ein RAM-Slot"],a:2,e:"PCIe 4.0 x16: 64 GB/s. PCIe 5.0 x16: 128 GB/s. GPU braucht x16. NVMe-SSD: x4. Netzwerkkarte: x1."},
+{id:118,t:"hw",q:"Was ist ein CPU-Sockel?",o:["Ein USB-Anschluss","Ein RAM-Slot","Ein PCIe-Slot","Mechanische und elektrische Schnittstelle zwischen CPU und Mainboard (z.B. AMD AM5, Intel LGA1700)"],a:3,e:"CPU-Sockel: nicht kompatibel zwischen Generationen. AM5 (AMD Ryzen 7000). LGA1700 (Intel 12./13./14. Gen)."},
+{id:119,t:"hw",q:"Was ist ein Netzteil (PSU)?",o:["Ein RAM-Modul","Ein Kühlsystem","Eine Batterie","Wandelt Netzspannung (230V AC) in DC-Spannungen um die Komponenten benötigen (3,3V, 5V, 12V)"],a:3,e:"PSU: ATX-Standard. Modulares Netzteil: nur benötigte Kabel. 80 PLUS für Effizienz. Überdimensionieren für besseren Wirkungsgrad."},
+{id:120,t:"hw",q:"Was ist ein Kühlkörper (Heatsink)?",o:["Ein PCIe-Gerät","Ein RAM-Modul","Ein Netzteil","Metallkörper der Wärme von CPU/GPU ableitet und über Lüfter an die Umgebungsluft abgibt"],a:3,e:"Heatsink + Lüfter = HSF. Wärmeleitpaste zwischen CPU und Heatsink. Alternativ: Wasserkühlung."},
+{id:121,t:"hw",q:"Was ist ein Monitor-Anschluss DisplayPort?",o:["Eine Festplattenverbindung","Hochleistungs-Display-Schnittstelle: hohe Auflösungen (8K), hohe Refreshraten (240Hz+), MST (Daisy-Chain)","Ein USB-Typ","Ein Audioausgang"],a:1,e:"DisplayPort 1.4: 8K@60Hz oder 4K@120Hz. 2.0: 16K möglich. Daisy-Chain: mehrere Monitore ohne Hub."},
+{id:122,t:"hw",q:"Was ist HDMI?",o:["Ein Netzwerkstandard","Ein USB-Standard","Ein Druckeranschluss","High Definition Multimedia Interface – überträgt Video und Audio über ein Kabel (TV, Monitor, Beamer)"],a:3,e:"HDMI 2.1: 4K@144Hz, 8K@60Hz. Typisch für TVs, Consumer-Electronics. Auch Audio-Rückkanal (ARC/eARC)."},
+{id:123,t:"hw",q:"Was ist USB-C?",o:["Universeller kleiner Stecker für Daten, Laden, Video (Thunderbolt 4: bis 40 Gbit/s, bis 100W Laden)","Ein proprietärer Apple-Anschluss","Nur für Festplatten","Nur für Smartphones"],a:0,e:"USB-C: nicht verwechseln mit USB 3.x (Protokoll)! Thunderbolt 4/USB4: 40 Gbit/s. Power Delivery: bis 240W."},
+{id:124,t:"hw",q:"Was ist ein Thin Client?",o:["Ein Tablet","Ein leistungsstarker PC","Schlankes Gerät ohne eigene Rechenleistung – greift auf Terminalserver/VDI zu, wartungsarm","Ein All-in-One-PC"],a:2,e:"Thin Client: günstig, stromsparend, sicher (keine lokalen Daten). Abhängig vom Netzwerk/Server."},
+{id:125,t:"hw",q:"Was ist eine GPU (Grafikkarte)?",o:["Ein Netzteil","Ein RAM-Modul","Graphics Processing Unit – für Grafikberechnung, KI/ML, Video-Rendering, wissenschaftliche Berechnungen","Eine CPU"],a:2,e:"GPU: tausende Shader-Kerne für parallele Berechnungen. CUDA (NVIDIA), OpenCL (allgemein). Auch für KI-Training."},
+{id:126,t:"hw",q:"Was ist ein NIC (Netzwerkkarte)?",o:["Ein Prozessor","Eine Soundkarte","Network Interface Card – Hardware zum Verbinden mit einem Netzwerk (Ethernet oder WLAN, eindeutige MAC-Adresse)","Eine Grafikkarte"],a:2,e:"NIC: integriert auf Mainboard oder als PCIe-Karte. MAC-Adresse: 48 Bit, weltweit eindeutig (OUI + Geräte-ID)."},
+{id:127,t:"hw",q:"Was ist strukturierte Verkabelung?",o:["Ein Netzwerkprotokoll","Ein WLAN-Standard","Standardisiertes Verkabelungssystem: Primär (Campus/Gebäude), Sekundär (Etagen), Tertiär (Arbeitsplatz)","Eine Firewall"],a:2,e:"Primär: Glasfaser (Campus). Sekundär: Cat6/7 (Etagen). Tertiär: Cat6a bis zum Arbeitsplatz."},
+{id:128,t:"hw",q:"Was ist Barrierefreiheit in der IT?",o:["Software-Sicherheit","Maßnahmen die IT-Systeme für Menschen mit Einschränkungen nutzbar machen (Screenreader, Kontrast, Tastaturnavigation)","Netzwerksicherheit","Datenschutz"],a:1,e:"Barrierefreiheit: WCAG 2.1 (Web), BITV 2.0 (Deutschland). Screenreader, Zoom, Spracheingabe, Untertitel."},
+{id:129,t:"hw",q:"Was ist Raytracing?",o:["Echtzeit-Lichtsimulation für fotorealistisches Rendering in Spielen – sehr rechenintensiv, benötigt spezielle GPU-Einheiten","Ein Dateisystem","Ein Prozessor-Typ","Eine Netzwerktechnologie"],a:0,e:'Raytracing: NVIDIA RTX-Karten mit RT-Cores. Verfolgt Lichtstrahlen physikalisch korrekt. DirectX 12 Ultimate.'},
+{id:130,t:"hw",q:"Was ist der Unterschied zwischen integrierter und dedizierter GPU?",o:["Dediziert ist kleiner","Integriert: Teil der CPU, teilt RAM (stromsparend, schwacher 3D). Dediziert: eigene GPU + VRAM (leistungsstark)","Integriert ist schneller","Kein Unterschied"],a:1,e:"iGPU: Intel UHD, AMD Radeon Graphics. Gut für Office/Video. dGPU: NVIDIA/AMD für Spiele, Rendering, KI."},
+{id:131,t:"hw",q:"Was ist PCI Express (PCIe)?",o:["Ein RAM-Standard","Ein Stromstandard","Hochgeschwindigkeits-Erweiterungsbus für Mainboard-Komponenten (GPU x16, SSD x4, NIC x1)","Ein Netzwerkprotokoll"],a:2,e:"PCIe-Versionen: 3.0 (8 Gbit/s pro Lane), 4.0 (16), 5.0 (32). x16: 16 Lanes. NVMe-SSD: x4."},
+{id:132,t:"hw",q:"Was ist SATA?",o:["Serial ATA – Schnittstelle für Festplatten und optische Laufwerke (max 600 MB/s bei SATA III)","Ein RAM-Standard","Ein USB-Standard","Ein Netzwerkstandard"],a:0,e:"SATA III: 6 Gbit/s = ~600 MB/s theoretisch. Typische SSD: 500 MB/s. HDD: 100-200 MB/s."},
+{id:133,t:"hw",q:"Was ist M.2?",o:["Kompakter Formfaktor für SSDs und WLAN-Karten – unterstützt SATA oder NVMe (PCIe)","Ein RAM-Typ","Ein CPU-Sockel","Ein Mainboard-Typ"],a:0,e:"M.2: 2280 (22×80mm) häufigste Größe. M.2 SATA: max 600 MB/s. M.2 NVMe: bis 7 GB/s. Kein Kabel nötig."},
+{id:134,t:"hw",q:"Was ist ein Kühlungssystem für Rechenzentren?",o:["Nur Klimaanlagen","Nur Heizung","Nur Ventilatoren","Aktive Kühlung: CRAC-Units, Kaltgang-Warmgang-Prinzip, Flüssigkühlung, freie Kühlung"],a:3,e:"Rechenzentrum-Kühlung: PUE (Power Usage Effectiveness) = Gesamtenergie ÷ IT-Energie. Ideal: PUE = 1.0."},
+{id:135,t:"hw",q:"Was ist ein optisches Laufwerk?",o:["CD/DVD/Blu-ray-Laufwerk – liest und schreibt optische Datenträger mit Laser","Ein RAM-Modul","Eine SSD","Eine Festplatte"],a:0,e:"Optische Laufwerke: CD (700MB), DVD (4,7/8,5GB), Blu-ray (25/50/100GB). Zunehmend selten in modernen PCs."},
+{id:136,t:"hw",q:"Was ist eine Netzwerktopologie?",o:["Ein WLAN-Standard","Die physische oder logische Anordnung von Geräten in einem Netzwerk (Bus, Ring, Stern, Mesh)","Ein Netzwerkprotokoll","Eine Firewall-Konfiguration"],a:1,e:"Stern (heute Standard): alle Geräte am Switch. Bus (veraltet): ein Kabel. Ring: reihum. Mesh: viele Verbindungen."},
+{id:137,t:"hw",q:"Was ist eine Sterntopologie?",o:["Alle Geräte verbunden ohne Zentrum","Reihenschaltung","Alle Geräte verbunden mit einem zentralen Switch/Hub – Ausfall eines Geräts beeinträchtigt andere nicht","Kreisverbindung"],a:2,e:"Stern: Standard in LANs. Ausfall des zentralen Switch = gesamtes Netz down (Single Point of Failure)."},
+{id:138,t:"hw",q:"Was ist eine Mesh-Topologie?",o:["Jedes Gerät mit mehreren anderen direkt verbunden – hohe Redundanz, aber aufwendig (WAN, Internet-Backbone)","Reihenschaltung","Sterntopologie","Alle Geräte mit einem Gerät verbunden"],a:0,e:"Mesh: Full Mesh (n×(n-1)/2 Verbindungen), Partial Mesh (nur kritische). Gut für ausfallsichere Netzwerke."},
+{id:139,t:"hw",q:"Was ist CoaX (Koaxialkabel)?",o:["Ein Netzwerkkabel (Cat6)","Ein Optisches Kabel","Ein Glasfaserkabel","Kupferkabel mit Innenleiter und Abschirmung – früher für 10BASE-2 Ethernet, heute für TV/SAT"],a:3,e:"Koaxialkabel: BNC-Stecker (früher Ethernet), F-Stecker (TV/SAT). Gute Abschirmung gegen EMI."},
+{id:140,t:"hw",q:"Was ist ein KVM-Switch?",o:["Keyboard Video Mouse Switch – ein Satz Peripheriegeräte für mehrere Computer umschalten","Ein Netzwerkswitch","Ein Firewall-Gerät","Ein Router"],a:0,e:"KVM: ein Monitor, eine Tastatur, eine Maus für 2-32+ Computer. Spart Platz. Auch über IP (iKVM)."},
+{id:141,t:"hw",q:"Was ist ein Repeater?",o:["Ein Hub","Ein Switch","Ein Router","Gerät das Signale empfängt und verstärkt/regeneriert – verlängert Netzwerksegmente (Layer 1)"],a:3,e:"Repeater: erhöht Reichweite. WLAN-Repeater: empfängt und sendet WLAN-Signal erneut. Halbiert Bandbreite."},
+{id:142,t:"hw",q:"Was ist ein Media Converter?",o:["Konvertiert zwischen verschiedenen Netzwerkmedien (z.B. Kupfer RJ45 zu Glasfaser SFP)","Ein Audio-Gerät","Ein Router","Ein Videokonverter"],a:0,e:"Media Converter: günstige Alternative zu SFP-fähigen Switches. Kupfer↔Glasfaser für längere Distanzen."},
+{id:143,t:"hw",q:"Was ist ein SFP-Modul?",o:["Ein RAM-Modul","Ein CPU-Modul","Ein Netzteil-Modul","Small Form-factor Pluggable – austauschbares Transceiver-Modul für Switches/Router (Glasfaser oder Kupfer)"],a:3,e:"SFP: 1 Gbit/s. SFP+: 10 Gbit/s. QSFP+: 40 Gbit/s. Flexibel: je nach Modul Kupfer oder Glasfaser."},
+{id:144,t:"hw",q:"Was ist ein Blade-Server?",o:["Ein normaler Tower-Server","Ein Cloud-Server","Kompakter Server-Typ der in ein Blade-Chassis eingeschoben wird – spart Platz, teilt Netzteile/Kühlung","Ein Rack-Server"],a:2,e:"Blade: hohe Dichte, effiziente Kühlung/Strom. Chassis = gemeinsames Backplane. Gut für Rechenzentren."},
+{id:145,t:"hw",q:"Was ist ein Rack-Server?",o:["In 19-Zoll-Rack eingebauter Server – 1U bis 4U Bauhöhe, standardisiert für Rechenzentren","Ein Tower-Server","Ein Blade-Server","Ein Desktop-Server"],a:0,e:"Rack-Server: 1U = 44,45mm. Standard 19-Zoll-Rack = 42U. Dichter als Tower, günstiger als Blade."},
+{id:146,t:"hw",q:"Was ist USB 3.0?",o:["USB-Standard mit 5 Gbit/s (SuperSpeed) – blauer Stecker, abwärtskompatibel zu USB 2.0 (480 Mbit/s)","USB-C Standard","Thunderbolt","Ältester USB-Standard"],a:0,e:"USB 3.0=USB 3.1 Gen 1=USB 3.2 Gen 1: 5 Gbit/s. 3.1 Gen 2: 10 Gbit/s. 3.2 Gen 2×2: 20 Gbit/s."},
+{id:147,t:"hw",q:"Was ist ein Formfaktor bei Mainboards?",o:["Standardisierte Größe und Layout-Spezifikation des Mainboards (ATX, mATX, ITX)","Ein PCIe-Standard","Ein RAM-Typ","Ein CPU-Sockel"],a:0,e:"ATX: 305×244mm (Standard). mATX: 244×244mm. Mini-ITX: 170×170mm. E-ATX: 305×330mm (Workstation)."},
+{id:148,t:"hw",q:"Was ist ein CMOS-Chip?",o:["Ein Prozessor","Speichert BIOS/UEFI-Einstellungen (Datum, Uhrzeit, Boot-Reihenfolge) – durch CMOS-Batterie gepuffert","Ein RAM-Typ","Eine Festplatte"],a:1,e:"CMOS-Batterie (CR2032): hält BIOS-Einstellungen bei ausgeschaltetem PC. Leer → BIOS-Reset auf Standard."},
+{id:149,t:"hw",q:"Was ist Thunderbolt 4?",o:["Ein USB 2.0 Standard","Ein WLAN-Standard","Intel-Standard: 40 Gbit/s, USB-C-Stecker, DisplayPort, PCIe, bis 100W Laden – kompatibel mit USB4","Ein SATA-Standard"],a:2,e:"TB4: bis 2 Monitore 4K@60Hz, bis 40 Gbit/s Daten, PCIe-Geräte (externe GPU möglich), 100W Charging."},
+{id:150,t:"hw",q:"Was ist ein KPI für Rechenzentren: PUE?",o:["Performance Utilization Efficiency","Physical Unit Efficiency","Power Usage Effectiveness = Gesamtenergie ÷ IT-Energie – Ideal: 1.0, Durchschnitt: 1.5","Processor Utilization Energy"],a:2,e:"PUE 1.0: 100% für IT. PUE 1.5: 50% für Kühlung/Infrastruktur. Google-Rechenzentren: PUE ~1.1."},
+{id:151,t:"netz",q:"Was ist ein Load Balancer?",o:["Verteilt eingehenden Netzwerkverkehr auf mehrere Server – verhindert Überlastung einzelner Server","Ein Router","Ein Firewall","Ein Switch"],a:0,e:"Load Balancer: Round-Robin, Least Connections, IP-Hash. Hardware (F5) oder Software (HAProxy, nginx)."},
+{id:152,t:"netz",q:"Was ist ein CDN (Content Delivery Network)?",o:["Ein DNS-Server","Ein Internet-Provider","Netzwerk von Servern weltweit die Inhalte cache und nah beim Nutzer ausliefern – reduziert Latenz","Ein VPN-Anbieter"],a:2,e:"CDN: CloudFlare, Akamai, AWS CloudFront. Statische Inhalte (Bilder, JS, CSS) werden geografisch verteilt."},
+{id:153,t:"netz",q:"Was ist SD-WAN?",o:["Software-Defined WAN – zentralisierte Verwaltung von WAN-Verbindungen über Software-Controller","Ein VPN-Typ","Ein Routing-Protokoll","Ein WLAN-Standard"],a:0,e:"SD-WAN: mehrere WAN-Links (MPLS, Internet, LTE) kombinieren, Qualität priorisieren, zentral verwalten."},
+{id:154,t:"netz",q:"Was ist QoS (Quality of Service)?",o:["Eine Netzwerktopologie","Eine Firewall-Funktion","Priorisierung von Netzwerkverkehr – VoIP und Video vor File-Downloads bevorzugen","Ein DNS-Feature"],a:2,e:"QoS: DiffServ (DSCP-Markierung), Queuing (FIFO, WFQ, PQ), Traffic Shaping. Wichtig für VoIP."},
+{id:155,t:"netz",q:"Was ist OSPF?",o:["Ein VPN-Protokoll","Ein WLAN-Standard","Open Shortest Path First – Link-State-Routing-Protokoll für interne Netzwerke (IGP)","Ein E-Mail-Protokoll"],a:2,e:"OSPF: verwendet Dijkstra-Algorithmus. Areas für Skalierbarkeit. Schnelle Konvergenz. Standard in Unternehmensnetzen."},
+{id:156,t:"netz",q:"Was ist BGP?",o:["Ein LAN-Protokoll","Ein DNS-Protokoll","Border Gateway Protocol – Routing-Protokoll zwischen autonomen Systemen (AS) im Internet (EGP)","Ein WLAN-Standard"],a:2,e:"BGP: 'Protokoll des Internets'. Jeder ISP ist ein AS. BGP wählt beste Route zwischen AS. Sehr komplex."},
+{id:157,t:"netz",q:"Was ist eine DMZ (Demilitarized Zone)?",o:["Ein VPN","Ein militärischer Begriff","Ein VLAN","Netzwerksegment zwischen Internet und internem Netz für öffentliche Server (Webserver, Mail)"],a:3,e:"DMZ: Webserver, Mail-Server, DNS stehen in DMZ. Kompromittierter DMZ-Server gefährdet nicht interne Netz."},
+{id:158,t:"netz",q:"Was ist IDS/IPS?",o:["Intrusion Detection/Prevention System – überwacht Netzwerk auf Angriffe und blockiert sie (IPS)","Ein DNS-System","Ein Firewall-Ersatz","Ein VPN-Typ"],a:0,e:"IDS: erkennt und meldet. IPS: erkennt und blockiert aktiv. Snort, Suricata: Open-Source-IDS/IPS."},
+{id:159,t:"netz",q:"Was ist MPLS?",o:["Ein WLAN-Standard","Multiprotocol Label Switching – schnelles Paket-Routing über Labels statt IP-Lookup (WAN, Carrier)","Ein WLAN-Protokoll","Ein DNS-Feature"],a:1,e:"MPLS: Labels statt IP-Routing für schnelle Weitervermittlung. Für QoS, VPNs über Provider-Netze."},
+{id:160,t:"netz",q:"Was ist 5G?",o:["Mobilfunkstandard der 5. Generation: bis 20 Gbit/s, <1ms Latenz, massives IoT","Eine WLAN-Version","Ein WLAN-Standard","Ein Bluetooth-Standard"],a:0,e:"5G: eMBB (Breitband), mMTC (IoT), URLLC (Echtzeit). Frequenzen: Sub-6GHz (Reichweite) und mmWave (Kapazität)."},
+{id:161,t:"osi",q:"Auf welcher Schicht operiert HTTP?",o:["Schicht 4","Schicht 7 (Application Layer)","Schicht 3","Schicht 5"],a:1,e:"HTTP: L7. DNS: L7. TLS: L6. TCP: L4. IP: L3. Ethernet: L2. Kabel: L1."},
+{id:162,t:"osi",q:"Was ist das TCP/IP-Modell?",o:["Ein 7-Schichten-Modell","Vereinfachtes 4-Schichten-Modell: Network Access, Internet, Transport, Application","Ein 5-Schichten-Modell","Das gleiche wie OSI"],a:1,e:"TCP/IP: Network Access (OSI 1+2), Internet (OSI 3), Transport (OSI 4), Application (OSI 5+6+7)."},
+{id:163,t:"osi",q:"Was ist ein Socket?",o:["Kombination aus IP-Adresse und Port: identifiziert eine Netzwerkverbindung eindeutig (z.B. 192.168.1.1:80)","Eine MAC-Adresse","Ein physischer Anschluss","Ein Protokoll"],a:0,e:"Socket = IP:Port. Browser öffnet Socket zu 216.58.207.46:443. Server hat Listening Socket, Client Ephemeral Port."},
+{id:164,t:"osi",q:"Was ist ein 3-Wege-Handshake (TCP)?",o:["TCP-Verbindungsaufbau: SYN → SYN-ACK → ACK – stellt zuverlässige Verbindung her","Ein WLAN-Handshake","Ein TLS-Handshake","Ein VPN-Handshake"],a:0,e:"3-Way: Client sendet SYN, Server antwortet SYN-ACK, Client bestätigt ACK. Dann Datenübertragung."},
+{id:165,t:"osi",q:"Was ist HTTPS-Verschlüsselung (TLS-Handshake)?",o:["Passwort-Schutz","MAC-Verschlüsselung","1.Zertifikat austauschen, 2.Sitzungsschlüssel aushandeln (asymmetrisch), 3.Daten verschlüsseln (symmetrisch AES)","IP-Adress-Verschlüsselung"],a:2,e:"TLS: ClientHello → ServerHello+Zertifikat → Schlüsselaustausch (RSA/ECDH) → Finished → AES-Daten."},
+{id:166,t:"netz",q:"Was ist ein Ethernet-Frame?",o:["Ein IP-Paket","Ein UDP-Datagramm","Layer-2-Datenpakket: Präambel, Ziel-MAC, Quell-MAC, EtherType, Daten (46-1500 Byte), FCS (CRC)","Ein TCP-Segment"],a:2,e:"Frame: Max. 1518 Byte (ohne Präambel). MTU (Maximum Transmission Unit): 1500 Byte Nutzdaten."},
+{id:167,t:"netz",q:"Was ist MTU?",o:["Multiple Transport Unit","Minimum Transfer Utility","Maximum Transfer Unit","Maximum Transmission Unit – maximale Paketgröße die ein Netzwerk übertragen kann (Standard Ethernet: 1500 Byte)"],a:3,e:"MTU 1500 Byte: Ethernet-Standard. Jumbo Frames: 9000 Byte (Storage-Netzwerke). Path MTU Discovery vermeidet Fragmentierung."},
+{id:168,t:"netz",q:"Was ist DHCP-Snooping?",o:["Ein WLAN-Protokoll","Switch-Funktion die gefälschte DHCP-Server-Antworten blockiert (Sicherheitsfunktion)","Ein DNS-Feature","Ein DHCP-Server"],a:1,e:"DHCP Snooping: nur vertrauenswürdige Ports dürfen DHCP-Offers senden. Verhindert Rogue-DHCP-Angriffe."},
+{id:169,t:"netz",q:"Was ist 802.1X?",o:["Ein Routing-Standard","Ein Verschlüsselungsstandard","Ein WLAN-Standard","IEEE-Standard für Port-basierte Netzwerkzugriffskontrolle – Authentifizierung vor Netzwerkzugang (EAP, RADIUS)"],a:3,e:"802.1X: Supplicant (Gerät) → Authenticator (Switch/AP) → Authentication Server (RADIUS). WPA2-Enterprise nutzt es."},
+{id:170,t:"netz",q:"Was ist ein Honeypot?",o:["Ein IDS","Ein süßes Netzwerkgerät","Bewusst verwundbares Scheinsystem das Angreifer anlockt und deren Methoden dokumentiert","Eine Firewall"],a:2,e:"Honeypot: frühe Angriffserkennung, Angreifer analysieren, Echtsysteme schützen. Honeypot-Farm = Honeynet."},
+{id:171,t:"hw",q:"Was ist ein All-in-One-PC?",o:["PC bei dem Monitor und Rechner in einem Gerät integriert sind (z.B. Apple iMac)","Ein Laptop","Ein Thin Client","Ein Server"],a:0,e:"AiO: platzsparend, ästhetisch. Nachteil: schwer aufrüstbar, bei Defekt Komplettgerät betroffen."},
+{id:172,t:"hw",q:"Was ist ein Workstation?",o:["Ein einfacher PC","Ein Thin Client","Ein Server","Leistungsstarker professioneller PC für CAD, Video-Editing, Simulation – oft mit ECC-RAM und Profi-GPU"],a:3,e:"Workstation: NVIDIA Quadro/RTX A-Serie, AMD Radeon Pro. Zertifiziert für professionelle Software (AutoCAD, Maya)."},
+{id:173,t:"hw",q:"Was ist ein SBC (Single Board Computer)?",o:["Ein Server","Ein Tablet","Kompletter Computer auf einer einzigen Platine (z.B. Raspberry Pi) – günstig, für IoT/Prototypen","Ein Mainboard ohne CPU"],a:2,e:"Raspberry Pi 5: 2,4 GHz Quad-Core, 8 GB RAM, USB 3, PCIe. Gut für: Schulung, Heimserver, IoT, Prototypen."},
+{id:174,t:"hw",q:"Was ist NFC?",o:["Near Field Communication – drahtlose Kurzstrecken-Übertragung (max 20cm), für kontaktloses Bezahlen, Zutrittskarten","Ein Bluetooth-Standard","Ein WLAN-Standard","Ein Glasfaserstandard"],a:0,e:"NFC: 13,56 MHz, bis 424 kbit/s. RFID-Basis. Apple Pay, Google Pay, Zugangskontrolle, Produktkennzeichnung."},
+{id:175,t:"hw",q:"Was ist Bluetooth?",o:["Ein Ethernet-Standard","Ein WLAN-Standard","Ein Glasfaserstandard","Drahtloser Kurzstrecken-Funkstandard für Peripheriegeräte (Tastatur, Maus, Kopfhörer) – bis ~10m"],a:3,e:"Bluetooth 5.0: bis 50m, 2 Mbit/s. BLE (Low Energy): für IoT, Sensoren. Classic: für Audio-Streaming."},
+{id:176,t:"hw",q:"Was ist RFID?",o:["Ein WLAN-Standard","Ein NFC-Ersatz","Radio Frequency Identification – drahtlose Identifikation über elektromagnetische Felder (Logistik, Zutrittskontrolle)","Ein Bluetooth-Standard"],a:2,e:"RFID: passive (keine Batterie, durch Lesegerät aktiviert) und aktive Tags. Frequenzen: 125kHz, 13,56MHz, UHF."},
+{id:177,t:"hw",q:"Was ist ein Industrial PC (IPC)?",o:["Ein Thin Client","Robuster PC für Industrieumgebungen: extreme Temperaturen, Vibrationen, Staub – oft ohne Lüfter (lüfterlos)","Ein einfacher PC","Ein Server"],a:1,e:"IPC: Hutschienen-PC, Panel-PC, Box-PC. IP-Schutzklassen (IP65/67). DIN-Rail-Montage. Lange Produktlebensdauer."},
+{id:178,t:"hw",q:"Was ist ein Monitor mit IPS-Panel?",o:["Ein Monitor mit schlechten Farben","Ein Gaming-Monitor","In-Plane Switching – gute Farbtreue und weite Blickwinkel, ideal für Grafikdesign und professionelle Nutzung","Ein günstiger Monitor"],a:2,e:"IPS: beste Farben/Winkel. TN: schnell aber schlechte Winkel. VA: guter Kontrast. OLED: perfektes Schwarz."},
+{id:179,t:"hw",q:"Was ist ein KVM over IP?",o:["Remote-Zugriff auf Server-Konsole (Keyboard/Video/Mouse) über IP auch wenn OS nicht bootet","Ein Netzwerk-Switch","Ein Router","Ein VPN"],a:0,e:"KVM over IP (IPMI/iDRAC/iLO): Out-of-Band-Management. Zugriff bei OS-Absturz, BIOS-Konfiguration remote."},
+{id:180,t:"hw",q:"Was ist IPMI?",o:["Ein Netzwerkprotokoll","Intelligent Platform Management Interface – Fernverwaltung von Servern unabhängig vom Betriebssystem","Ein Storage-Protokoll","Ein WLAN-Standard"],a:1,e:"IPMI: Baseboard Management Controller (BMC). Temperaturüberwachung, Remote-Konsole, Power-Cycling."},
+{id:181,t:"usv",q:"Was ist Frequenz im Wechselstromnetz?",o:["60 Hz in Europa","50 Hz in USA","100 Hz überall","50 Hz in Europa, 60 Hz in USA – Anzahl der Schwingungen pro Sekunde"],a:3,e:"Europa: 230V/50Hz. USA: 120V/60Hz. Frequenzabweichungen können Motoren/Takte beeinflussen."},
+{id:182,t:"usv",q:"Was ist Notstrom?",o:["Eine Solaranlage","Ein normales Netz","Stromsystem das bei Netzausfall einspringt: USV (kurz) + Generator (lang) oder Batterie-Storage","Eine USV"],a:2,e:"Notstromkonzept: USV überbrückt bis Generator läuft (10-30s). Rechenzentren: N+1 oder 2N Redundanz."},
+{id:183,t:"usv",q:"Wie berechnet sich der Stromverbrauch in kWh?",o:["kWh = W × h ÷ 1000 (oder kW × h)","kWh = W ÷ h","kWh = W + h","kWh = W × 1000 × h"],a:0,e:"Beispiel: 300W × 24h = 7200Wh = 7,2 kWh. Bei 0,30€/kWh: 2,16€/Tag."},
+{id:184,t:"usv",q:"Was sind Harmonische in der Stromversorgung?",o:["Oberschwingungen die von nichtlinearen Verbrauchern erzeugt werden und das Netz belasten","Normale Frequenzen","Ein Sicherheitsmerkmal","Gleiche Frequenz wie Netz"],a:0,e:"Harmonische: Schaltnetzteile, LED-Treiber, VFDs erzeugen Oberwellen. THD (Total Harmonic Distortion): Qualitätsmaß."},
+{id:185,t:"usv",q:"Was ist Galvanische Trennung in einer USV?",o:["Eine Sicherungstrennung","Eine Batterietrennung","Elektrische Isolation zwischen Eingang und Ausgang über Transformator – Online-USV bietet vollständige Trennung","Eine Netzwerktrennung"],a:2,e:"Galvanische Trennung: kein elektrischer Pfad zwischen Primär- und Sekundärseite. Schutz vor Netzstörungen."},
+{id:186,t:"netz",q:"Was ist ein Captive Portal?",o:["Eine Firewall","Ein DNS-Server","Ein VPN","Webseite zu der Nutzer beim WLAN-Beitritt weitergeleitet werden (z.B. Hotel-WLAN, AGB-Zustimmung)"],a:3,e:"Captive Portal: HTTP-Traffic wird auf Login-Seite umgeleitet. Nach Authentifizierung normaler Zugang."},
+{id:187,t:"netz",q:"Was ist ein Zero-Trust-Netzwerk?",o:["Sicherheitsmodell: kein Gerät/Nutzer ist automatisch vertrauenswürdig – immer Authentifizierung und Autorisierung","Ein VPN","Ein Netzwerk ohne Firewall","Ein öffentliches Netzwerk"],a:0,e:"Zero Trust: 'Never Trust, Always Verify'. Mikrosegmentierung, MFA, Least Privilege. Gegen Insider-Bedrohungen."},
+{id:188,t:"netz",q:"Was ist ein SSID Broadcast?",o:["Router sendet SSID regelmäßig als Beacon Frame – Geräte sehen Netzwerkname ohne Suche","Ein DNS-Broadcast","WLAN-Datenstrom","Ein DHCP-Broadcast"],a:0,e:"SSID-Broadcast deaktivieren: minimaler Sicherheitsgewinn (Sniffer finden SSID trotzdem). Komfort ↓."},
+{id:189,t:"netz",q:"Was ist MAC-Filterung?",o:["Ein IP-Filter","Ein DNS-Filter","Eine Firewall-Funktion","Nur bekannte MAC-Adressen dürfen sich verbinden – schwache Sicherheitsmaßnahme (MAC spoofbar)"],a:3,e:"MAC-Filterung: einfach zu umgehen durch MAC-Spoofing. Als alleinige Maßnahme unzureichend."},
+{id:190,t:"netz",q:"Was ist ein Evil Twin Angriff?",o:["Ein Port-Scanner","Ein Rootkit","Ein Virus","Gefälschter WLAN-Access-Point mit gleicher SSID der Man-in-the-Middle-Angriffe ermöglicht"],a:3,e:"Evil Twin: Angreifer erstellt AP mit gleicher SSID. Opfer verbindet sich → Angreifer sieht Daten. HTTPS schützt."},
+{id:191,t:"netz",q:"Was ist ein Port-Scanner?",o:["Ein Router","Ein Netzwerkkabel","Tool das offene Ports auf einem System scannt (z.B. Nmap) – für Netzwerk-Inventory und Sicherheitsaudits","Ein Hardware-Gerät"],a:2,e:"Nmap: 'nmap -sS 192.168.1.1'. SYN-Scan (stealth). Findet offene Ports, Dienste, OS-Fingerprint."},
+{id:192,t:"netz",q:"Was ist CIDR-Notation?",o:["Ein Netzwerkprotokoll","Classless Inter-Domain Routing – kompakte Schreibweise für IP-Adressen mit Präfixlänge (192.168.1.0/24)","Ein DNS-Standard","Ein Routing-Protokoll"],a:1,e:"CIDR /24: 256 IPs. /25: 128. /26: 64. /16: 65.536. /8: 16,7 Mio. IPs. Effizienter als Klassen A/B/C."},
+{id:193,t:"netz",q:"Was ist ein Broadcast?",o:["Unicast","Multicast","Nachricht an alle Geräte im Netzwerk gleichzeitig (255.255.255.255 oder Subnetz-Broadcast)","Anycast"],a:2,e:"Broadcast: 192.168.1.255 (Subnetz-Broadcast von /24). DHCP Discover: 255.255.255.255. ARP: Broadcast."},
+{id:194,t:"netz",q:"Was ist Multicast?",o:["Broadcast an alle","Unicast","Nachricht an eine Gruppe von Empfängern gleichzeitig (224.0.0.0/4 für IPv4-Multicast)","Anycast"],a:2,e:"Multicast: IPTV, OSPF (224.0.0.5), Videokonferenzen. Effizienter als Broadcast (nur Interessierte empfangen)."},
+{id:195,t:"netz",q:"Was ist Anycast?",o:["Broadcast","Mehrere Server haben gleiche IP – Anfrage geht zum nächsten (DNS-Root-Server, CDN, DDoS-Schutz)","Multicast","Unicast"],a:1,e:"Anycast: DNS-Root-Server (13 Adressen, hunderte Standorte). CloudFlare 1.1.1.1: weltweites Anycast."},
+{id:196,t:"osi",q:"Was ist CRC?",o:["Ein Kompressions-Algorithmus","Cyclic Redundancy Check – Prüfsumme in Ethernet-Frames zur Fehlererkennung (Layer 2)","Ein Verschlüsselungsverfahren","Ein Routing-Protokoll"],a:1,e:"CRC: Empfänger berechnet CRC des empfangenen Frames, vergleicht mit FCS-Feld. Bei Abweichung: Frame verworfen."},
+{id:197,t:"osi",q:"Was ist CSMA/CD?",o:["Ein Verschlüsselungsverfahren","Ein Routing-Protokoll","Carrier Sense Multiple Access/Collision Detection – Kollisionsvermeidung bei Ethernet (Legacy)","Ein WLAN-Standard"],a:2,e:"CSMA/CD: Gerät hört ob Leitung frei → sendet → Kollision erkannt → Backoff. Heute: Switches eliminieren Kollisionen."},
+{id:198,t:"netz",q:"Was ist ein iSCSI?",o:["Ein WLAN-Standard","Internet SCSI – überträgt SCSI-Speicherbefehle über IP-Netzwerk (günstige SAN-Alternative)","Ein VPN-Protokoll","Ein E-Mail-Protokoll"],a:1,e:"iSCSI: Block-Storage über TCP/IP. Günstiger als Fibre Channel SAN. Netzwerk-Performance kritisch."},
+{id:199,t:"hw",q:"Was ist ein SAN (Storage Area Network)?",o:["Ein Internet-Provider","Ein WLAN","Ein lokales Netzwerk","Dediziertes Hochgeschwindigkeitsnetzwerk für Storage (Fibre Channel oder iSCSI) – für Server-Farmen"],a:3,e:"SAN: Block-Level-Storage. Fibre Channel: bis 32 Gbit/s. iSCSI: über Ethernet. Für Datenbanken, VMs."},
+{id:200,t:"hw",q:"Was ist NAS (Network Attached Storage)?",o:["Ein Cloud-Dienst","Ein SAN","Ein lokaler Speicher","Dateiserver im Netzwerk der Speicher für mehrere Nutzer bereitstellt (NFS, SMB/CIFS)"],a:3,e:"NAS: Synology, QNAP, UNRAID. Protokolle: SMB (Windows), NFS (Linux), AFP (Mac). File-Level-Storage."}
+];
+
+let state={};
+let order=Q.map(q=>q.id);
+let cf={t:'all',s:'all',q:''};
+const tl={cpu:'⚙️ CPU',ram:'🧠 RAM',netz:'🌐 Netz',osi:'📶 OSI',usv:'🔋 USV',hw:'🖥️ HW'};
+const sn={cpu:'⚙️ CPU & Architektur',ram:'🧠 RAM, Speicher & Dateisysteme',netz:'🌐 Netzwerk & Protokolle',osi:'📶 OSI-Modell',usv:'🔋 USV & Energie',hw:'🖥️ Hardware Allgemein'};
+function init(){Q.forEach(q=>{state[q.id]={sel:null,ans:false};});upStats();}
+function mkCard(q){
+  const s=state[q.id];
+  const d=document.createElement('div');
+  d.className='card';d.id='c'+q.id;
+  if(s.ans)d.classList.add(s.sel===q.a?'ok':'err');
+  const opts=q.o.map((o,i)=>{
+    let c='op';
+    if(s.ans){c+=' dis';if(i===q.a)c+=' cor';else if(i===s.sel)c+=' wrg';}
+    else if(i===s.sel)c+=' sel';
+    return`<div class="${c}" onclick="pick(${q.id},${i})"><div class="ol">${['A','B','C','D'][i]}</div><div class="ot">${o}</div></div>`;
+  }).join('');
+  const ec=s.ans?('exp show'+(s.sel!==q.a?' werr':'')):'exp';
+  d.innerHTML=`<div class="qh"><div class="qn">Frage ${q.id}/200</div><span class="tag">${tl[q.t]||q.t}</span></div>
+  <div class="qb"><div class="qt">${q.q}</div><div class="ops">${opts}</div><div class="${ec}">💡 ${q.e}</div></div>`;
+  return d;
+}
+function render(){
+  const g=document.getElementById('grid');g.innerHTML='';
+  const shown={};
+  order.forEach(id=>{
+    const q=Q.find(x=>x.id===id);if(!q||!passes(q))return;
+    if(!shown[q.t]&&cf.t==='all'){shown[q.t]=true;const h=document.createElement('div');h.className='sh';h.textContent=sn[q.t]||q.t;g.appendChild(h);}
+    g.appendChild(mkCard(q));
+  });
+}
+function passes(q){
+  const s=state[q.id];
+  if(cf.t!=='all'&&q.t!==cf.t)return false;
+  if(cf.s==='open'&&s.ans)return false;
+  if(cf.s==='wrong'&&(!s.ans||s.sel===q.a))return false;
+  if(cf.q&&!q.q.toLowerCase().includes(cf.q))return false;
+  return true;
+}
+function pick(id,i){
+  const s=state[id];if(s.ans)return;
+  s.sel=i;s.ans=true;
+  document.getElementById('c'+id).replaceWith(mkCard(Q.find(q=>q.id===id)));
+  upStats();upProg();
+}
+function upStats(){
+  let c=0,w=0,o=0;
+  Q.forEach(q=>{const s=state[q.id];if(!s.ans)o++;else if(s.sel===q.a)c++;else w++;});
+  document.getElementById('sc').textContent=c;document.getElementById('sw').textContent=w;document.getElementById('so').textContent=o;document.getElementById('sb').textContent=c+' Pkt';
+}
+function upProg(){
+  const a=Q.filter(q=>state[q.id].ans).length;
+  document.getElementById('pf').style.width=(a/Q.length*100)+'%';document.getElementById('pt').textContent=a+' / '+Q.length;
+}
+function ft(t,btn){cf.t=t;cf.s='all';cf.q='';document.getElementById('si').value='';document.querySelectorAll('.fb').forEach(b=>b.classList.remove('ac','aa'));btn.classList.add('ac');render();}
+function fs(s,btn){cf.s=cf.s===s?'all':s;cf.t='all';document.querySelectorAll('.fb').forEach(b=>b.classList.remove('ac','aa'));document.querySelectorAll('.fb')[0].classList.add('ac');if(cf.s!=='all')btn.classList.add('aa');render();}
+function fsearch(){cf.q=document.getElementById('si').value.toLowerCase();render();}
+function shuffle(){for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}cf={t:'all',s:'all',q:''};document.getElementById('si').value='';document.querySelectorAll('.fb').forEach(b=>b.classList.remove('ac','aa'));document.querySelectorAll('.fb')[0].classList.add('ac');render();}
+function showall(){cf={t:'all',s:'all',q:''};document.getElementById('si').value='';document.querySelectorAll('.fb').forEach(b=>b.classList.remove('ac','aa'));document.querySelectorAll('.fb')[0].classList.add('ac');render();}
+function resetAll(){Q.forEach(q=>{state[q.id]={sel:null,ans:false};});order=Q.map(q=>q.id);upStats();upProg();document.getElementById('rp').classList.remove('show');render();}
+function showRes(){
+  let c=0,w=0,o=0;Q.forEach(q=>{const s=state[q.id];if(!s.ans)o++;else if(s.sel===q.a)c++;else w++;});
+  const a=c+w,p=a>0?Math.round(c/a*100):0;
+  const grades=[[92,'🏆 Sehr gut!'],[81,'✅ Gut – Prüfungsfit!'],[67,'🟡 Befriedigend'],[50,'🟠 Ausreichend']];
+  const g=grades.find(([t])=>p>=t)?.[1]||'🔴 Noch üben!';
+  document.getElementById('rs').textContent=p+'%';document.getElementById('rg').textContent=g;
+  document.getElementById('rc').textContent=c;document.getElementById('rw').textContent=w;document.getElementById('ro').textContent=o;document.getElementById('rpts').textContent=c;
+  const rp=document.getElementById('rp');rp.classList.add('show');rp.scrollIntoView({behavior:'smooth'});
+}
+init();render();
+</script></body></html>

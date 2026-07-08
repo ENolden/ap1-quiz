@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP1 Quiz - Kapitel 9A: Support</title>
+<style>:root{--bg:#0f1117;--sur:#1a1d27;--card:#20243a;--ac:#f97316;--ok:#22c55e;--ng:#ef4444;--tx:#e2e8f0;--mu:#94a3b8;--bd:#2d3450;}
+*{box-sizing:border-box;margin:0;padding:0;}body{background:var(--bg);color:var(--tx);font-family:"Segoe UI",system-ui,sans-serif;}
+header{background:var(--sur);border-bottom:2px solid var(--ac);padding:14px 22px;position:sticky;top:0;z-index:100;}
+.hi{max-width:880px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.badge{background:var(--ac);color:#fff;font-weight:800;font-size:11px;padding:3px 8px;border-radius:5px;}
+h1{font-size:17px;font-weight:700;}.sub{font-size:11px;color:var(--mu);}
+.sd{font-size:19px;font-weight:800;color:var(--ac);}
+.ctrl{display:flex;gap:6px;}.btn{background:var(--sur);border:1px solid var(--bd);color:var(--tx);padding:5px 12px;border-radius:6px;cursor:pointer;font-size:12px;font-weight:600;}
+.btn:hover{border-color:var(--ac);color:var(--ac);}.btn.p{background:var(--ac);border-color:var(--ac);color:#fff;}
+.pw{max-width:880px;margin:8px auto 0;padding:0 22px;}
+.pt{background:var(--bd);border-radius:999px;height:4px;overflow:hidden;}
+.pf{background:var(--ac);height:100%;border-radius:999px;transition:width .3s;}
+.pl{font-size:10px;color:var(--mu);margin-top:3px;text-align:right;}
+.fb-bar{max-width:880px;margin:12px auto 0;padding:0 22px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.fl{font-size:11px;color:var(--mu);}
+.fb{background:var(--sur);border:1px solid var(--bd);color:var(--mu);padding:3px 10px;border-radius:20px;cursor:pointer;font-size:11px;}
+.fb:hover,.fb.act{background:var(--ac);border-color:var(--ac);color:#fff;}
+main{max-width:880px;margin:16px auto 50px;padding:0 22px;display:flex;flex-direction:column;gap:12px;}
+.bh{margin-top:6px;padding:7px 12px;background:linear-gradient(90deg,var(--card),transparent);border-left:3px solid var(--ac);border-radius:0 6px 6px 0;font-size:12px;font-weight:700;color:var(--ac);}
+.qc{background:var(--card);border:1px solid var(--bd);border-radius:9px;padding:16px 18px;}
+.qc.ac{border-color:var(--ok);}.qc.aw{border-color:var(--ng);}
+.qn{font-size:10px;color:var(--mu);font-weight:600;letter-spacing:1px;margin-bottom:3px;}
+.qt{display:inline-block;font-size:10px;background:var(--sur);color:var(--ac);border:1px solid var(--bd);padding:1px 7px;border-radius:10px;margin-bottom:7px;font-weight:600;}
+.qq{font-size:14px;font-weight:600;line-height:1.5;margin-bottom:10px;}
+.opts{display:flex;flex-direction:column;gap:6px;}
+.opt{background:var(--sur);border:1px solid var(--bd);border-radius:6px;padding:8px 11px;cursor:pointer;display:flex;align-items:flex-start;gap:8px;font-size:13px;}
+.opt:hover:not(.dis){border-color:var(--ac);background:#1e2235;}
+.opt.ok{border-color:var(--ok);background:rgba(34,197,94,.1);}
+.opt.ng{border-color:var(--ng);background:rgba(239,68,68,.1);}
+.opt.dis{cursor:default;}
+.ol{min-width:19px;height:19px;border-radius:50%;background:var(--bd);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px;}
+.opt.ok .ol{background:var(--ok);color:#000;}.opt.ng .ol{background:var(--ng);color:#fff;}
+.fbb{margin-top:9px;padding:8px 11px;border-radius:6px;font-size:12px;line-height:1.5;display:none;}
+.fbb.show{display:block;}.fbb.cok{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);color:#86efac;}
+.fbb.cng{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.3);color:#fca5a5;}
+.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:center;justify-content:center;}
+.ov.show{display:flex;}
+.ob{background:var(--card);border:2px solid var(--ac);border-radius:16px;padding:32px 40px;text-align:center;max-width:360px;width:90%;}
+.oe{font-size:48px;margin-bottom:10px;}.ot{font-size:20px;font-weight:800;}
+.os{font-size:42px;font-weight:900;color:var(--ac);margin:12px 0;}
+.om{font-size:13px;color:var(--mu);margin-bottom:18px;}
+.ob-b{display:flex;gap:8px;justify-content:center;}</style>
+</head>
+<body>
+<header>
+<div class="hi">
+  <div style="display:flex;align-items:center;gap:9px">
+    <span class="badge">KAP 9A</span>
+    <div><h1>AP1 Quiz - Kapitel 9A: Support</h1><div class="sub">Kommunikation & Fehlermanagement - 100 Fragen</div></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <div class="sd" id="sd">0/0</div>
+    <div class="ctrl">
+      <button class="btn" onclick="shuf()">🔀</button>
+      <button class="btn" onclick="rst()">↺</button>
+      <button class="btn p" onclick="showR()">Auswertung</button>
+    </div>
+  </div>
+</div>
+</header>
+<div class="pw"><div class="pt"><div class="pf" id="pf" style="width:0%"></div></div><div class="pl" id="pl">0 beantwortet</div></div>
+<div class="fb-bar">
+  <span class="fl">Filter:</span>
+  <button class="fb act" onclick="fil('all',this)">Alle</button>
+  <button class="fb" onclick="fil('9.1',this)">9.1 Kommunikation</button>
+  <button class="fb" onclick="fil('9.2',this)">9.2 Fehlermanagement</button>
+  <button class="fb" onclick="fil('open',this)">Offen</button>
+  <button class="fb" onclick="fil('wrong',this)">Falsch</button>
+</div>
+<main id="qc"></main>
+<div class="ov" id="ov">
+  <div class="ob">
+    <div class="oe" id="oe">🎉</div><div class="ot">Auswertung</div>
+    <div class="os" id="os">-</div><div class="om" id="om"></div>
+    <div class="ob-b">
+      <button class="btn p" onclick="closeR()">Weiter</button>
+      <button class="btn" onclick="rst()">Reset</button>
+    </div>
+  </div>
+</div>
+<script>
+const BN={"9.1":"💬 9.1 Kommunikation","9.2":"🔧 9.2 Fehlermanagement"};
+const Q=[
+{id:1,b:"9.1",t:"Kommunikation",q:"Was ist verbale Kommunikation?",o:["Tonfall","Gestik","Koerpersprache","Kommunikation ueber gesprochene oder geschriebene Woerter"],a:3,f:"Verbale Kommunikation: Woerter gesprochen oder geschrieben. Nur ca. 7% der Gesamtwirkung laut Mehrabian."},
+{id:2,b:"9.1",t:"Kommunikation",q:"Was ist paraverbale Kommunikation?",o:["Tonfall, Lautstaerke, Sprechgeschwindigkeit - WIE etwas gesagt wird","Koerpersprache","Schriftlich","Worte"],a:0,f:"Paraverbale Kommunikation: Stimme ohne Worte. Tonfall, Lautstaerke, Pausen, Betonung. Ca. 38% der Wirkung."},
+{id:3,b:"9.1",t:"Kommunikation",q:"Was ist nonverbale Kommunikation?",o:["Tonfall","Koerpersprache, Gestik, Mimik - Kommunikation ohne Worte","Schriftliche Texte","E-Mail"],a:1,f:"Nonverbale Kommunikation: Koerpersprache, Gestik, Mimik, Blickkontakt. Ca. 55% der Wirkung. Im Support besonders wichtig."},
+{id:4,b:"9.1",t:"4-Ohren-Modell",q:"Wer hat das 4-Ohren-Modell entwickelt?",o:["Friedemann Schulz von Thun","Watzlawick","Shannon","Einstein"],a:0,f:"Das 4-Ohren-Modell wurde von Friedemann Schulz von Thun entwickelt. Vier Ebenen: Sachinhalt, Selbstoffenbarung, Beziehung, Appell."},
+{id:5,b:"9.1",t:"4-Ohren-Modell",q:"Welche 4 Ebenen hat das 4-Ohren-Modell?",o:["Senden, Empfangen, Stoerung, Feedback","Sachinhalt, Selbstoffenbarung, Beziehung, Appell","Sprechen, Hoeren, Verstehen, Antworten","Verbal, Paraverbal, Nonverbal, Schriftlich"],a:1,f:"4 Ebenen: Sachinhalt (Was sage ich?), Selbstoffenbarung (Was verrate ich?), Beziehung (Wie stehe ich zu dir?), Appell (Was soll der Empfaenger tun?)."},
+{id:6,b:"9.1",t:"4-Ohren-Modell",q:"Was ist der Sachinhalt im 4-Ohren-Modell?",o:["Was ich vom Empfaenger moechte","Was ich preisgebe","Wie ich den Empfaenger einschaetze","Die reine Information der Nachricht"],a:3,f:"Sachinhalt: die sachliche Information. Beispiel: Das Auto hat kein Oel = Information ueber Oelstand."},
+{id:7,b:"9.1",t:"4-Ohren-Modell",q:"Was ist die Selbstoffenbarung?",o:["Was ich bewusst oder unbewusst von mir preisgebe","Was ich vom anderen moechte","Wie ich den anderen einschaetze","Die sachliche Info"],a:0,f:"Selbstoffenbarung: Was sagt die Nachricht ueber den Sender? Gefuehle, Werte, Beduerfnisse des Senders."},
+{id:8,b:"9.1",t:"4-Ohren-Modell",q:"Was ist der Appell?",o:["Was Sender preisgibt","Was Sender vom Empfaenger moechte - Aufforderung oder Wunsch","Sachliche Info","Beziehungsebene"],a:1,f:"Appell: Was soll Empfaenger tun, denken oder fuehlen? Explizit oder implizit. Oft wichtigster Aspekt fuer den Absender."},
+{id:9,b:"9.1",t:"4-Ohren-Modell",q:"Was ist die Beziehungsebene?",o:["Die Selbstoffenbarung","Der Appell","Sachliche Aussage","Wie Sender den Empfaenger einschaetzt und wie er zu ihm steht"],a:3,f:"Beziehungsebene: Was denke ich ueber dich? Wie stehe ich zu dir? Oft durch Tonfall und Wortwahl transportiert."},
+{id:10,b:"9.1",t:"4-Ohren-Modell",q:"Warum ist das 4-Ohren-Modell im IT-Support wichtig?",o:["Fuer technische Diagnosen","Fuer Tickets","Erklaert Missverstaendnisse: Nutzer sendet auf einer Ebene, Support hoert auf anderer","Fuer SLA"],a:2,f:"Im Support: Das Internet ist kaputt. Sachlich: Verbindungsproblem. Appell: Bitte hilf mir sofort. Support muss alle Ebenen erkennen."},
+{id:11,b:"9.1",t:"Sender-Empfaenger",q:"Was ist das Sender-Empfaenger-Modell?",o:["Supportmodell","Kommunikationsmodell: Sender codiert Nachricht, Kanal uebertraegt, Empfaenger decodiert","Ticketsystem","Finanzmodell"],a:1,f:"Sender-Empfaenger (Shannon/Weaver): Sender codiert, Kanal uebertraegt, Empfaenger decodiert. Stoerungen beeintraechtigen Uebertragung."},
+{id:12,b:"9.1",t:"Sender-Empfaenger",q:"Was sind Stoerungen im Kommunikationsmodell?",o:["Technische Defekte","Nur Sprachbarrieren","Einfluesse die Uebertragung beeintraechtigen: Laerm, Missverstaendnisse, Vorurteile","Fehlende Empathie"],a:2,f:"Stoerungen: physisch (Laerm), semantisch (unterschiedliche Begriffe), psychologisch (Vorurteile). IT-Fachbegriffe = semantische Stoerung fuer Laien."},
+{id:13,b:"9.1",t:"Sender-Empfaenger",q:"Was ist Feedback im Kommunikationskreislauf?",o:["Fehlermeldung","Kundenbewertung","Rueckmeldung des Empfaengers - zeigt ob Nachricht verstanden wurde","Produktbewertung"],a:2,f:"Feedback schliesst Kommunikationskreislauf. Ermoeglicht Korrektur bei Missverstaendnissen. Im Support: aktives Zuhoeren und Zusammenfassen."},
+{id:14,b:"9.1",t:"Eisbergmodell",q:"Was beschreibt das Eisbergmodell?",o:["Sachebene (sichtbar, 20%) und Beziehungsebene (unsichtbar, 80%)","Technische Systeme","Datenbankstruktur","Netzwerkarchitektur"],a:0,f:"Eisbergmodell: Sachebene (Spitze) = 20% - Fakten. Beziehungsebene (unter Wasser) = 80% - Gefuehle, Einstellungen. Im Support oft unterschaetzt."},
+{id:15,b:"9.1",t:"Konfliktdeeskalation",q:"Wie deeskaliert man ein Konfliktgespraech?",o:["Gegner werden","Ruhig bleiben, Empathie zeigen, sachlich bleiben, Schuldzuweisungen vermeiden","Kunden abwimmeln","Technik erklaeren"],a:1,f:"Deeskalation: ruhige Stimme, Empathie (Ich verstehe Ihre Frustration), sachlich, keine Schuldzuweisungen, konkrete Hilfe anbieten."},
+{id:16,b:"9.1",t:"Konfliktdeeskalation",q:"Was bedeutet Empathie im Support?",o:["Technisches Verstaendnis","Zustimmung","Perspektive und Gefuehle des Kunden verstehen und anerkennen ohne zu werten","Mitleid haben"],a:2,f:"Empathie: sich in Kundenlage versetzen. Formulierungen: Ich verstehe, dass das frustrierend ist. Zeigt Wertschaetzung, baut Vertrauen auf."},
+{id:17,b:"9.1",t:"Kommunikation",q:"Was ist aktives Zuhoeren?",o:["Aufmerksames Zuhoeren mit Rueckmeldungen: Nachfragen, Zusammenfassen, Bestaetigen","Aufzeichnen","Warten bis fertig","Notizen machen"],a:0,f:"Aktives Zuhoeren: bestaetigen (Ja, ich verstehe), zusammenfassen (Sie meinen also...), nachfragen. Verhindert Missverstaendnisse."},
+{id:18,b:"9.1",t:"Kommunikation",q:"Was ist eine Ich-Botschaft?",o:["Technische Meldung","Sachliche Info","Selbstlob","Eigene Wahrnehmung beschreiben statt Vorwuerfe (Ich merke, dass das System nicht reagiert)"],a:3,f:"Ich-Botschaft: Ich merke, dass... statt: Sie haben das kaputt gemacht. Reduziert Abwehrreaktionen."},
+{id:19,b:"9.1",t:"Kommunikation",q:"Was ist eine offene Frage im Support?",o:["Abschlussfrage","Frage die zum Erzaehlen animiert (Was ist passiert? Wie zeigt sich das Problem?)","Technische Frage","Ja/Nein Frage"],a:1,f:"Offene Fragen (W-Fragen): Was passiert? Seit wann? Wie zeigt sich Fehler? Sammeln mehr Informationen als Ja/Nein-Fragen."},
+{id:20,b:"9.1",t:"Kommunikation",q:"Was ist eine geschlossene Frage?",o:["Technische Diagnose","Offene Frage","Frage mit Ja/Nein-Antwort zur Eingrenzung (Haben Sie neu gestartet?)","Rhetorische Frage"],a:2,f:"Geschlossene Fragen: Ja/Nein zur Eingrenzung oder Bestaetigung. Kombination mit offenen Fragen optimal fuer Diagnose."},
+{id:21,b:"9.1",t:"Kommunikation",q:"Was ist Paraphrasieren?",o:["Technisch erklaeren","Inhalt in eigenen Worten wiedergeben (Also wenn ich richtig verstehe...)","Fachbegriffe erklaeren","Gesagtes kopieren"],a:1,f:"Paraphrasieren: Wenn ich das richtig verstehe, haben Sie... Prueft Verstaendnis, gibt Kunden Chance zu korrigieren."},
+{id:22,b:"9.1",t:"Kommunikation",q:"Was fehlt bei reiner E-Mail-Kommunikation?",o:["Schriftliche Kommunikation","Sachinhalt","Paraverbale und nonverbale Kommunikation - Missverstaendnisse haeufiger","Verbale Kommunikation"],a:2,f:"E-Mail: nur verbale Ebene. Kein Tonfall, keine Koerpersprache. Ironie und Dringlichkeit schlecht erkennbar."},
+{id:23,b:"9.1",t:"Kommunikation",q:"Was ist der Unterschied zwischen synchroner und asynchroner Kommunikation?",o:["Kein Unterschied","Synchron ist immer besser","Asynchron ist schneller","Synchron: gleichzeitig (Telefon). Asynchron: zeitversetzt (E-Mail, Ticket)"],a:3,f:"Synchron: Telefon, Chat - beide gleichzeitig. Asynchron: E-Mail, Ticket - zeitversetzt. Asynchron: besser dokumentiert. Synchron: schnellere Klaerung."},
+{id:24,b:"9.1",t:"Kommunikation",q:"Was ist Erwartungsmanagement?",o:["Erwartungen ignorieren","Schnelle Loesung versprechen","Kunden realistische Zeitrahmen kommunizieren - falsche Versprechungen fuehren zu Enttaeuschung","Nur Fakten nennen"],a:2,f:"Erwartungsmanagement: Das dauert ca. 2 Stunden. Realistische Zusagen einhalten schafft Vertrauen."},
+{id:25,b:"9.1",t:"Kommunikation",q:"Was ist Spiegeln in der Kommunikation?",o:["Wiederholen was der andere gesagt hat - zeigt Verstaendnis","Bildschirm spiegeln","Mimik spiegeln","Dokumentieren"],a:0,f:"Spiegeln: Sie haben also das Problem, dass... Zeigt Zuhoeren, gibt Kunden Chance Missverstaendnisse zu korrigieren."},
+{id:26,b:"9.1",t:"Kommunikation",q:"Was sind Killerphrasen?",o:["Fachbegriffe","Supportphrasen","Aussagen die Ideen abwuergen (Das geht nicht, Das haben wir immer so gemacht)","Positive Affirmationen"],a:2,f:"Killerphrasen: Das haben wir noch nie so gemacht. Blockieren Loesungen, eskalieren Konflikte. Im Support vermeiden."},
+{id:27,b:"9.1",t:"Kommunikation",q:"Was ist professionelle Distanz?",o:["Kalte Haltung","Technische Haltung","Kunden ignorieren","Sachliche Haltung trotz emotionaler Kundenreaktionen - nicht persoenlich nehmen"],a:3,f:"Professionelle Distanz: Kundenfrust nicht persoenlich nehmen. Ermoeglicht ruhige sachliche Reaktion. Unterschied: Empathie vs Betroffensein."},
+{id:28,b:"9.1",t:"Kommunikation",q:"Was ist Follow-up im Support?",o:["Eskalation","Ticket schliessen","Nachfassen nach Problemloesung: wurde Problem geloest? Ist Kunde zufrieden?","Neue Anfrage"],a:2,f:"Follow-up: Kunden nach Loesung kontaktieren. Zufrieden? Weitere Fragen? Erhoeht Kundenzufriedenheit."},
+{id:29,b:"9.1",t:"Kommunikation",q:"Was ist der Unterschied zwischen Beschwerde und Reklamation?",o:["Beschwerde ist formeller","Identisch","Reklamation ist hoeflicher","Beschwerde: Unzufriedenheit ohne Anspruch. Reklamation: formeller rechtlicher Anspruch auf Maengelbeseitigung"],a:3,f:"Beschwerde: allgemeine Unzufriedenheit. Reklamation: konkreter rechtlicher Anspruch. Beide professionell behandeln, Reklamation formal dokumentieren."},
+{id:30,b:"9.1",t:"Kommunikation",q:"Was ist nonviolente Kommunikation (GFK)?",o:["Technisch","Schweigen","Kommunikationsansatz: Beobachtung, Gefuehl, Beduerfnis, Bitte - ohne Bewertungen","Militaerisch"],a:2,f:"GFK: 1. Beobachtung, 2. Gefuehl, 3. Beduerfnis, 4. Bitte. Verhindert Eskalation durch sachliche beduerfnisorientierte Kommunikation."},
+{id:31,b:"9.1",t:"Kommunikation",q:"Was ist Kundenorientierung?",o:["Technische Exzellenz","Beduerfnisse des Kunden in den Mittelpunkt stellen: verstaendliche Sprache, schnelle Reaktion, Problemloesung","Alle Wuensche erfuellen","Guenstige Preise"],a:1,f:"Kundenorientierung: kein Jargon, realistische Zeitangaben, Ergebnis kommunizieren. Kunde hat Problem, kein technisches Verstaendnis."},
+{id:32,b:"9.1",t:"Kommunikation",q:"Warum ist Ruhe im Telefonsupport wichtig?",o:["Nur bei aufgeregten Kunden","Tonfall uebertraegt sich: Stress des Mitarbeiters ist hoerbar und verschlechtert Kundenerfahrung","Vorschriften","Mikrofon"],a:1,f:"Telefon: Tonfall verstaerkt wahrgenommen. Ruhige Stimme beruhigt Kunden, hektische uebertraegt Stress."},
+{id:33,b:"9.1",t:"Kommunikation",q:"Was ist die Sandwich-Methode im Feedback?",o:["Brotrezept","Technisches Feedback","Positives - Verbesserungswunsch - Positives: Kritik zwischen Lob verpacken","Kundenbefragung"],a:2,f:"Sandwich: Lob - Kritik - Lob. Macht Kritik leichter annehmbar. Beispiel: Problem gut beschrieben. Allerdings fehlt Fehlermeldung. Insgesamt sehr hilfreich."},
+{id:34,b:"9.1",t:"Kommunikation",q:"Was ist Sprachbarriere im IT-Support?",o:["Technisches Problem","Schwierigkeiten durch Fachbegriffe oder unterschiedliche Sprachen: IT-Experte vs Laie","Verbindungsproblem","Uebersetzungsfehler"],a:1,f:"Sprachbarriere: IT-Fachbegriffe als Hindernis fuer Laien. Loesungen: Analogien, einfache Sprache, kein Jargon, Rueckfragen."},
+{id:35,b:"9.1",t:"Kommunikation",q:"Was ist ein Gespraeabschluss im Support?",o:["Auflegen","Danke sagen","Technik wiederholen","Loesung zusammenfassen, naechste Schritte nennen, Ticketnummer, Zufriedenheit pruefen"],a:3,f:"Gespraeabschluss: Loesung zusammenfassen, naechste Schritte kommunizieren, Ticketnummer nennen, verabschieden."},
+{id:36,b:"9.1",t:"Kommunikation",q:"Was ist der Unterschied zwischen Hoeren und Zuhoeren?",o:["Hoeren ist aktiver","Hoeren: passiver Vorgang. Zuhoeren: aktiver Prozess mit Aufmerksamkeit und Reaktion","Kein Unterschied","Zuhoeren ist passiver"],a:1,f:"Hoeren: passiv (Schallwellen). Zuhoeren: aktiv, bewusste Aufmerksamkeit, Verarbeitung, Reaktion. Aktives Zuhoeren verhindert Missverstaendnisse."},
+{id:37,b:"9.1",t:"Kommunikation",q:"Was ist Dokumentation aus kommunikativer Sicht?",o:["Nur Statistiken","Schriftliche Zusammenfassung gibt Sicherheit und ermoeglicht Nachvollziehbarkeit von Vereinbarungen","Nur intern","Pflicht"],a:1,f:"Dokumentation im Ticket: verhindert Missverstaendnisse, ermoeglicht Kollegenuebergabe, Grundlage fuer Follow-up."},
+{id:38,b:"9.1",t:"Kommunikation",q:"Was ist eine Kommunikationsbarriere?",o:["Firewall","Hindernis das Kommunikation beeintraechtigt: Sprache, Vorurteile, Emotionen, schlechte Verbindung","Netzwerkproblem","Ticketstatus"],a:1,f:"Kommunikationsbarrieren erkennen und aktiv abbauen: Fachsprache vermeiden, Emotionen beruecksichtigen, Rueckfragen stellen."},
+{id:39,b:"9.1",t:"Kommunikation",q:"Was ist Multi-Channel-Support?",o:["Mehrere Produkte","Mehrere Teams","Mehrere Standorte","Support ueber verschiedene Kanaele: Telefon, E-Mail, Chat, Self Service - Nutzer waehlt bevorzugten Kanal"],a:3,f:"Multi-Channel: Telefon (persoenlich), E-Mail (dokumentiert), Chat (schnell), Self Service (autonom). Kanaele haben verschiedene Kommunikationseigenschaften."},
+{id:40,b:"9.1",t:"Kommunikation",q:"Was ist CSAT (Customer Satisfaction Score)?",o:["Communication Standard","Computer System Tool","Kundenzufriedenheitsbewertung nach Support-Kontakt","Critical Support Test"],a:2,f:"CSAT: automatische Umfrage nach Ticket-Abschluss. War Problem geloest? Wie zufrieden? Wichtige Qualitaetskennzahl fuer den Support."},
+{id:41,b:"9.1",t:"Kommunikation",q:"Was ist Feedback-Kultur im Support-Team?",o:["Nur Vorgesetzte","Nur Kundenbewertungen","Regelmaessige offene Rueckmeldungen im Team - foerdert Verbesserung","Nur bei Fehlern"],a:2,f:"Feedback-Kultur: regelmaessig, konstruktiv, spezifisch, zeitnah. Ermoeglicht kontinuierliche Verbesserung der Kommunikationskompetenz."},
+{id:42,b:"9.1",t:"Kommunikation",q:"Was ist das Beziehungsohr im 4-Ohren-Modell?",o:["Appell-Ohr","Technisches Geraet","Empfaenger hoert auf Beziehungsebene: Wie denkt Sender ueber mich?","Sachliches Ohr"],a:2,f:"Beziehungsohr: Empfaenger hoert ob Sender ihn respektiert. Falsche Formulierung kann Beziehungsebene verletzen."},
+{id:43,b:"9.1",t:"Kommunikation",q:"Was ist Selbstoffenbarungsohr?",o:["Beziehungsohr","Sachliches Ohr","Technisches Geraet","Empfaenger hoert was Sender ueber sich verraet - Gefuehle, Werte, Zustand"],a:3,f:"Selbstoffenbarungsohr: Was erfahre ich ueber den Sender? Ist er gestresst, unsicher, kompetent? Support sollte auf diesem Ohr auch hoeren."},
+{id:44,b:"9.1",t:"Kommunikation",q:"Was ist Appellohr?",o:["Beziehungsohr","Mikrofon","Empfaenger hoert was Sender von ihm moechte - explizit oder implizit","Sachliches Ohr"],a:2,f:"Appellohr: Was will der Sender von mir? Nutz mir, schau hin, aender dich. Im Support: Was braucht der Kunde konkret?"},
+{id:45,b:"9.1",t:"Kommunikation",q:"Was ist Sachohr?",o:["Emotionales Hoeren","Empfaenger hoert die sachliche Information der Nachricht","Beziehungshoeren","Akustisches Hoeren"],a:1,f:"Sachohr: Empfaenger fokussiert auf sachliche Information. Manchmal wird zu sehr auf Sachebene gehoert und Beziehungsebene ignoriert."},
+{id:46,b:"9.1",t:"Kommunikation",q:"Was ist ein Kommunikationskanal?",o:["Sender","Medium ueber das Nachricht uebertragen wird: Telefon, E-Mail, Chat, persoenlich","Nachricht","Empfaenger"],a:1,f:"Kanal: Telefon (synchron), E-Mail (asynchron), Chat (beides), persoenlich (alle Ebenen). Kanalwahl beeinflusst Kommunikationsqualitaet erheblich."},
+{id:47,b:"9.1",t:"Kommunikation",q:"Was ist NPS (Net Promoter Score)?",o:["Netzwerkstandard","Ticketbewertung","Kennzahl fuer Kundenloyalitaet: Wie wahrscheinlich wuerden Sie uns weiterempfehlen? (0-10)","Supportkennzahl"],a:2,f:"NPS: 0-6=Detraktoren, 7-8=Passive, 9-10=Promotoren. NPS = Promotoren% - Detraktoren%. Misst langfristige Kundenbindung."},
+{id:48,b:"9.1",t:"Kommunikation",q:"Was ist GFK nach Marshall Rosenberg?",o:["Geraetekommunikation","Geheimdienstmethode","Gewaltfreie Kampfsportart","Gewaltfreie Kommunikation: Beobachtung, Gefuehl, Beduerfnis, Bitte"],a:3,f:"GFK (Gewaltfreie Kommunikation): loesungsorientiert ohne Bewertungen oder Vorwuerfe. Vier Schritte sichern respektvolle Kommunikation."},
+{id:49,b:"9.1",t:"Kommunikation",q:"Was ist die Eisbergspitze kommunikativ?",o:["Das Unwichtige","Das Sichtbare: sachliche Informationen, Fakten, Zahlen - ca. 20% der Kommunikation","Beziehung","Emotionen"],a:1,f:"Eisbergspitze: sichtbar, ca. 20%. Sachinhalt. Unter der Oberflaeche: 80% Gefuehle, Erwartungen, Beziehungsdynamik."},
+{id:50,b:"9.1",t:"Kommunikation",q:"Warum schlaegt Beziehungsebene oft Sachebene?",o:["Wenn Beziehung gestoert ist, wird sachliche Information oft abgelehnt - erst Beziehung klaeren","Nur bei Konflikten","Tut sie nicht","Sachebene ist immer wichtiger"],a:0,f:"Beziehungsebene dominiert: Wenn Nutzer Vertrauen zum Support verloren hat, hoert er sachliche Loesungen nicht mehr. Erst Beziehung wiederherstellen."},
+{id:51,b:"9.2",t:"Fehlermanagement",q:"Was ist Problem Control?",o:["Tickets erstellen","Fehler ignorieren","Schnelle Reparatur","Identifikation, Dokumentation und Klassifizierung von Problemen"],a:3,f:"Problem Control: Probleme systematisch identifizieren, dokumentieren, klassifizieren. Root Cause Analysis: Ursache finden."},
+{id:52,b:"9.2",t:"Fehlermanagement",q:"Was ist der Unterschied zwischen Problem und Incident?",o:["Problem ist groesser","Incident ist schlimmer","Identisch","Incident: Stoerung/Symptom (Drucker druckt nicht). Problem: Ursache (defekter Treiber)"],a:3,f:"Incident: sichtbare Stoerung fuer Nutzer. Problem: zugrundeliegende Ursache. Ein Problem kann viele Incidents verursachen."},
+{id:53,b:"9.2",t:"Fehlermanagement",q:"Was ist ein Workaround?",o:["Temporaere Behelfsloesung bis dauerhafte Loesung gefunden wird","Ein Patch","Permanente Loesung","Fehlermeldung"],a:0,f:"Workaround: behebt Symptom nicht Ursache. Ermoeglicht Weiterbetrieb. In KEDB dokumentieren. Immer permanente Loesung anstreben."},
+{id:54,b:"9.2",t:"Fehlermanagement",q:"Was ist Root Cause Analysis (RCA)?",o:["Oberflaechenanalyse","Schnelldiagnose","Systematische Analyse zur Identifikation der eigentlichen Grundursache","Workaround-Suche"],a:2,f:"RCA: Grundursache finden. Methoden: 5-Why (5x Warum fragen), Ishikawa-Diagramm. Ziel: Symptom nicht nur behandeln."},
+{id:55,b:"9.2",t:"Fehlermanagement",q:"Was ist die 5-Why-Methode?",o:["Ursachenanalyse durch fuenfmaliges Warum-Fragen bis Grundursache gefunden","5 Loesungen pruefen","5 Kundenfragen","5 Experten befragen"],a:0,f:"5-Why: Warum Server aus? Uebertemperatur. Warum? Lueftung verstopft. Warum? Filter nicht gereinigt. Warum? Kein Wartungsplan. Grundursache: fehlender Prozess."},
+{id:56,b:"9.2",t:"Fehlermanagement",q:"Was ist proaktives vs reaktives Problem Management?",o:["Reaktiv ist besser","Kein Unterschied","Reaktiv: nach Incident reagieren. Proaktiv: vor Incident verhindern durch Monitoring und Trendanalyse","Proaktiv ist guenstiger"],a:2,f:"Reaktiv: Incident aufgetreten -> Ursache finden. Proaktiv: Trends erkennen, Probleme beheben bevor Incidents entstehen."},
+{id:57,b:"9.2",t:"Fehlermanagement",q:"Was ist eine KEDB (Known Error Database)?",o:["Fehlerlog","Datenbank bekannter Fehler mit Workarounds - beschleunigt zukuenftige Problembehebung","Kundendatenbank","Ticketdatenbank"],a:1,f:"KEDB: dokumentiert bekannte Fehler, Ursachen, Workarounds. Bei neuem Incident: KEDB pruefen, bekannten Workaround sofort anwenden."},
+{id:58,b:"9.2",t:"Fehlermanagement",q:"Was ist MTTR?",o:["Mindest-Reparaturzeit","Maximale Reparaturzeit","Durchschnittliche Supportzeit","Mean Time To Repair: durchschnittliche Zeit um ausgefallenes System zu reparieren"],a:3,f:"MTTR: von Incident-Erkennung bis Wiederherstellung. Niedrige MTTR = effizienter Support. Senken durch bessere Prozesse und Dokumentation."},
+{id:59,b:"9.2",t:"Fehlermanagement",q:"Was ist MTBF?",o:["Reparaturzeit","Supportzeit","Mean Time Between Failures: durchschnittliche Zeit zwischen zwei Ausfaellen - Kennzahl fuer Systemzuverlaessigkeit","Wartungsintervall"],a:2,f:"MTBF: hohe MTBF = zuverlaessiges System. Verbesserung: bessere Hardware, regelmaessige Wartung, praeventive Massnahmen."},
+{id:60,b:"9.2",t:"Fehlermanagement",q:"Was ist ein Single Point of Failure (SPoF)?",o:["Backup-System","Einzelne Komponente deren Ausfall das gesamte System stoppt - durch Redundanz eliminieren","Zentraler Server","Beste Komponente"],a:1,f:"SPoF: vermeiden durch RAID, Cluster, redundante Netze, USV. Kein einziger SPoF im kritischen System als Ziel."},
+{id:61,b:"9.2",t:"Fehlermanagement",q:"Was ist Fehlertoleranz?",o:["Faehigkeit eines Systems trotz Ausfall einzelner Komponenten weiter zu funktionieren","Fehlerprotokollierung","Fehlervermeidung","Fehler tolerieren"],a:0,f:"Fehlertoleranz: RAID 1 (Festplatte faellt aus, Spiegel uebernimmt), Cluster (Server faellt aus, anderer uebernimmt)."},
+{id:62,b:"9.2",t:"Fehlermanagement",q:"Was ist ein Hotfix?",o:["Wartungsreparatur","Dringender Software-Fix ausserplanmaessig veroeffentlicht um kritische Fehler schnell zu beheben","Regelmaessiges Update","Thermische Reparatur"],a:1,f:"Hotfix: kritischer Fix ausserhalb normaler Release-Zyklen. Schnell aber hoehere Risiken (weniger getestet)."},
+{id:63,b:"9.2",t:"Fehlermanagement",q:"Was ist Trendanalyse im Fehlermanagement?",o:["Analyse von Fehlerhaeufigkeiten ueber Zeit um systemische Probleme zu identifizieren","Modernes Design","Kundenbefragung","Technische Diagnose"],a:0,f:"Trendanalyse: haeufige Incidents im selben System -> Problem dahinter? Montags viele Passwort-Resets -> Schulungsbedarf? Proaktives PM."},
+{id:64,b:"9.2",t:"Fehlermanagement",q:"Was ist ein Ishikawa-Diagramm?",o:["Gantt","Ursache-Wirkungs-Diagramm zur Visualisierung moeglicher Fehlerursachen in Kategorien (6M)","Netzwerkdiagramm","ERD"],a:1,f:"Ishikawa (Fischgraet): Wirkung rechts, Ursachen als Graeten. 6M: Mensch, Maschine, Methode, Material, Milieu, Messung."},
+{id:65,b:"9.2",t:"Fehlermanagement",q:"Was ist Post-Incident-Review?",o:["Strukturierte Nachbesprechung nach schwerem Incident: Was passiert? Warum? Was verbessern?","Kundenbefragung","Incident wiederholen","Abschlussrechnung"],a:0,f:"Post-Incident-Review: Timeline, Ursachenanalyse, was funktionierte, was nicht, Verbesserungsmassnahmen. Blame-frei."},
+{id:66,b:"9.2",t:"Fehlermanagement",q:"Was ist Eskalation im Fehlermanagement?",o:["Konflikt","Weiterleitung an hoehere Supportebene wenn aktuelle Ebene nicht loesen kann","Workaround anwenden","Problem ignorieren"],a:1,f:"Eskalation: funktional (an hoehere Ebene), hierarchisch (an Management). Automatisch bei SLA-Annaeherung oder manuell."},
+{id:67,b:"9.2",t:"Fehlermanagement",q:"Was ist Change Management im Fehlermanagement?",o:["Organisatorischer Wandel","Kundenkommunikation","Dokumentation","Gesteuerter Prozess fuer IT-Aenderungen um neue Fehler durch unkontrollierte Aenderungen zu vermeiden"],a:3,f:"Change Management: jede Aenderung geht durch formellen Prozess. Verhindert Change-induzierte Incidents."},
+{id:68,b:"9.2",t:"Fehlermanagement",q:"Was ist Patch Management?",o:["Systematischer Prozess fuer Planung, Testen und Einspielen von Software-Updates und Sicherheitspatches","Physische Reparatur","Incident Management","Netzwerkplanung"],a:0,f:"Patch Management: Patch identifizieren, Risiko bewerten, in Test testen, in Produktion einspielen. Verhindert bekannte Schwachstellen."},
+{id:69,b:"9.2",t:"Fehlermanagement",q:"Was ist Disaster Recovery?",o:["Incident Management","Regelmaessige Wartung","Prozesse zur Wiederherstellung von IT-Systemen nach schwerwiegenden Stoerungen","Katastrophenschutz allgemein"],a:2,f:"DR: RTO (wie lange darf System ausfallen?) und RPO (wie alt darf Backup sein?). DR-Plan regelmaessig testen."},
+{id:70,b:"9.2",t:"Fehlermanagement",q:"Was ist RTO?",o:["Recovery Time Objective: maximale Zeit die ein System ausfallen darf bis Wiederherstellung","Reparaturzeit","Zeit bis Backup","Supportzeit"],a:0,f:"RTO: wie lange darf Service maximal nicht verfuegbar sein? RTO 4h: Wiederherstellung innerhalb 4 Stunden."},
+{id:71,b:"9.2",t:"Fehlermanagement",q:"Was ist RPO?",o:["Backup-Haeufigkeit","Wiederherstellungsziel","Recovery Point Objective: maximaler Datenverlust - wie alt darf letztes Backup sein?","Reparaturdauer"],a:2,f:"RPO: wie viel Datenverlust akzeptabel? RPO 1h: letzte Stunde Daten koennten verloren gehen. Niedrigeres RPO = haeufigere Backups."},
+{id:72,b:"9.2",t:"Fehlermanagement",q:"Was ist Business Continuity Management?",o:["Sicherstellung dass kritische Geschaeftsprozesse auch bei Stoerungen weiterlaufen","Kundenprozess","IT-Fehlermanagement","Geschaftsstrategie"],a:0,f:"BCM: umfasst DR (IT) und Business Continuity (Prozesse). Business Impact Analysis: welche Prozesse sind kritisch?"},
+{id:73,b:"9.2",t:"Fehlermanagement",q:"Was ist Monitoring?",o:["Mitarbeiterkontrolle","Log lesen","Kundenueberwachung","Kontinuierliche automatisierte Ueberwachung von Systemen um Fehler fruehzeitig zu erkennen"],a:3,f:"Monitoring: Nagios, Zabbix ueberwachen 24/7. Alerts bei Schwellenwerten. Proaktives Eingreifen vor Ausfall."},
+{id:74,b:"9.2",t:"Fehlermanagement",q:"Was ist ITIL?",o:["IT Infrastructure Library: Best Practices fuer IT-Service-Management","Programmiersprache","Betriebssystem","Datenbankstruktur"],a:0,f:"ITIL: de-facto Standard fuer ITSM. Version 4. Beschreibt Incident, Problem, Change, Service Level Management Prozesse."},
+{id:75,b:"9.2",t:"Fehlermanagement",q:"Was ist eine CMDB?",o:["Kundendatenbank","Ticketdatenbank","Fehlerdatenbank","Configuration Management Database: Verzeichnis aller IT-Komponenten und Beziehungen"],a:3,f:"CMDB: Inventar aller IT-Assets und Abhaengigkeiten. Bei Incident: welche anderen Dienste betroffen? Basis fuer Aenderungsbewertung."},
+{id:76,b:"9.2",t:"Fehlermanagement",q:"Was ist Incident Response?",o:["Ticket erstellen","Fehlervermeidung","Geordneter Prozess zur Reaktion auf und Behebung von Incidents","Kundenkommunikation"],a:2,f:"Incident Response: Erkennung, Eindaemmung, Analyse, Behebung, Wiederherstellung, Nachbesprechung. Schnelle koordinierte Reaktion."},
+{id:77,b:"9.2",t:"Fehlermanagement",q:"Was ist ein Major Incident?",o:["Schwerwiegender Incident mit grossem Einfluss - sofortige Eskalation, dediziertes Team","Routine-Incident","Kleiner Fehler","Geplanter Ausfall"],a:0,f:"Major Incident: P1. Sofortige Eskalation, War Room Team, stundliche Updates, Post-Incident-Review Pflicht."},
+{id:78,b:"9.2",t:"Fehlermanagement",q:"Was ist Fehlerklassifizierung?",o:["Fehler ignorieren","Einordnung nach Schwere, Art und Auswirkung - ermoeglicht Priorisierung","Fehler benennen","Fehler dokumentieren"],a:1,f:"Fehlerklassifizierung: Schweregrad (kritisch bis niedrig), Art (Hardware, Software, Netzwerk), Auswirkung. Priorisierung der Bearbeitung."},
+{id:79,b:"9.2",t:"Fehlermanagement",q:"Was ist Problem Closure?",o:["Service Request","Incident abschliessen","Formaler Abschluss nachdem permanente Loesung implementiert und verifiziert wurde","Ticket schliessen"],a:2,f:"Problem Closure: permanente Loesung implementiert, keine weiteren Incidents, KEDB aktualisiert, Lessons Learned dokumentiert."},
+{id:80,b:"9.2",t:"Fehlermanagement",q:"Was ist Fehlervermeidung?",o:["Fehler ignorieren","Dokumentieren","Praeventive Massnahmen: QS, Tests, Schulungen, Redundanz - verhindert Auftreten von Fehlern","Schnell beheben"],a:2,f:"Fehlervermeidung: QS-Massnahmen, Schulungen, redundante Systeme, Monitoring. Besser als reaktives Beheben."},
+{id:81,b:"9.2",t:"Fehlermanagement",q:"Was ist Event Management?",o:["Kundenmeldungen","Ueberwachung und Reaktion auf automatisierte Systemmeldungen: Information, Warnung, Alarm","Veranstaltung","Ticketverwaltung"],a:1,f:"Event Management: Information (normal), Warnung (Schwellenwert naeher), Alarm (Handlungsbedarf). Filtern und weiterleiten."},
+{id:82,b:"9.2",t:"Fehlermanagement",q:"Was ist Availability Management?",o:["Fehlermanagement","Hardware-Wartung","Kundenmanagement","Sicherstellung dass IT-Services gemaess SLA verfuegbar sind"],a:3,f:"Availability Management: vereinbarte Verfuegbarkeit sicherstellen. Misst Verfuegbarkeit, analysiert Ursachen, plant Verbesserungen."},
+{id:83,b:"9.2",t:"Fehlermanagement",q:"Was ist Severity vs Prioritaet bei Fehlern?",o:["Prioritaet ist technisch","Severity ist immer hoeher","Identisch","Severity: technische Auswirkung. Prioritaet: Dringlichkeit = Severity + Business-Wichtigkeit"],a:3,f:"Severity: technische Auswirkung. Prioritaet = f(Severity, Business Impact). VIP-Kunde kann geringe Severity aber hohe Prioritaet bedeuten."},
+{id:84,b:"9.2",t:"Fehlermanagement",q:"Was sind Symptome vs Ursachen?",o:["Ursachen sichtbarer","Symptome wichtiger","Identisch","Symptom: sichtbarer Effekt (Drucker druckt nicht). Ursache: technischer Grund (defekter Treiber)"],a:3,f:"Symptom behandeln: Problem kurz weg. Ursache beheben: Problem dauerhaft weg. Root Cause Analysis findet Ursache."},
+{id:85,b:"9.2",t:"Fehlermanagement",q:"Was ist Fault Tree Analysis?",o:["Incident Review","Fehlerprotokoll","Topdown-Methode: von unerwuenschtem Ereignis alle moeglichen Ursachen grafisch darstellen (UND/ODER)","Fehlerkatalog"],a:2,f:"FTA: grafische Darstellung aller Fehlerursachen. Logische AND/OR-Verknuepfungen zeigen Ursachenkombinationen."},
+{id:86,b:"9.2",t:"Fehlermanagement",q:"Was ist Known Error?",o:["Kritischer Fehler","Normaler Fehler","Identifizierter Fehler dessen Ursache bekannt ist aber noch keine dauerhafte Loesung implementiert wurde","Unbekannter Fehler"],a:2,f:"Known Error: Ursache bekannt, Workaround verfuegbar, Loesung noch ausstaehend. In KEDB dokumentieren."},
+{id:87,b:"9.2",t:"Fehlermanagement",q:"Was ist Incident Matching?",o:["Kundenzuordnung","Pruefen ob neuer Incident zu bekanntem Problem gehoert - verhindert Doppelarbeit","Routing","Incident loesen"],a:1,f:"Incident Matching: KEDB pruefen (Workaround anwenden), aehnliche Incidents pruefen (Muster erkennen = Problem). Effizienzgewinn."},
+{id:88,b:"9.2",t:"Fehlermanagement",q:"Was ist Problem Management nach ITIL?",o:["Entwicklungsprozess","ITIL: Probleme identifizieren, klassifizieren, Ursache finden, loesen, Known Error dokumentieren","Kundenprozess","Kaufprozess"],a:1,f:"ITIL Problem Management: reaktiv (aus Incidents) und proaktiv (aus Trendanalyse). Ursache finden, als Known Error dokumentieren, beheben."},
+{id:89,b:"9.2",t:"Fehlermanagement",q:"Was ist Configuration Management?",o:["Verwaltung aller IT-Komponenten in CMDB - Grundlage fuer Incident und Change Management","Software-Installation","Netzwerkkonfiguration","Hardware-Konfiguration"],a:0,f:"Configuration Management: alle CIs in CMDB erfassen (Version, Status, Abhaengigkeiten). Basis fuer Impact-Analyse."},
+{id:90,b:"9.2",t:"Fehlermanagement",q:"Was ist Problem Ownership?",o:["Verantwortlicher (Problem Owner) steuert Untersuchung und kommuniziert Status","Produktverantwortung","Systemverantwortung","Eigentumsrecht"],a:0,f:"Problem Owner: verantwortlich von Beginn bis Abschluss. Koordiniert Team, stellt sicher dass Problem konsequent verfolgt wird."},
+{id:91,b:"9.2",t:"Fehlermanagement",q:"Was ist Incident Reopen?",o:["Ticket eskalieren","Duplizieren","Neues Ticket","Wiederoeffnen wenn Problem nach Loesung wieder auftritt - Hinweis auf unvollstaendige Loesung"],a:3,f:"Reopen: Problem tritt nach Loesung wieder auf. Mehrfaches Reopen -> Problem Management aktivieren (Ursache nicht behoben)."},
+{id:92,b:"9.2",t:"Fehlermanagement",q:"Was ist ein Problem Review Board?",o:["Management-Meeting","Kundentreffen","Supportmeeting","Regelmaessiges Meeting zur Besprechung offener Probleme und Priorisierung"],a:3,f:"Problem Review Board: woechentlich/monatlich. Offene Probleme reviewen, priorisieren, Ressourcen zuweisen."},
+{id:93,b:"9.2",t:"Fehlermanagement",q:"Was ist der Unterschied Workaround vs permanente Loesung?",o:["Identisch","Workaround: temporaer, behandelt Symptom. Permanente Loesung: dauerhaft, behandelt Ursache","Workaround ist besser","Permanent ist teurer"],a:1,f:"Workaround: schnell, Problem persistiert. Permanent: aufwendiger, behebt Ursache dauerhaft. Immer permanente Loesung anstreben."},
+{id:94,b:"9.2",t:"Fehlermanagement",q:"Was ist Fehlerprotokollierung?",o:["Fehler loeschen","Fehler melden","Systematische Aufzeichnung aller Fehler mit Zeitstempel, Beschreibung, Massnahmen","Eskalieren"],a:2,f:"Fehlerprotokollierung: wann, was, wie schwer, wer entdeckt, Massnahmen, wann geloest. Grundlage fuer Trendanalyse und Audit."},
+{id:95,b:"9.2",t:"Fehlermanagement",q:"Was ist Business Continuity vs Disaster Recovery?",o:["Identisch","BCM: Geschaeftsprozesse weiter betreiben. DR: IT-Systeme wiederherstellen. BCM umfasst DR","BCM ist nur fuer IT","DR ist groesser"],a:1,f:"DR: IT-Wiederherstellung (RTO, RPO). BCM: gesamte Geschaeftskontinuitaet inkl. Prozesse, Personal, Kommunikation."},
+{id:96,b:"9.2",t:"Fehlermanagement",q:"Was ist Fehlertoleranz vs Fehlerresistenz?",o:["Identisch","Toleranz ist besser","Fehlertoleranz: System laeuft trotz Fehler. Fehlerresistenz: System verhindert Fehler von vornherein","Resistenz ist teurer"],a:2,f:"Fehlerresistenz: praeventiv (Eingabevalidierung). Fehlertoleranz: reaktiv, laeuft trotz Fehler (RAID). Beide wichtig."},
+{id:97,b:"9.2",t:"Fehlermanagement",q:"Was ist ein Post-Mortem-Review?",o:["Projekttod-Analyse","Abschlussrechnung","Strukturierter Rueckblick nach schwerem Incident: Timeline, Ursachen, Verbesserungen - blamefrei","Kundenbefragung"],a:2,f:"Post-Mortem (= Post-Incident-Review): Timeline, Ursachenanalyse, was funktioniert/nicht, Verbesserungsmassnahmen. Blame-frei, Fokus auf Systeme."},
+{id:98,b:"9.2",t:"Fehlermanagement",q:"Was sind Vorteile dokumentierten Fehlermanagements?",o:["Wissenstransfer, Trendanalyse, Auditfaehigkeit, SLA-Compliance pruefbar, Qualitaetsverbesserung messbar","Nur Auditvorteile","Nur Kunden","Nur intern"],a:0,f:"Dokumentiertes FM: Wissen nicht personenabhaengig, Trendanalyse, Audit-Faehigkeit, SLA-Compliance nachweisbar."},
+{id:99,b:"9.2",t:"Fehlermanagement",q:"Was ist proaktives Fehlermanagement?",o:["Reaktion auf Stoerungen","Probleme identifizieren und beheben BEVOR sie zu Incidents fuehren - durch Monitoring und Trendanalyse","Fehler nach Auftreten loesen","Kundenbefragung"],a:1,f:"Proaktiv: Trends analysieren, Schwachstellen finden und beheben bevor Ausfaelle entstehen. Kostet upfront mehr, spart langfristig."},
+{id:100,b:"9.2",t:"Fehlermanagement",q:"Was ist Error Control?",o:["Fehler verbergen","Ueberwachung bekannter Fehler und Workarounds bis permanente Loesung implementiert wird","Ignorieren","Fehler loeschen"],a:1,f:"Error Control: Known Errors ueberwachen, Workarounds pflegen, permanente Loesung vorantreiben. KEDB als zentrales Werkzeug."}
+];
+
+let st={},filt=[...Q];
+function init(){Q.forEach(q=>{st[q.id]={done:false,ok:null};});render();}
+function render(){
+  const c=document.getElementById("qc");c.innerHTML="";
+  let lb=null;
+  filt.forEach(q=>{
+    if(q.b!==lb){const d=document.createElement("div");d.className="bh";d.textContent=BN[q.b]||q.b;c.appendChild(d);lb=q.b;}
+    c.appendChild(mk(q));
+  });up();}
+function mk(q){
+  const s=st[q.id],d=document.createElement("div"),L=["A","B","C","D"];
+  d.className="qc"+(s.done?(s.ok?" ac":" aw"):"");d.id="c"+q.id;
+  d.innerHTML=`<div class="qn">FRAGE ${q.id}/${Q.length}</div><div class="qt">${q.t}</div><div class="qq">${q.q}</div>
+<div class="opts">${q.o.map((o,i)=>`<div class="opt${s.done?" dis":""}${s.done&&i===q.a?" ok":""}${s.done&&!s.ok&&i===s.ci?" ng":""}" onclick="ans(${q.id},${i})"><span class="ol">${L[i]}</span><span>${o}</span></div>`).join("")}</div>
+<div class="fbb${s.done?" show "+(s.ok?"cok":"cng"):""}" id="f${q.id}">${s.done?(s.ok?"✅ ":"❌ ")+q.f:""}</div>`;
+  return d;}
+function ans(id,i){
+  const s=st[id];if(s.done)return;
+  const q=Q.find(x=>x.id===id);s.done=true;s.ok=i===q.a;s.ci=i;
+  const c=document.getElementById("c"+id);c.className="qc "+(s.ok?"ac":"aw");
+  c.querySelectorAll(".opt").forEach((el,j)=>{el.classList.add("dis");if(j===q.a)el.classList.add("ok");if(!s.ok&&j===i)el.classList.add("ng");});
+  const f=document.getElementById("f"+id);f.textContent=(s.ok?"✅ ":"❌ ")+q.f;f.className="fbb show "+(s.ok?"cok":"cng");up();}
+function up(){
+  const tot=Q.length,done=Object.values(st).filter(s=>s.done).length,ok=Object.values(st).filter(s=>s.ok).length;
+  document.getElementById("sd").textContent=ok+"/"+done;
+  document.getElementById("pf").style.width=(done/tot*100)+"%";
+  document.getElementById("pl").textContent=done+" von "+tot+" beantwortet";}
+function fil(t,btn){
+  document.querySelectorAll(".fb").forEach(b=>b.classList.remove("act"));btn.classList.add("act");
+  if(t==="all")filt=[...Q];
+  else if(t==="open")filt=Q.filter(q=>!st[q.id].done);
+  else if(t==="wrong")filt=Q.filter(q=>st[q.id].done&&!st[q.id].ok);
+  else filt=Q.filter(q=>q.b===t);render();}
+function shuf(){filt=[...filt].sort(()=>Math.random()-.5);render();}
+function rst(){Q.forEach(q=>{st[q.id]={done:false,ok:null};});filt=[...Q];document.querySelectorAll(".fb").forEach((b,i)=>b.classList.toggle("act",i===0));render();document.getElementById("ov").classList.remove("show");}
+function showR(){
+  const done=Object.values(st).filter(s=>s.done).length,ok=Object.values(st).filter(s=>s.ok).length;
+  const pct=done>0?Math.round(ok/done*100):0;
+  let e="😅",m="Weiter ueben!";
+  if(pct>=90){e="🏆";m="Ausgezeichnet!";}else if(pct>=75){e="🎉";m="Sehr gut!";}else if(pct>=60){e="📚";m="Gut weiter so!";}
+  document.getElementById("oe").textContent=e;document.getElementById("os").textContent=ok+"/"+done;
+  document.getElementById("om").textContent=pct+"% richtig - "+m;
+  document.getElementById("ov").classList.add("show");}
+function closeR(){document.getElementById("ov").classList.remove("show");}
+init();
+</script></body></html>
